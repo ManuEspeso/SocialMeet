@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,12 @@
 		895CF82623A1195500B16D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895CF82423A1195500B16D37 /* Main.storyboard */; };
 		895CF82823A1195900B16D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895CF82723A1195900B16D37 /* Assets.xcassets */; };
 		895CF82B23A1195900B16D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895CF82923A1195900B16D37 /* LaunchScreen.storyboard */; };
+		CAE175C8F3612B5C52FAC0EF /* Pods_IOSFinalAsignatura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */; };
+		DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88080605460AC869EC143012 /* Pods-IOSFinalAsignatura.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.debug.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.debug.xcconfig"; sourceTree = "<group>"; };
 		895CF81D23A1195500B16D37 /* IOSFinalAsignatura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSFinalAsignatura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895CF82023A1195500B16D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		895CF82223A1195500B16D37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		895CF82723A1195900B16D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		895CF82A23A1195900B16D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		895CF82C23A1195900B16D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.release.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.release.xcconfig"; sourceTree = "<group>"; };
+		DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSFinalAsignatura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE175C8F3612B5C52FAC0EF /* Pods_IOSFinalAsignatura.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5747C1B3E107FA73D8946D15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88080605460AC869EC143012 /* Pods-IOSFinalAsignatura.debug.xcconfig */,
+				D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		895CF81423A1195500B16D37 = {
 			isa = PBXGroup;
 			children = (
 				895CF81F23A1195500B16D37 /* IOSFinalAsignatura */,
 				895CF81E23A1195500B16D37 /* Products */,
+				5747C1B3E107FA73D8946D15 /* Pods */,
+				97C3ACAECE7E18FC8DC2841A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +72,87 @@
 		895CF81F23A1195500B16D37 /* IOSFinalAsignatura */ = {
 			isa = PBXGroup;
 			children = (
-				895CF82023A1195500B16D37 /* AppDelegate.swift */,
-				895CF82223A1195500B16D37 /* ViewController.swift */,
-				895CF82423A1195500B16D37 /* Main.storyboard */,
-				895CF82723A1195900B16D37 /* Assets.xcassets */,
-				895CF82923A1195900B16D37 /* LaunchScreen.storyboard */,
 				895CF82C23A1195900B16D37 /* Info.plist */,
+				DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */,
+				DDAFCEB123ABE2CB00FC668C /* App */,
+				DDAFCEB223ABE2E500FC668C /* Resources */,
+				DDAFCEB323ABE30800FC668C /* Model */,
+				DDAFCEB423ABE31000FC668C /* Features */,
+				DDAFCEB523ABE33100FC668C /* View */,
 			);
 			path = IOSFinalAsignatura;
+			sourceTree = "<group>";
+		};
+		97C3ACAECE7E18FC8DC2841A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDAFCEB123ABE2CB00FC668C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				895CF82023A1195500B16D37 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DDAFCEB223ABE2E500FC668C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				895CF82723A1195900B16D37 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DDAFCEB323ABE30800FC668C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDAFCEB423ABE31000FC668C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				895CF82223A1195500B16D37 /* ViewController.swift */,
+				DDAFCEB823ABE36C00FC668C /* Home */,
+				DDAFCEB723ABE35D00FC668C /* Register */,
+				DDAFCEB623ABE34C00FC668C /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		DDAFCEB523ABE33100FC668C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				895CF82423A1195500B16D37 /* Main.storyboard */,
+				895CF82923A1195900B16D37 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDAFCEB623ABE34C00FC668C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DDAFCEB723ABE35D00FC668C /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		DDAFCEB823ABE36C00FC668C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 895CF82F23A1195900B16D37 /* Build configuration list for PBXNativeTarget "IOSFinalAsignatura" */;
 			buildPhases = (
+				B38B45E3C76DDD20A3D6C803 /* [CP] Check Pods Manifest.lock */,
 				895CF81923A1195500B16D37 /* Sources */,
 				895CF81A23A1195500B16D37 /* Frameworks */,
 				895CF81B23A1195500B16D37 /* Resources */,
+				28C4056763EF2C08439171CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +216,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				895CF82B23A1195900B16D37 /* LaunchScreen.storyboard in Resources */,
+				DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */,
 				895CF82823A1195900B16D37 /* Assets.xcassets in Resources */,
 				895CF82623A1195500B16D37 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28C4056763EF2C08439171CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B38B45E3C76DDD20A3D6C803 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IOSFinalAsignatura-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		895CF81923A1195500B16D37 /* Sources */ = {
@@ -278,6 +414,7 @@
 		};
 		895CF83023A1195900B16D37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88080605460AC869EC143012 /* Pods-IOSFinalAsignatura.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +432,7 @@
 		};
 		895CF83123A1195900B16D37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
