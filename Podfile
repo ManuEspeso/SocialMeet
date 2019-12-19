@@ -10,5 +10,6 @@ target 'IOSFinalAsignatura' do
   	pod 'FirebaseAuth'
   	pod 'FirebaseFirestore'
   	pod 'FirebaseCore'
+    pod 'TextFieldEffects'
 
 end
