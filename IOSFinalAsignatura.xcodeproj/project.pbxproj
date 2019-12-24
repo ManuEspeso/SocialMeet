@@ -15,6 +15,7 @@
 		CAE175C8F3612B5C52FAC0EF /* Pods_IOSFinalAsignatura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */; };
 		DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */; };
 		DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */; };
+		DDC3973F23B27F73007F09F1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC3973E23B27F73007F09F1 /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.release.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.release.xcconfig"; sourceTree = "<group>"; };
 		DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDC3973E23B27F73007F09F1 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSFinalAsignatura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 		DDAFCEB823ABE36C00FC668C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DDC3973E23B27F73007F09F1 /* HomeController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC3973F23B27F73007F09F1 /* HomeController.swift in Sources */,
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
