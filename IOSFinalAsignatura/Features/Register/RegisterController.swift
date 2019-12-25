@@ -19,6 +19,13 @@ class RegisterController: UIViewController {
         createUser()
     }
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var uploadProfileImage: UIButton!
+    
+    
+    
+    var imagePicker: UIImagePickerController!
+    
     var db: Firestore!
     
     override func viewDidLoad() {
@@ -27,6 +34,22 @@ class RegisterController: UIViewController {
         signUpButton.layer.cornerRadius = 8
         
         db = Firestore.firestore()
+        
+        //ImagePicker testing de pernas
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        //button
+        uploadProfileImage.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
+        
+        
+        
+        
+    }
+    
+    @objc func openImagePicker(_ sender: Any) {
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     func createUser() {
@@ -92,5 +115,22 @@ class RegisterController: UIViewController {
             
             present(controller, animated: true, completion: nil)
         }
+    }
+}
+extension RegisterController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            self.profileImageView.image = pickedImage
+        }
+        
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }
