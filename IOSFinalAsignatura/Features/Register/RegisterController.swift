@@ -102,12 +102,49 @@ class RegisterController: UIViewController {
      }*/
     
     func insertUsersOnDB(userId: String, userName: String, userEmail: String) {
-        
         guard let myImage = profileImageView.image else {return}
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let storageRef = Storage.storage().reference().child("users/\(uid)")
+        guard let imageData = UIImageJPEGRepresentation(myImage, 1) else { return }
+        var myUrl: String = ""
+        
+        
+        
+        
+        
+        
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        storageRef.downloadURL { (url, error) in
+            if  let error = error {
+                // Handle any errors
+            } else {
+                print("Image URL: \((myUrl))")
+                myUrl = url!.absoluteString
+               
+                //self.createUser(imageUrl: url!.absoluteString)
+            }
+        }
+        
+        let uploadTask = storageRef.putData(imageData, metadata: metaData) { (metadata, error) in
+            print("UPLOAD TASK FINISHED")
+            print(metadata ?? "NO METADATA")
+            print(error ?? "NO ERROR")
+        }
+        
+        uploadTask.observe(.progress) { (snapshot) in
+            print(snapshot.progress ?? "NO MORE PROGRESS")
+        }
+        
+        uploadTask.resume()
+        
         
         let docData: [String: Any] = [
             "username": userName,
-            "email": userEmail
+            "email": userEmail,
+            "imageProfile":myUrl
         ]
         
         db.collection("users").document(userId).setData(docData) { err in
@@ -118,69 +155,11 @@ class RegisterController: UIViewController {
                 self.goToHomePage()
             }
         }
-    
-    
-    let filename = "earth.jpg"
         
-    var imageReference: StorageReference {
-        return Storage.storage().reference().child("images")
-    }
-    
-    
-    guard let imageData = UIImageJPEGRepresentation(myImage, 1) else { return }
-    
-    let uploadImageRef = imageReference.child(filename)
-    
-    let uploadTask = uploadImageRef.putData(imageData, metadata: nil) { (metadata, error) in
-        print("UPLOAD TASK FINISHED")
-        print(metadata ?? "NO METADATA")
-        print(error ?? "NO ERROR")
-    }
-    
-    uploadTask.observe(.progress) { (snapshot) in
-    print(snapshot.progress ?? "NO MORE PROGRESS")
-    }
-    
-    uploadTask.resume()
-    
     }
     
     
     
-    
-    
-    
-    
-    /*//insertar foto en db
-    func uploadProfilePhoto(_ image: UIImage, completion: @escaping ((_ url: String?)->())) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let storageRef = Storage.storage().reference().child("users/\(uid)")
-        
-        
-        guard let imageData = UIImageJPEGRepresentation(image, 0.75) else {return}
-        
-        let metaData = StorageMetadata()
-        
-        metaData.contentType = "image/jpg"
-        
-        storageRef.putData(imageData, metadata: metaData)  { metaData, error in
-            if error == nil , metaData != nil  {
-                if let url  = storageRef.downloadURL(completion: { (url, error) in
-                    <#code#>
-                }) {
-                    completion(url)
-                }else {
-                    completion(nil)
-                }
-                //success
-            }else {
-                //failed
-                completion(nil)
-            }
-        }
-        
-    }*/
-
     
     func goToHomePage() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "UINavigationController") as? UINavigationController {
