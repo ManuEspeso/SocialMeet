@@ -10,7 +10,7 @@ target 'IOSFinalAsignatura' do
   	pod 'FirebaseAuth'
   	pod 'FirebaseFirestore'
   	pod 'FirebaseCore'
-    pod 'GoogleSignIn'
-    pod 'TextFieldEffects'
-
+        pod 'GoogleSignIn'
+        pod 'TextFieldEffects'
+        pod 'Firebase/Storage'
 end
