@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import AMTabView
 
-class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem {
+    
+    var tabImage: UIImage? {
+        return UIImage(named: "material_logo")
+    }    
     
     let locationNames = ["Hawaii Resort", "Mountain Expedition", "Scuba Diving"]
     
@@ -43,7 +48,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-        
         
         return cell
     }
