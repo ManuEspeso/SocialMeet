@@ -9,8 +9,6 @@
 import UIKit
 import Firebase
 
-
-
 class RegisterController: UIViewController {
     
     @IBOutlet weak var userName: UITextField!
@@ -23,8 +21,6 @@ class RegisterController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var uploadProfileImage: UIButton!
-    
-    
     
     var imagePicker: UIImagePickerController!
     
@@ -47,13 +43,7 @@ class RegisterController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.bounds.height/2
         profileImageView.clipsToBounds = true
         
-        
-        //button
         uploadProfileImage.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
-        
-        
-        
-        
     }
     
     @objc func openImagePicker(_ sender: Any) {
@@ -66,22 +56,18 @@ class RegisterController: UIViewController {
         guard let userEmail = userEmail.text else {return}
         guard let userPassword = userPassword.text else {return}
         
-        
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { authResult, error in
             
             if let error = error {
                 print("Failed to sign user in with error: ", error.localizedDescription)
                 return
             } else {
-                //If the user was created succesfuly, create a instance for the user and ckeck it if an error appeard
                 let user = Auth.auth().currentUser
-                
-                
                 
                 if let user = user {
                     //Esta linea comentada servira para guardar los datos del user al registrase en el core data para el auto login
                     //_ = self.saveInCoreData(email: userEmail, id: user.uid)
-                    self.insertUsersOnDB(userId: user.uid, userName: userName, userEmail: userEmail)
+                    self.imageStorageFirebase(userId: user.uid, userName: userName, userEmail: userEmail)
                 } else {
                     print(error!)
                 }
@@ -101,51 +87,38 @@ class RegisterController: UIViewController {
      
      }*/
     
-    func insertUsersOnDB(userId: String, userName: String, userEmail: String) {
+    func imageStorageFirebase(userId: String, userName: String, userEmail: String) {
+        let storageRef = Storage.storage().reference().child("users/\(userId)")
+        
         guard let myImage = profileImageView.image else {return}
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let storageRef = Storage.storage().reference().child("users/\(uid)")
-        guard let imageData = UIImageJPEGRepresentation(myImage, 1) else { return }
-        var myUrl: String = ""
-        
-        
-        
-        
-        
-        
-        
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
-        
-        storageRef.downloadURL { (url, error) in
-            if  let error = error {
-                // Handle any errors
-            } else {
-                print("Image URL: \((myUrl))")
-                myUrl = url!.absoluteString
-               
-                //self.createUser(imageUrl: url!.absoluteString)
-            }
+        if let imageData = UIImageJPEGRepresentation(myImage, 1) {
+            
+            storageRef.putData(imageData, metadata: nil, completion:
+                { (metadata, error) in
+                    
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    
+                    storageRef.downloadURL{ url, error in
+                        let docData: [String: Any] = [
+                            "username": userName,
+                            "email": userEmail,
+                            "imageProfile": url!.absoluteString
+                        ]
+                        
+                        if let error = error {
+                            print(error)
+                        } else {
+                            self.insertUsersOnDB(userId: userId, docData: docData)
+                        }
+                    }
+            })
         }
-        
-        let uploadTask = storageRef.putData(imageData, metadata: metaData) { (metadata, error) in
-            print("UPLOAD TASK FINISHED")
-            print(metadata ?? "NO METADATA")
-            print(error ?? "NO ERROR")
-        }
-        
-        uploadTask.observe(.progress) { (snapshot) in
-            print(snapshot.progress ?? "NO MORE PROGRESS")
-        }
-        
-        uploadTask.resume()
-        
-        
-        let docData: [String: Any] = [
-            "username": userName,
-            "email": userEmail,
-            "imageProfile":myUrl
-        ]
+    }
+    
+    func insertUsersOnDB(userId: String, docData: [String: Any]) {
         
         db.collection("users").document(userId).setData(docData) { err in
             
@@ -155,11 +128,7 @@ class RegisterController: UIViewController {
                 self.goToHomePage()
             }
         }
-        
     }
-    
-    
-    
     
     func goToHomePage() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "UINavigationController") as? UINavigationController {
@@ -171,20 +140,17 @@ class RegisterController: UIViewController {
         }
     }
 }
+
 extension RegisterController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.profileImageView.image = pickedImage
         }
-        
-        
         picker.dismiss(animated: true, completion: nil)
     }
 }
