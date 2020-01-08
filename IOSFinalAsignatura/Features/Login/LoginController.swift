@@ -111,7 +111,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
             if let err = err {
                 print("Error writing user on database: \(err)")
             } else {
-                print("User successfully writte in database!")
+                print("User successfully write in database!")
             }
         }
     }
@@ -136,7 +136,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
     }
     
     func goToHomePage() {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "UINavigationController") as? UINavigationController {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
             
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
