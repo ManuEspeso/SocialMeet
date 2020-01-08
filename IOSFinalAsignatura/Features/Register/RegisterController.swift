@@ -19,6 +19,11 @@ class RegisterController: UIViewController {
         createUser()
     }
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var uploadProfileImage: UIButton!
+    
+    var imagePicker: UIImagePickerController!
+    
     var db: Firestore!
     
     override func viewDidLoad() {
@@ -27,6 +32,22 @@ class RegisterController: UIViewController {
         signUpButton.layer.cornerRadius = 8
         
         db = Firestore.firestore()
+        
+        //ImagePicker testing de pernas
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        
+        
+        profileImageView.layer.cornerRadius = profileImageView.bounds.height/2
+        profileImageView.clipsToBounds = true
+        
+        uploadProfileImage.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
+    }
+    
+    @objc func openImagePicker(_ sender: Any) {
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     func createUser() {
@@ -41,13 +62,12 @@ class RegisterController: UIViewController {
                 print("Failed to sign user in with error: ", error.localizedDescription)
                 return
             } else {
-                //If the user was created succesfuly, create a instance for the user and ckeck it if an error appeard
                 let user = Auth.auth().currentUser
                 
                 if let user = user {
                     //Esta linea comentada servira para guardar los datos del user al registrase en el core data para el auto login
                     //_ = self.saveInCoreData(email: userEmail, id: user.uid)
-                    self.insertUsersOnDB(userId: user.uid, userName: userName, userEmail: userEmail)
+                    self.imageStorageFirebase(userId: user.uid, userName: userName, userEmail: userEmail)
                 } else {
                     print(error!)
                 }
@@ -67,12 +87,38 @@ class RegisterController: UIViewController {
      
      }*/
     
-    func insertUsersOnDB(userId: String, userName: String, userEmail: String) {
+    func imageStorageFirebase(userId: String, userName: String, userEmail: String) {
+        let storageRef = Storage.storage().reference().child("users/\(userId)")
         
-        let docData: [String: Any] = [
-            "username": userName,
-            "email": userEmail
-        ]
+        guard let myImage = profileImageView.image else {return}
+        if let imageData = UIImageJPEGRepresentation(myImage, 1) {
+            
+            storageRef.putData(imageData, metadata: nil, completion:
+                { (metadata, error) in
+                    
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    
+                    storageRef.downloadURL{ url, error in
+                        let docData: [String: Any] = [
+                            "username": userName,
+                            "email": userEmail,
+                            "imageProfile": url!.absoluteString
+                        ]
+                        
+                        if let error = error {
+                            print(error)
+                        } else {
+                            self.insertUsersOnDB(userId: userId, docData: docData)
+                        }
+                    }
+            })
+        }
+    }
+    
+    func insertUsersOnDB(userId: String, docData: [String: Any]) {
         
         db.collection("users").document(userId).setData(docData) { err in
             
@@ -92,5 +138,19 @@ class RegisterController: UIViewController {
             
             present(controller, animated: true, completion: nil)
         }
+    }
+}
+
+extension RegisterController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            self.profileImageView.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
 }

@@ -6,13 +6,13 @@ target 'IOSFinalAsignatura' do
   use_frameworks!
 
   # Pods for IOSFinalAsignatura
- 	pod 'Firebase'
+ 	  pod 'Firebase'
   	pod 'FirebaseAuth'
   	pod 'FirebaseFirestore'
   	pod 'FirebaseCore'
-    	pod 'GoogleSignIn'
-    	pod 'TextFieldEffects'
-    	pod 'Material', '~> 3.1.0'
-      pod 'AMTabView'
-
-end
+    pod 'GoogleSignIn'
+    pod 'TextFieldEffects'
+    pod 'Material', '~> 3.1.0'
+    pod 'AMTabView'
+    pod 'Firebase/Storage'
+      end
