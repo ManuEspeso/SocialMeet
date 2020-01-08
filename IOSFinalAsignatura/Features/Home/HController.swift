@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import Material
+//import Material
 
 //TEMPORAL!!!!
 class HController: UIViewController {
-    @IBOutlet weak var toolbar: Toolbar!
+    /*@IBOutlet weak var toolbar: Toolbar!
     @IBOutlet weak var contentView: UIImageView!
     @IBOutlet weak var button: FlatButton!
     @IBOutlet weak var bottomBar: Bar!
@@ -27,7 +27,7 @@ class HController: UIViewController {
          prepareButton()*/
         //prepareBottomBar()
         //prepareCard()
-    }
+    }*/
 }
 
 /*extension HController {

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-import Material
+//import Material
 import AMTabView
 
 @UIApplicationMain

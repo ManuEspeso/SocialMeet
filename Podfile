@@ -12,7 +12,6 @@ target 'IOSFinalAsignatura' do
   	pod 'FirebaseCore'
     pod 'GoogleSignIn'
     pod 'TextFieldEffects'
-    pod 'Material', '~> 3.1.0'
     pod 'AMTabView'
     pod 'Firebase/Storage'
       end

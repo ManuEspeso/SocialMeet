@@ -131,7 +131,7 @@ class RegisterController: UIViewController {
     }
     
     func goToHomePage() {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "UINavigationController") as? UINavigationController {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
             
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
