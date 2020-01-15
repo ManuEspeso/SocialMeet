@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		386044EE23C8FFDB0083B73C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386044ED23C8FFDB0083B73C /* GradientView.swift */; };
+		3893CA9F23CFA1C20032AFF3 /* UIviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3893CA9E23CFA1C20032AFF3 /* UIviews.swift */; };
+		389B00C223C7CC6D00AF616B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 389B00C123C7CC6D00AF616B /* Assets.xcassets */; };
 		895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895CF82023A1195500B16D37 /* AppDelegate.swift */; };
 		895CF82323A1195500B16D37 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895CF82223A1195500B16D37 /* LoginController.swift */; };
 		895CF82623A1195500B16D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895CF82423A1195500B16D37 /* Main.storyboard */; };
-		895CF82823A1195900B16D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895CF82723A1195900B16D37 /* Assets.xcassets */; };
 		895CF82B23A1195900B16D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895CF82923A1195900B16D37 /* LaunchScreen.storyboard */; };
 		CAE175C8F3612B5C52FAC0EF /* Pods_IOSFinalAsignatura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */; };
 		DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D679223BBC0ED00905BE7 /* TabBarController.swift */; };
@@ -23,12 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		386044ED23C8FFDB0083B73C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		3893CA9E23CFA1C20032AFF3 /* UIviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIviews.swift; sourceTree = "<group>"; };
+		389B00C123C7CC6D00AF616B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88080605460AC869EC143012 /* Pods-IOSFinalAsignatura.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.debug.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.debug.xcconfig"; sourceTree = "<group>"; };
 		895CF81D23A1195500B16D37 /* IOSFinalAsignatura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSFinalAsignatura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895CF82023A1195500B16D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		895CF82223A1195500B16D37 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		895CF82523A1195500B16D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		895CF82723A1195900B16D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		895CF82A23A1195900B16D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		895CF82C23A1195900B16D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.release.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				DDAFCEB323ABE30800FC668C /* Model */,
 				DDAFCEB423ABE31000FC668C /* Features */,
 				DDAFCEB523ABE33100FC668C /* View */,
+				386044ED23C8FFDB0083B73C /* GradientView.swift */,
+				3893CA9E23CFA1C20032AFF3 /* UIviews.swift */,
 			);
 			path = IOSFinalAsignatura;
 			sourceTree = "<group>";
@@ -138,7 +144,7 @@
 		DDAFCEB223ABE2E500FC668C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				895CF82723A1195900B16D37 /* Assets.xcassets */,
+				389B00C123C7CC6D00AF616B /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -260,7 +266,7 @@
 			files = (
 				895CF82B23A1195900B16D37 /* LaunchScreen.storyboard in Resources */,
 				DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */,
-				895CF82823A1195900B16D37 /* Assets.xcassets in Resources */,
+				389B00C223C7CC6D00AF616B /* Assets.xcassets in Resources */,
 				895CF82623A1195500B16D37 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC3973F23B27F73007F09F1 /* HController.swift in Sources */,
+				3893CA9F23CFA1C20032AFF3 /* UIviews.swift in Sources */,
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */,
 				DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */,
@@ -339,6 +346,7 @@
 				DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */,
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
+				386044EE23C8FFDB0083B73C /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +490,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88080605460AC869EC143012 /* Pods-IOSFinalAsignatura.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IOSFinalAsignatura/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -500,7 +507,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IOSFinalAsignatura/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
