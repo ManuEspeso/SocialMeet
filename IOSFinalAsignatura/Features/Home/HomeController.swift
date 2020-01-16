@@ -11,6 +11,9 @@ import AMTabView
 
 class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem {
     
+    // TODO: Tengo que guardar la nueva quedada que cree en un hashmap o array o similar para posteriormente en users añadirselo al campo "quedadas" todas las referencias almacenadas en el hasmap con las quedadas en las que el usuario participa. Tambien tendre que hacer esto pero al reves para en el campo "usuarios" de quedadas insertar un hashmap o similar con todos los usuarios participes de la quedada.
+    
+    
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }    

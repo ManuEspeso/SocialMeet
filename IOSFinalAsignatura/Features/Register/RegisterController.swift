@@ -11,6 +11,7 @@ import Firebase
 
 class RegisterController: UIViewController {
     
+    @IBOutlet var registerView: UIViewX!
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
@@ -18,13 +19,13 @@ class RegisterController: UIViewController {
     @IBAction func signUpButtonAction(_ sender: Any) {
         createUser()
     }
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var uploadProfileImage: UIButton!
     
     var imagePicker: UIImagePickerController!
-    
     var db: Firestore!
+    var colorArray: [(color1: UIColor, color2: UIColor)] = []
+    var currentColorArrayIndex = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +44,33 @@ class RegisterController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.bounds.height/2
         profileImageView.clipsToBounds = true
         
+        animatedBackgroundColor()
         uploadProfileImage.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
     }
     
     @objc func openImagePicker(_ sender: Any) {
         self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func animatedBackgroundColor() {
+        
+        colorArray.append((color1: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), color2: #colorLiteral(red: 0.5631721616, green: 0.2642064691, blue: 0.8086007237, alpha: 1)))
+        colorArray.append((color1: #colorLiteral(red: 0.5631721616, green: 0.2642064691, blue: 0.8086007237, alpha: 1), color2: #colorLiteral(red: 0.3322192132, green: 0.4146331549, blue: 0.722286284, alpha: 1)))
+        colorArray.append((color1: #colorLiteral(red: 0.3308110141, green: 0.4146197245, blue: 0.7213475571, alpha: 1), color2: #colorLiteral(red: 0.1417086422, green: 0.3959283233, blue: 0.5574072599, alpha: 1)))
+        colorArray.append((color1: #colorLiteral(red: 0.1426705582, green: 0.3946132866, blue: 0.558653236, alpha: 1), color2: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)))
+        colorArray.append((color1: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), color2: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)))
+        colorArray.append((color1: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), color2: #colorLiteral(red: 0.5783597827, green: 0.2174208462, blue: 0.2618263066, alpha: 1)))
+        colorArray.append((color1: #colorLiteral(red: 0.5791759201, green: 0.21610692, blue: 0.2619484737, alpha: 1), color2: #colorLiteral(red: 0.8088718057, green: 0.1266443729, blue: 0.09936664253, alpha: 1)))
+        colorArray.append((color1: #colorLiteral(red: 0.8078431487, green: 0.1259950001, blue: 0.09925139542, alpha: 1), color2: #colorLiteral(red: 0.7112349302, green: 0.1953888395, blue: 0.2990221151, alpha: 1)))
+        
+        currentColorArrayIndex = currentColorArrayIndex == (colorArray.count - 1) ? 0 : currentColorArrayIndex + 1
+        
+        UIView.transition(with: registerView, duration: 2, options: [.transitionCrossDissolve], animations: {
+            self.registerView.firstColor = self.colorArray[self.currentColorArrayIndex].color1
+            self.registerView.secondColor = self.colorArray[self.currentColorArrayIndex].color2
+        }) { (success) in
+            self.animatedBackgroundColor()
+        }
     }
     
     func createUser() {

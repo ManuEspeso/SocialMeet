@@ -16,6 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toc-o5-wXM" customClass="UIViewX" customModule="IOSFinalAsignatura" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6C-sT-GtF">
                                 <rect key="frame" x="35" y="449" width="320" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -28,7 +40,7 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zO-1I-UuC"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOq-rQ-b9D" customClass="GradientView" customModule="IOSFinalAsignatura" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOq-rQ-b9D">
                                 <rect key="frame" x="20" y="361" width="335" height="48"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izj-En-pEc">
@@ -64,7 +76,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Xvc-J5-4SS" firstAttribute="top" secondItem="dOq-rQ-b9D" secondAttribute="top" id="Gsi-P0-wAI"/>
                                     <constraint firstAttribute="trailing" secondItem="tNe-h7-Ir3" secondAttribute="trailing" id="Hfh-Jx-d5Y"/>
@@ -97,7 +108,7 @@
                                     <constraint firstAttribute="width" constant="240" id="IwL-Xg-ngJ"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9h7-6x-PYk" customClass="UIViews" customModule="IOSFinalAsignatura">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9h7-6x-PYk">
                                 <rect key="frame" x="20" y="273" width="335" height="48"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7n-HK-Xta">
@@ -133,7 +144,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="8eW-Nk-DoA" firstAttribute="leading" secondItem="c2s-57-JXf" secondAttribute="trailing" constant="15" id="3yM-dn-4qV"/>
                                     <constraint firstItem="c2s-57-JXf" firstAttribute="top" secondItem="9h7-6x-PYk" secondAttribute="top" id="7ot-dg-fIA"/>
@@ -168,15 +178,17 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cfq-lb-uS5" kind="presentation" modalTransitionStyle="coverVertical" id="vaL-YT-bjc"/>
+                                    <segue destination="cfq-lb-uS5" kind="presentation" id="ghM-gj-r0J"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JJM-TZ-57o" firstAttribute="trailing" secondItem="9h7-6x-PYk" secondAttribute="trailing" constant="20" id="5bK-FD-Hdy"/>
+                            <constraint firstItem="toc-o5-wXM" firstAttribute="trailing" secondItem="JJM-TZ-57o" secondAttribute="trailing" id="66U-f0-oCu"/>
                             <constraint firstItem="dOq-rQ-b9D" firstAttribute="top" secondItem="9h7-6x-PYk" secondAttribute="bottom" constant="40" id="7Se-6v-KhE"/>
                             <constraint firstItem="9h7-6x-PYk" firstAttribute="top" secondItem="QE8-vP-gCY" secondAttribute="bottom" constant="50" id="7ld-BP-9BP"/>
+                            <constraint firstAttribute="bottom" secondItem="toc-o5-wXM" secondAttribute="bottom" id="8E3-Dk-MQl"/>
                             <constraint firstItem="F6C-sT-GtF" firstAttribute="top" secondItem="dOq-rQ-b9D" secondAttribute="bottom" constant="40" id="9ZE-c2-fOX"/>
                             <constraint firstItem="JJM-TZ-57o" firstAttribute="trailing" secondItem="F6C-sT-GtF" secondAttribute="trailing" constant="20" id="AKG-9L-2Ka"/>
                             <constraint firstItem="dOq-rQ-b9D" firstAttribute="leading" secondItem="JJM-TZ-57o" secondAttribute="leading" constant="20" id="BVz-pq-pzR"/>
@@ -189,9 +201,11 @@
                             <constraint firstItem="JJM-TZ-57o" firstAttribute="trailing" secondItem="Ref-k0-k8G" secondAttribute="trailing" constant="20" id="WDv-ot-Oem"/>
                             <constraint firstItem="HE7-Jm-aLx" firstAttribute="top" secondItem="F6C-sT-GtF" secondAttribute="bottom" constant="40" id="XIw-9l-WIv"/>
                             <constraint firstItem="HE7-Jm-aLx" firstAttribute="leading" secondItem="lB7-Po-KUW" secondAttribute="trailing" constant="7" id="Xp6-d2-elE"/>
+                            <constraint firstItem="toc-o5-wXM" firstAttribute="leading" secondItem="JJM-TZ-57o" secondAttribute="leading" id="bLK-pe-lb3"/>
                             <constraint firstItem="JJM-TZ-57o" firstAttribute="trailing" secondItem="gHr-DS-NZ4" secondAttribute="trailing" constant="20" id="brz-Cj-Ety"/>
                             <constraint firstItem="JJM-TZ-57o" firstAttribute="trailing" secondItem="dOq-rQ-b9D" secondAttribute="trailing" constant="20" id="cnk-6v-gtx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HE7-Jm-aLx" secondAttribute="trailing" constant="5" id="dLC-c8-md8"/>
+                            <constraint firstItem="toc-o5-wXM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dVz-ow-V5b"/>
                             <constraint firstItem="lB7-Po-KUW" firstAttribute="leading" secondItem="U0l-EY-ocd" secondAttribute="trailing" constant="7" id="fN9-kv-pzn"/>
                             <constraint firstItem="QE8-vP-gCY" firstAttribute="top" secondItem="JJM-TZ-57o" secondAttribute="top" constant="50" id="h0h-t4-sb8"/>
                             <constraint firstItem="Ref-k0-k8G" firstAttribute="top" secondItem="lB7-Po-KUW" secondAttribute="bottom" constant="40" id="iTm-aW-Sg1"/>
@@ -202,10 +216,10 @@
                         <viewLayoutGuide key="safeArea" id="JJM-TZ-57o"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="thirdColor">
                                 <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -213,15 +227,18 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="emailView" destination="9h7-6x-PYk" id="uXx-MF-puI"/>
                         <outlet property="googleAction" destination="Ref-k0-k8G" id="fEu-g9-nAU"/>
+                        <outlet property="loginView" destination="toc-o5-wXM" id="nc0-7R-KP6"/>
                         <outlet property="loginbutton" destination="F6C-sT-GtF" id="Twx-VX-avW"/>
+                        <outlet property="passwordView" destination="dOq-rQ-b9D" id="VaW-8b-L1p"/>
                         <outlet property="userEmail" destination="8eW-Nk-DoA" id="dHw-aj-a4t"/>
                         <outlet property="userPassword" destination="tNe-h7-Ir3" id="ZZu-DF-kCy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="25"/>
+            <point key="canvasLocation" x="100" y="24.384236453201972"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="hau-to-blO">
@@ -231,6 +248,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82B-re-dAi" customClass="UIViewX" customModule="IOSFinalAsignatura" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="738"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7z-Ay-m49">
                                 <rect key="frame" x="35" y="517" width="320" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -276,7 +305,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1R-Q2-b6R">
                                 <rect key="frame" x="20" y="341" width="335" height="48"/>
@@ -313,7 +341,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-mq-PWb">
                                 <rect key="frame" x="20" y="253" width="335" height="48"/>
@@ -350,7 +377,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-fw-8wa">
                                 <rect key="frame" x="67" y="58" width="240" height="118"/>
@@ -364,8 +390,21 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.33302915096282959" green="0.78622514009475708" blue="0.9812055230140686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="82B-re-dAi" firstAttribute="trailing" secondItem="jhI-3C-97r" secondAttribute="trailing" id="JJy-Ri-K41"/>
+                            <constraint firstAttribute="bottom" secondItem="82B-re-dAi" secondAttribute="bottom" id="LOY-kS-rlF"/>
+                            <constraint firstItem="82B-re-dAi" firstAttribute="leading" secondItem="jhI-3C-97r" secondAttribute="leading" id="VjW-uY-dNh"/>
+                            <constraint firstItem="82B-re-dAi" firstAttribute="top" secondItem="jhI-3C-97r" secondAttribute="top" constant="20" id="fGU-X7-OPn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jhI-3C-97r"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="J7e-Ox-1sA">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="KHW-6i-q0h">
@@ -378,6 +417,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="profileImageView" destination="Ni1-fw-8wa" id="L7r-jB-UES"/>
+                        <outlet property="registerView" destination="82B-re-dAi" id="VPX-vK-dfx"/>
                         <outlet property="signUpButton" destination="H7z-Ay-m49" id="zkt-nh-Yx2"/>
                         <outlet property="uploadProfileImage" destination="npz-A5-6GR" id="XP9-14-dCy"/>
                         <outlet property="userEmail" destination="VU9-h4-HW9" id="vT1-Do-x0v"/>
@@ -503,7 +543,7 @@
                     <view key="view" contentMode="scaleToFill" id="uZQ-5D-2bI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Glp-f1-wig"/>
                     </view>
                 </viewController>

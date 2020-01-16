@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		386044EE23C8FFDB0083B73C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386044ED23C8FFDB0083B73C /* GradientView.swift */; };
-		3893CA9F23CFA1C20032AFF3 /* UIviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3893CA9E23CFA1C20032AFF3 /* UIviews.swift */; };
 		389B00C223C7CC6D00AF616B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 389B00C123C7CC6D00AF616B /* Assets.xcassets */; };
 		895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895CF82023A1195500B16D37 /* AppDelegate.swift */; };
 		895CF82323A1195500B16D37 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895CF82223A1195500B16D37 /* LoginController.swift */; };
@@ -21,12 +20,11 @@
 		DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */; };
 		DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB5023B37DC0005E9552 /* HomeController.swift */; };
 		DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */; };
-		DDC3973F23B27F73007F09F1 /* HController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC3973E23B27F73007F09F1 /* HController.swift */; };
+		DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB64C9D23D05B72005D83A1 /* UIViewX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		386044ED23C8FFDB0083B73C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		3893CA9E23CFA1C20032AFF3 /* UIviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIviews.swift; sourceTree = "<group>"; };
 		389B00C123C7CC6D00AF616B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88080605460AC869EC143012 /* Pods-IOSFinalAsignatura.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.debug.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.debug.xcconfig"; sourceTree = "<group>"; };
 		895CF81D23A1195500B16D37 /* IOSFinalAsignatura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSFinalAsignatura.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,7 +40,7 @@
 		DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		DDAFBB5023B37DC0005E9552 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DDC3973E23B27F73007F09F1 /* HController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HController.swift; sourceTree = "<group>"; };
+		DDB64C9D23D05B72005D83A1 /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSFinalAsignatura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,8 +93,6 @@
 				DDAFCEB323ABE30800FC668C /* Model */,
 				DDAFCEB423ABE31000FC668C /* Features */,
 				DDAFCEB523ABE33100FC668C /* View */,
-				386044ED23C8FFDB0083B73C /* GradientView.swift */,
-				3893CA9E23CFA1C20032AFF3 /* UIviews.swift */,
 			);
 			path = IOSFinalAsignatura;
 			sourceTree = "<group>";
@@ -152,6 +148,8 @@
 		DDAFCEB323ABE30800FC668C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DDB64C9D23D05B72005D83A1 /* UIViewX.swift */,
+				386044ED23C8FFDB0083B73C /* GradientView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				DDAFBB5023B37DC0005E9552 /* HomeController.swift */,
-				DDC3973E23B27F73007F09F1 /* HController.swift */,
 				DD4A22BD23B29DA200400D01 /* cell */,
 			);
 			path = Home;
@@ -337,10 +334,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC3973F23B27F73007F09F1 /* HController.swift in Sources */,
-				3893CA9F23CFA1C20032AFF3 /* UIviews.swift in Sources */,
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */,
+				DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */,
 				DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */,
 				DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */,
 				DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */,
