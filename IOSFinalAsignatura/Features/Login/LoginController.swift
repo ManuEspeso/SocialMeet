@@ -28,6 +28,19 @@ class LoginController: UIViewController, GIDSignInDelegate {
         loginbutton.layer.cornerRadius = 8
         googleAction.layer.cornerRadius = 18
         
+        
+            
+        
+        /*//Gradient
+        let newLayer = CAGradientLayer()
+        
+        newLayer.colors = [UIColor.black.cgColor,UIColor.darkGray.cgColor]
+        newLayer.frame = view.frame
+        
+        view.layer.insertSublayer(newLayer, at: 0)*/
+        
+        
+        
         GIDSignIn.sharedInstance().presentingViewController = self
         
         db = Firestore.firestore()
