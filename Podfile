@@ -14,4 +14,5 @@ target 'IOSFinalAsignatura' do
     pod 'TextFieldEffects'
     pod 'AMTabView'
     pod 'Firebase/Storage'
+    pod 'Firebase/Database'
       end

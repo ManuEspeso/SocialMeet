@@ -133,6 +133,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
         let docData: [String: Any] = [
             "username": userName,
             "email": userEmail
+            // TODO: Hay que bajarse las quedadas del usuario y añadirlas en este apartado por que si no al loguearse se eliminan el apartado quedadas de su usuario
         ]
         db.collection("users").document(userId).setData(docData) { err in
             
