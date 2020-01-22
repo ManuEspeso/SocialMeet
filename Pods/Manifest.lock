@@ -298,6 +298,7 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - SwiftyJSON (5.0.0)
   - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
@@ -309,6 +310,7 @@ DEPENDENCIES:
   - FirebaseCore
   - FirebaseFirestore
   - GoogleSignIn
+  - SwiftyJSON
   - TextFieldEffects
 
 SPEC REPOS:
@@ -339,6 +341,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - SwiftyJSON
     - TextFieldEffects
 
 SPEC CHECKSUMS:
@@ -368,8 +371,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 0672e189473fbde33f4bdc47d1e4a40cbf1eff15
+PODFILE CHECKSUM: 4f7025c9142085d54d1fb4da7be5faa1fb6e605e
 
 COCOAPODS: 1.7.5

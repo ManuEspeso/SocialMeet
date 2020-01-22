@@ -16,6 +16,7 @@
 		CAE175C8F3612B5C52FAC0EF /* Pods_IOSFinalAsignatura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */; };
 		DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D679223BBC0ED00905BE7 /* TabBarController.swift */; };
 		DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D679423BBC1BA00905BE7 /* ProfileController.swift */; };
+		DD97094F23D85899009881FA /* Quedada.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD97094E23D85899009881FA /* Quedada.swift */; };
 		DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */; };
 		DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */; };
 		DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB5023B37DC0005E9552 /* HomeController.swift */; };
@@ -36,6 +37,7 @@
 		D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.release.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.release.xcconfig"; sourceTree = "<group>"; };
 		DD6D679223BBC0ED00905BE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD6D679423BBC1BA00905BE7 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		DD97094E23D85899009881FA /* Quedada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quedada.swift; sourceTree = "<group>"; };
 		DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		DDAFBB5023B37DC0005E9552 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				DDB64C9D23D05B72005D83A1 /* UIViewX.swift */,
 				386044ED23C8FFDB0083B73C /* GradientView.swift */,
+				DD97094E23D85899009881FA /* Quedada.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */,
 				DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */,
+				DD97094F23D85899009881FA /* Quedada.swift in Sources */,
 				DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */,
 				DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */,
 				DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */,
