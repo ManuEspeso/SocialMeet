@@ -14,15 +14,13 @@ import SwiftyJSON
 
 class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem {
     
+    @IBOutlet weak var favoritesCV: UICollectionView!
     var quedadas: [String: [String]] = [:]
-    var ref: DatabaseReference!
-    var db: Firestore!
-    
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }    
     
-    let locationNames = ["Hawaii Resort", "Mountain Expedition", "Scuba Diving"]
+    var locationNames = ["Hawaii Resort", "Mountain Expedition", "Scuba Diving"]
     
     let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo")]
     
@@ -31,60 +29,20 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
-        db = Firestore.firestore()
-        
-        saveInHashMap()
-    }
-    
-    
-    
-    func saveInHashMap() {
-        
-        //quedadas = ["Hello": ["1.1", "1.2"], "World": ["2.1", "2.2"]]
-        
         let userID = Auth.auth().currentUser?.uid
-        
-        db.collection("users").whereField("id", isEqualTo: userID!)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        let quedadasFirebase = document.data().index(forKey: "quedadas")
-                        let quedadasValue = document.data()[quedadasFirebase!].value as! NSArray
-                        
-                        let quedadasIndex = quedadasValue.count
-                        for i in 0...(quedadasIndex - 1) {
-                            let quedadaReference = quedadasValue[i] as! DocumentReference
-                            quedadaReference.getDocument { (documentSnapshot, error) in
-                                
-                                if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
-                                    let dataDescription = documentSnapshot.data()
-                                    
-                                    //print("Document data: \(String(describing: dataDescription!))")
-                                    
-                                    guard let dataQuedadas = dataDescription else {return}
-                                    
-                                    self.quedadas = [dataQuedadas["id"] as! String: [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]]
-                                    //print("Diccionario con quedadas: \(self.quedadas)")
-                                    
-                                } else {
-                                    print("Document does not exist")
-                                }
-                                print("--------------------------------")
-                                print(self.quedadas)
-                                print("--------------------------------")
-                                
-                            }
-                        }
-                    }
-                }
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.quedadas = Quedadas.getQuedadas(userID: userID!)
+            
+            DispatchQueue.main.async {
+                print(self.quedadas)
+                print(self.quedadas.count)
+                //self.favoritesCV.reloadData()
+            }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return locationNames.count
+        return quedadas.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -107,6 +65,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }
 
