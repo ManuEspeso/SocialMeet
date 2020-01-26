@@ -516,6 +516,9 @@
                         <viewLayoutGuide key="safeArea" id="7tO-q8-RWb"/>
                     </view>
                     <navigationItem key="navigationItem" id="9M2-Rh-0KK"/>
+                    <connections>
+                        <outlet property="myCollectionView" destination="KSw-Au-fSD" id="TOl-Xp-O7s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8M-QE-d5I" sceneMemberID="firstResponder"/>
             </objects>

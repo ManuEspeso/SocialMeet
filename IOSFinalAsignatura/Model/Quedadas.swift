@@ -36,10 +36,6 @@ class Quedadas {
                                 } else{
                                     print("Document does not exist")
                                 }
-                                print("--------------------------------")
-                                print(quedadas)
-                                print("--------------------------------")
-                                
                             }
                         }
                     }

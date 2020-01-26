@@ -10,21 +10,18 @@ import UIKit
 import AMTabView
 import Firebase
 import FirebaseDatabase
-import SwiftyJSON
 
 class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem {
     
-    @IBOutlet weak var favoritesCV: UICollectionView!
+    @IBOutlet weak var myCollectionView: UICollectionView!
+    
     var quedadas: [String: [String]] = [:]
+    var quedadasName = [String]()
+    var quedadasPlace = [String]()
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
-    }    
-    
-    var locationNames = ["Hawaii Resort", "Mountain Expedition", "Scuba Diving"]
-    
+    }
     let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo")]
-    
-    let locationDescription = ["Beautiful resort off the coast of Hawaii", "Exhilarating mountainous expedition through Yosemite National Park", "Awesome Scuba Diving adventure in the Gulf of Mexico"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +29,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let userID = Auth.auth().currentUser?.uid
         DispatchQueue.global(qos: .userInteractive).async {
             self.quedadas = Quedadas.getQuedadas(userID: userID!)
-            
             DispatchQueue.main.async {
-                print(self.quedadas)
-                print(self.quedadas.count)
-                //self.favoritesCV.reloadData()
+                self.myCollectionView.reloadData()
             }
         }
     }
@@ -48,10 +42,13 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeViewCell
         
+        for (_, value) in self.quedadas {
+            quedadasName.append(value[0])
+            quedadasPlace.append(value[1])
+        }
         cell.locationImage.image = locationImages[indexPath.row]
-        cell.locationName.text = locationNames[indexPath.row]
-        cell.locationDescription.text = locationDescription[indexPath.row]
-        
+        cell.locationName.text = quedadasName[indexPath.row] 
+        cell.locationDescription.text = quedadasPlace[indexPath.row]
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
