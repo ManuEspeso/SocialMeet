@@ -13,6 +13,9 @@ import FirebaseDatabase
 
 class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem {
     
+    @IBAction func logoutButton(_ sender: Any) {
+        signOut()
+    }
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     var quedadas: [String: [String]] = [:]
@@ -47,7 +50,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             quedadasPlace.append(value[1])
         }
         cell.locationImage.image = locationImages[indexPath.row]
-        cell.locationName.text = quedadasName[indexPath.row] 
+        cell.locationName.text = quedadasName[indexPath.row]
         cell.locationDescription.text = quedadasPlace[indexPath.row]
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
@@ -65,6 +68,39 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    }
+    
+    func signOut() {
+        let alert = UIAlertController(title: "Sign Out",
+                                      message: "Are you sure do you want to Sign Out?",
+                                      preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel",
+                                      style: UIAlertAction.Style.default,
+                                      handler: nil))
+        alert.addAction(UIAlertAction(title: "Sign Out",
+                                      style: UIAlertAction.Style.destructive,
+                                      handler: { action in
+                                        do {
+                                            //Sign out the session in Firebase
+                                            try Auth.auth().signOut()
+                                            //Delete user datas from the core data
+                                            //self.deleteDataFromCoreData()
+                                            //Segue for go to the Login View
+                                            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "LoginController") as? LoginController {
+                                                
+                                                controller.modalTransitionStyle = .flipHorizontal
+                                                controller.modalPresentationStyle = .fullScreen
+                                                
+                                                self.present(controller, animated: true, completion: nil)
+                                            }
+                                        } catch let err {
+                                            print("Failed to sign out with error", err)
+                                        }
+        }))
+        self.present(alert,
+                     animated: true,
+                     completion: nil)
     }
 }
 

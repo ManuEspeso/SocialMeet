@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U4A-cV-dN2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -250,7 +250,20 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82B-re-dAi" customClass="UIViewX" customModule="IOSFinalAsignatura" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="738"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-fw-8wa">
+                                        <rect key="frame" x="87.666666666666686" y="30" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="4kZ-mq-Obc"/>
+                                            <constraint firstAttribute="width" constant="200" id="jZg-lV-gWr"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ni1-fw-8wa" firstAttribute="top" secondItem="82B-re-dAi" secondAttribute="top" constant="30" id="aRr-km-iri"/>
+                                    <constraint firstItem="Ni1-fw-8wa" firstAttribute="centerX" secondItem="82B-re-dAi" secondAttribute="centerX" id="sdM-GH-gLQ"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
                                         <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -260,19 +273,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7z-Ay-m49">
-                                <rect key="frame" x="35" y="517" width="320" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npz-A5-6GR">
+                                <rect key="frame" x="116" y="270" width="143" height="50"/>
+                                <state key="normal" title="Upload Profile Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7z-Ay-m49">
+                                <rect key="frame" x="35" y="616" width="320" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="jXs-0Q-TMi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="17"/>
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
                                     <action selector="signUpButtonAction:" destination="cfq-lb-uS5" eventType="touchUpInside" id="0g5-b3-L3g"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEH-MI-QJ7">
-                                <rect key="frame" x="20" y="429" width="335" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEH-MI-QJ7">
+                                <rect key="frame" x="20" y="523" width="335" height="48"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMV-Qu-SeR">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="48"/>
@@ -305,10 +325,12 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="DZp-Ej-71o"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1R-Q2-b6R">
-                                <rect key="frame" x="20" y="341" width="335" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1R-Q2-b6R">
+                                <rect key="frame" x="20" y="435" width="335" height="48"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HM5-eB-J78">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="48"/>
@@ -341,10 +363,12 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ze5-ej-LPI"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-mq-PWb">
-                                <rect key="frame" x="20" y="253" width="335" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-mq-PWb">
+                                <rect key="frame" x="20" y="347" width="335" height="48"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ntk-1q-R5r">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="48"/>
@@ -377,24 +401,32 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="lnP-jx-MqQ"/>
+                                </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-fw-8wa">
-                                <rect key="frame" x="67" y="58" width="240" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npz-A5-6GR">
-                                <rect key="frame" x="124" y="197" width="143" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Upload Profile Image">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="H7z-Ay-m49" firstAttribute="top" secondItem="aEH-MI-QJ7" secondAttribute="bottom" constant="45" id="1Hd-dS-FwW"/>
+                            <constraint firstItem="jhI-3C-97r" firstAttribute="trailing" secondItem="Llg-mq-PWb" secondAttribute="trailing" constant="20" id="4eV-U9-pls"/>
+                            <constraint firstItem="npz-A5-6GR" firstAttribute="top" secondItem="Ni1-fw-8wa" secondAttribute="bottom" constant="20" id="5o0-rG-MnY"/>
+                            <constraint firstItem="npz-A5-6GR" firstAttribute="leading" secondItem="jhI-3C-97r" secondAttribute="leading" constant="116" id="8yH-g6-Idt"/>
+                            <constraint firstItem="jhI-3C-97r" firstAttribute="bottom" secondItem="H7z-Ay-m49" secondAttribute="bottom" constant="60" id="AdB-eK-wvC"/>
+                            <constraint firstItem="jhI-3C-97r" firstAttribute="trailing" secondItem="H7z-Ay-m49" secondAttribute="trailing" constant="20" id="Ccn-mN-7ka"/>
+                            <constraint firstItem="jhI-3C-97r" firstAttribute="trailing" secondItem="npz-A5-6GR" secondAttribute="trailing" constant="116" id="FYA-1b-6bV"/>
                             <constraint firstItem="82B-re-dAi" firstAttribute="trailing" secondItem="jhI-3C-97r" secondAttribute="trailing" id="JJy-Ri-K41"/>
+                            <constraint firstItem="jhI-3C-97r" firstAttribute="trailing" secondItem="n1R-Q2-b6R" secondAttribute="trailing" constant="20" id="Jum-Na-7xW"/>
+                            <constraint firstItem="n1R-Q2-b6R" firstAttribute="top" secondItem="Llg-mq-PWb" secondAttribute="bottom" constant="40" id="KK9-qk-Vbn"/>
                             <constraint firstAttribute="bottom" secondItem="82B-re-dAi" secondAttribute="bottom" id="LOY-kS-rlF"/>
+                            <constraint firstItem="Llg-mq-PWb" firstAttribute="top" secondItem="npz-A5-6GR" secondAttribute="bottom" constant="27" id="Lrp-ST-4il"/>
+                            <constraint firstItem="aEH-MI-QJ7" firstAttribute="top" secondItem="n1R-Q2-b6R" secondAttribute="bottom" constant="40" id="Qu7-q0-WFO"/>
+                            <constraint firstItem="jhI-3C-97r" firstAttribute="trailing" secondItem="aEH-MI-QJ7" secondAttribute="trailing" constant="20" id="Upu-YV-ZMx"/>
                             <constraint firstItem="82B-re-dAi" firstAttribute="leading" secondItem="jhI-3C-97r" secondAttribute="leading" id="VjW-uY-dNh"/>
+                            <constraint firstItem="H7z-Ay-m49" firstAttribute="leading" secondItem="jhI-3C-97r" secondAttribute="leading" constant="35" id="Yan-pg-LPx"/>
+                            <constraint firstItem="Llg-mq-PWb" firstAttribute="leading" secondItem="jhI-3C-97r" secondAttribute="leading" constant="20" id="cHR-OQ-igv"/>
                             <constraint firstItem="82B-re-dAi" firstAttribute="top" secondItem="jhI-3C-97r" secondAttribute="top" constant="20" id="fGU-X7-OPn"/>
+                            <constraint firstItem="aEH-MI-QJ7" firstAttribute="leading" secondItem="jhI-3C-97r" secondAttribute="leading" constant="20" id="kXP-zH-1x3"/>
+                            <constraint firstItem="n1R-Q2-b6R" firstAttribute="leading" secondItem="jhI-3C-97r" secondAttribute="leading" constant="20" id="odP-W8-TBR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jhI-3C-97r"/>
                         <userDefinedRuntimeAttributes>
@@ -438,7 +470,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KSw-Au-fSD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6hN-iz-RD5">
                                     <size key="itemSize" width="349" height="250"/>
@@ -515,7 +547,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7tO-q8-RWb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9M2-Rh-0KK"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9M2-Rh-0KK">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="IOe-ih-eLi">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="N63-nX-oeo">
+                                <rect key="frame" x="16" y="0.0" width="54" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="baseline_arrow_back_white_24dp"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="Mhq-AU-jP0" eventType="touchUpInside" id="K6N-hk-8ZF"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myCollectionView" destination="KSw-Au-fSD" id="TOl-Xp-O7s"/>
                     </connections>

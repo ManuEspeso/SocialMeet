@@ -40,8 +40,7 @@ class RegisterController: UIViewController {
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         
-        
-        profileImageView.layer.cornerRadius = profileImageView.bounds.height/2
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width/2
         profileImageView.clipsToBounds = true
         
         animatedBackgroundColor()
