@@ -14,32 +14,27 @@ class Quedadas {
     static func getQuedadas(userID: String) -> [String:[String]] {
         var quedadas: [String:[String]] = [:]
         
-        Firestore.firestore().collection("users").whereField("id", isEqualTo: userID)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        let quedadasFirebase = document.data().index(forKey: "quedadas")
-                        let quedadasValue = document.data()[quedadasFirebase!].value as! NSArray
+        let docRef = Firestore.firestore().collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let quedadasValue = document.get("quedadas") as! NSArray
+                
+                let quedadasIndex = quedadasValue.count
+                for i in 0...(quedadasIndex - 1) {
+                    let quedadaReference = quedadasValue[i] as! DocumentReference
+                    quedadaReference.getDocument { (documentSnapshot, error) in
                         
-                        let quedadasIndex = quedadasValue.count
-                        for i in 0...(quedadasIndex - 1) {
-                            let quedadaReference = quedadasValue[i] as! DocumentReference
-                            quedadaReference.getDocument { (documentSnapshot, error) in
-                                
-                                if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
-                                    let dataDescription = documentSnapshot.data()
-                                    
-                                    guard let dataQuedadas = dataDescription else {return}
-                                    quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]
-                                } else{
-                                    print("Document does not exist")
-                                }
-                            }
+                        if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
+                            let dataDescription = documentSnapshot.data()
+                            
+                            guard let dataQuedadas = dataDescription else {return}
+                            quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]
+                        } else{
+                            print("Document does not exist")
                         }
                     }
                 }
+            }
         }
         sleep(3)
         return quedadas
