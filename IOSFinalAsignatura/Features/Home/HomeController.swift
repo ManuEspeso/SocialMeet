@@ -24,7 +24,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }
-    let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo")]
+    let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

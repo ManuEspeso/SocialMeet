@@ -469,8 +469,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KSw-Au-fSD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KSw-Au-fSD">
+                                <rect key="frame" x="0.0" y="88" width="375" height="591"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6hN-iz-RD5">
                                     <size key="itemSize" width="349" height="250"/>
@@ -537,13 +537,30 @@
                                     <outlet property="delegate" destination="Mhq-AU-jP0" id="mxm-n1-SAC"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzh-zj-LVB" customClass="FloatingActionButton" customModule="IOSFinalAsignatura" customModuleProvider="target">
+                                <rect key="frame" x="304" y="674" width="55" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="plus"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.8637872338" green="0.2903639972" blue="0.47759193179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KSw-Au-fSD" firstAttribute="trailing" secondItem="7tO-q8-RWb" secondAttribute="trailing" id="BaP-vB-4PH"/>
                             <constraint firstItem="KSw-Au-fSD" firstAttribute="leading" secondItem="7tO-q8-RWb" secondAttribute="leading" id="Zpn-re-vi8"/>
                             <constraint firstItem="KSw-Au-fSD" firstAttribute="top" secondItem="Tse-BS-POs" secondAttribute="topMargin" id="f1O-Sn-DUT"/>
-                            <constraint firstItem="7tO-q8-RWb" firstAttribute="bottom" secondItem="KSw-Au-fSD" secondAttribute="bottom" id="uSC-Qz-irP"/>
+                            <constraint firstItem="7tO-q8-RWb" firstAttribute="bottom" secondItem="KSw-Au-fSD" secondAttribute="bottom" constant="50" id="uSC-Qz-irP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7tO-q8-RWb"/>
                     </view>
@@ -626,5 +643,6 @@
         <image name="ic_person_outline_white_2x" width="48" height="48"/>
         <image name="material_logo" width="1024" height="1024"/>
         <image name="person.crop.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="plus" width="18.333333969116211" height="18.333333969116211"/>
     </resources>
 </document>

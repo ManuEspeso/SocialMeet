@@ -22,6 +22,8 @@
 		DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB5023B37DC0005E9552 /* HomeController.swift */; };
 		DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */; };
 		DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB64C9D23D05B72005D83A1 /* UIViewX.swift */; };
+		DDD3BFFE23DFA08B00741316 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */; };
+		DDD3C00023DFA16D00741316 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		DDAFBB5023B37DC0005E9552 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDB64C9D23D05B72005D83A1 /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
+		DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSFinalAsignatura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +96,7 @@
 				DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */,
 				DDAFCEB123ABE2CB00FC668C /* App */,
 				DDAFCEB223ABE2E500FC668C /* Resources */,
+				DDD3BFFC23DFA05F00741316 /* DesignableX */,
 				DDAFCEB323ABE30800FC668C /* Model */,
 				DDAFCEB423ABE31000FC668C /* Features */,
 				DDAFCEB523ABE33100FC668C /* View */,
@@ -150,8 +155,6 @@
 		DDAFCEB323ABE30800FC668C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DDB64C9D23D05B72005D83A1 /* UIViewX.swift */,
-				386044ED23C8FFDB0083B73C /* GradientView.swift */,
 				DD97094E23D85899009881FA /* Quedadas.swift */,
 			);
 			path = Model;
@@ -199,8 +202,19 @@
 			children = (
 				DDAFBB5023B37DC0005E9552 /* HomeController.swift */,
 				DD4A22BD23B29DA200400D01 /* cell */,
+				DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		DDD3BFFC23DFA05F00741316 /* DesignableX */ = {
+			isa = PBXGroup;
+			children = (
+				DDB64C9D23D05B72005D83A1 /* UIViewX.swift */,
+				386044ED23C8FFDB0083B73C /* GradientView.swift */,
+				DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */,
+			);
+			path = DesignableX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,10 +353,12 @@
 			files = (
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */,
+				DDD3BFFE23DFA08B00741316 /* UIButtonX.swift in Sources */,
 				DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */,
 				DD97094F23D85899009881FA /* Quedadas.swift in Sources */,
 				DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */,
 				DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */,
+				DDD3C00023DFA16D00741316 /* FloatingActionButton.swift in Sources */,
 				DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */,
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
