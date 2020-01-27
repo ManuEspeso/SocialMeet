@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38005B7B23DF62D200483DD9 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38005B7A23DF62D200483DD9 /* MapController.swift */; };
 		386044EE23C8FFDB0083B73C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386044ED23C8FFDB0083B73C /* GradientView.swift */; };
 		389B00C223C7CC6D00AF616B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 389B00C123C7CC6D00AF616B /* Assets.xcassets */; };
 		895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895CF82023A1195500B16D37 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38005B7A23DF62D200483DD9 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		386044ED23C8FFDB0083B73C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		389B00C123C7CC6D00AF616B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88080605460AC869EC143012 /* Pods-IOSFinalAsignatura.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.debug.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38005B7923DF624700483DD9 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				38005B7A23DF62D200483DD9 /* MapController.swift */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
 		5747C1B3E107FA73D8946D15 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		DDAFCEB423ABE31000FC668C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				38005B7923DF624700483DD9 /* map */,
 				DDAFCEB623ABE34C00FC668C /* Login */,
 				DDAFCEB723ABE35D00FC668C /* Register */,
 				DD6D679623BBC5E900905BE7 /* TabBar */,
@@ -340,6 +351,7 @@
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */,
 				DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */,
+				38005B7B23DF62D200483DD9 /* MapController.swift in Sources */,
 				DD97094F23D85899009881FA /* Quedadas.swift in Sources */,
 				DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */,
 				DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */,
