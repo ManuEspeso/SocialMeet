@@ -11,6 +11,7 @@ import Firebase
 import GoogleSignIn
 //import Material
 import AMTabView
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Chnage the animation duration
         AMTabView.settings.animationDuration = 1
-        
+        //google maps
+        GMSServices.provideAPIKey("AIzaSyANZ93XULMTaSF-_oPHkgGdPgxGVUtKKvs")
         return true
     }
     
