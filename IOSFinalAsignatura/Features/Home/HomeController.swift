@@ -11,12 +11,22 @@ import AMTabView
 import Firebase
 import FirebaseDatabase
 
-class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem {
+class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem, QuedadasDelegate {
     
+    @IBAction func menuTapped(_ sender: FloatingActionButton) {
+        UIView.animate(withDuration: 0.3, animations: {
+            if self.menuView.transform == .identity {
+                self.menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            } else {
+                self.menuView.transform = .identity
+            }
+        })
+    }
     @IBAction func logoutButton(_ sender: Any) {
         signOut()
     }
     @IBOutlet weak var myCollectionView: UICollectionView!
+    @IBOutlet weak var menuView: UIViewX!
     
     var quedadas: [String: [String]] = [:]
     var quedadasName = [String]()
@@ -30,12 +40,14 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         
         let userID = Auth.auth().currentUser?.uid
-        DispatchQueue.global(qos: .userInteractive).async {
-            self.quedadas = Quedadas.getQuedadas(userID: userID!)
-            DispatchQueue.main.async {
-                self.myCollectionView.reloadData()
-            }
-        }
+        Quedadas.getQuedadas(userID: userID!, delegate: self)
+        
+        menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+    }
+    
+    func getAllQuedadas(quedadas: [String : [String]]) {
+        self.quedadas = quedadas
+        myCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

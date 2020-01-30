@@ -9,9 +9,9 @@
 import UIKit
 import Firebase
 
-class Quedadas {
+class Quedadas: NSObject {
     
-    static func getQuedadas(userID: String) -> [String:[String]] {
+    static func getQuedadas(userID: String, delegate: QuedadasDelegate) {
         var quedadas: [String:[String]] = [:]
         
         let docRef = Firestore.firestore().collection("users").document(userID)
@@ -29,6 +29,7 @@ class Quedadas {
                             
                             guard let dataQuedadas = dataDescription else {return}
                             quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]
+                            delegate.getAllQuedadas(quedadas: quedadas)
                         } else{
                             print("Document does not exist")
                         }
@@ -36,7 +37,10 @@ class Quedadas {
                 }
             }
         }
-        sleep(3)
-        return quedadas
     }
 }
+
+protocol QuedadasDelegate {
+    func getAllQuedadas(quedadas: [String:[String]])
+}
+
