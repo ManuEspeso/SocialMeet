@@ -21,6 +21,7 @@
 		DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */; };
 		DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB5023B37DC0005E9552 /* HomeController.swift */; };
 		DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */; };
+		DDB2F99823E30AEB0057E0D8 /* NewQuedadaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */; };
 		DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB64C9D23D05B72005D83A1 /* UIViewX.swift */; };
 		DDD3BFFE23DFA08B00741316 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */; };
 		DDD3C00023DFA16D00741316 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */; };
@@ -44,6 +45,7 @@
 		DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		DDAFBB5023B37DC0005E9552 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuedadaController.swift; sourceTree = "<group>"; };
 		DDB64C9D23D05B72005D83A1 /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		DDAFCEB423ABE31000FC668C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				DDB2F99623E30ACC0057E0D8 /* NewQuedada */,
 				DDAFCEB623ABE34C00FC668C /* Login */,
 				DDAFCEB723ABE35D00FC668C /* Register */,
 				DD6D679623BBC5E900905BE7 /* TabBar */,
@@ -200,11 +203,19 @@
 		DDAFCEB823ABE36C00FC668C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DDAFBB5023B37DC0005E9552 /* HomeController.swift */,
 				DD4A22BD23B29DA200400D01 /* cell */,
+				DDAFBB5023B37DC0005E9552 /* HomeController.swift */,
 				DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		DDB2F99623E30ACC0057E0D8 /* NewQuedada */ = {
+			isa = PBXGroup;
+			children = (
+				DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */,
+			);
+			path = NewQuedada;
 			sourceTree = "<group>";
 		};
 		DDD3BFFC23DFA05F00741316 /* DesignableX */ = {
@@ -362,6 +373,7 @@
 				DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */,
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
+				DDB2F99823E30AEB0057E0D8 /* NewQuedadaController.swift in Sources */,
 				386044EE23C8FFDB0083B73C /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,7 +29,7 @@ class Quedadas: NSObject {
                             
                             guard let dataQuedadas = dataDescription else {return}
                             quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]
-                            delegate.getAllQuedadas(quedadas: quedadas)
+                            delegate.getAllQuedadas!(quedadas: quedadas)
                         } else{
                             print("Document does not exist")
                         }
@@ -38,9 +38,27 @@ class Quedadas: NSObject {
             }
         }
     }
+    
+    static func getArrayQuedadas(userID: String, uuid: String, delegate: QuedadasDelegate) {
+        var userRef: DocumentReference!
+        
+        let docRef = Firestore.firestore().collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                var quedadasValue = document.get("quedadas") as! Array<Any>
+                
+                userRef = Firestore.firestore().document("quedadas/\(uuid)")
+                quedadasValue.append(userRef!)
+                
+                delegate.getQuedadasReference!(qudadasReference: quedadasValue)
+            }
+        }
+    }
 }
 
-protocol QuedadasDelegate {
-    func getAllQuedadas(quedadas: [String:[String]])
+@objc protocol QuedadasDelegate {
+    @objc optional func getAllQuedadas(quedadas: [String:[String]])
+    @objc optional func getQuedadasReference(qudadasReference: Array<Any>)
 }
 

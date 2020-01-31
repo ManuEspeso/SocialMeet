@@ -34,16 +34,21 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }
+    var userID: String?
     let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userID = Auth.auth().currentUser?.uid
+        userID = Auth.auth().currentUser?.uid
         Quedadas.getQuedadas(userID: userID!, delegate: self)
         
         menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
     }
+    
+    /*override func viewDidAppear(_ animated: Bool) {
+        myCollectionView.reloadData()
+    }*/
     
     func getAllQuedadas(quedadas: [String : [String]]) {
         self.quedadas = quedadas
@@ -94,11 +99,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                       style: UIAlertAction.Style.destructive,
                                       handler: { action in
                                         do {
-                                            //Sign out the session in Firebase
                                             try Auth.auth().signOut()
-                                            //Delete user datas from the core data
                                             //self.deleteDataFromCoreData()
-                                            //Segue for go to the Login View
                                             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "LoginController") as? LoginController {
                                                 
                                                 controller.modalTransitionStyle = .flipHorizontal
@@ -113,6 +115,15 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.present(alert,
                      animated: true,
                      completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "newQuedada") {
+            
+            let destinationVC = segue.destination as! NewQuedadaController
+            destinationVC.userID = userID
+        }
     }
 }
 
