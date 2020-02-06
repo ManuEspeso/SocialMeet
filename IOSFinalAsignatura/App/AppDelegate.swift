@@ -12,6 +12,7 @@ import GoogleSignIn
 //import Material
 import AMTabView
 import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AMTabView.settings.animationDuration = 1
         //google maps
         GMSServices.provideAPIKey("AIzaSyANZ93XULMTaSF-_oPHkgGdPgxGVUtKKvs")
+        GMSPlacesClient.provideAPIKey("AIzaSyANZ93XULMTaSF-_oPHkgGdPgxGVUtKKvs")
         return true
     }
     
