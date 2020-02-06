@@ -23,6 +23,9 @@
 		DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */; };
 		DDB2F99823E30AEB0057E0D8 /* NewQuedadaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */; };
 		DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB64C9D23D05B72005D83A1 /* UIViewX.swift */; };
+		DDD3A45E23EB533700D1830C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3A45D23EB533700D1830C /* User.swift */; };
+		DDD3A46023EB537800D1830C /* NewQuedadaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3A45F23EB537800D1830C /* NewQuedadaViewCell.swift */; };
+		DDD3A46623EB8A1900D1830C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3A46523EB8A1900D1830C /* Extensions.swift */; };
 		DDD3BFFE23DFA08B00741316 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */; };
 		DDD3C00023DFA16D00741316 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +50,9 @@
 		DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuedadaController.swift; sourceTree = "<group>"; };
 		DDB64C9D23D05B72005D83A1 /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		DDD3A45D23EB533700D1830C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DDD3A45F23EB537800D1830C /* NewQuedadaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuedadaViewCell.swift; sourceTree = "<group>"; };
+		DDD3A46523EB8A1900D1830C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSFinalAsignatura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +104,7 @@
 				DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */,
 				DDAFCEB123ABE2CB00FC668C /* App */,
 				DDAFCEB223ABE2E500FC668C /* Resources */,
-				DDD3BFFC23DFA05F00741316 /* DesignableX */,
+				DDD3A46423EB89EC00D1830C /* Extensions */,
 				DDAFCEB323ABE30800FC668C /* Model */,
 				DDAFCEB423ABE31000FC668C /* Features */,
 				DDAFCEB523ABE33100FC668C /* View */,
@@ -158,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DD97094E23D85899009881FA /* Quedadas.swift */,
+				DDD3A45D23EB533700D1830C /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,8 +221,26 @@
 			isa = PBXGroup;
 			children = (
 				DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */,
+				DDD3A46323EB642800D1830C /* cell */,
 			);
 			path = NewQuedada;
+			sourceTree = "<group>";
+		};
+		DDD3A46323EB642800D1830C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDD3A45F23EB537800D1830C /* NewQuedadaViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DDD3A46423EB89EC00D1830C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DDD3A46523EB8A1900D1830C /* Extensions.swift */,
+				DDD3BFFC23DFA05F00741316 /* DesignableX */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DDD3BFFC23DFA05F00741316 /* DesignableX */ = {
@@ -362,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD3A45E23EB533700D1830C /* User.swift in Sources */,
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */,
 				DDD3BFFE23DFA08B00741316 /* UIButtonX.swift in Sources */,
@@ -373,6 +399,8 @@
 				DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */,
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
+				DDD3A46023EB537800D1830C /* NewQuedadaViewCell.swift in Sources */,
+				DDD3A46623EB8A1900D1830C /* Extensions.swift in Sources */,
 				DDB2F99823E30AEB0057E0D8 /* NewQuedadaController.swift in Sources */,
 				386044EE23C8FFDB0083B73C /* GradientView.swift in Sources */,
 			);

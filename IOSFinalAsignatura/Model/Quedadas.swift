@@ -39,7 +39,7 @@ class Quedadas: NSObject {
         }
     }
     
-    static func getArrayQuedadas(userID: String, uuid: String, delegate: QuedadasDelegate) {
+    static func getArrayQuedadas(userID: String, quedadaId: String, delegate: QuedadasDelegate) {
         var userRef: DocumentReference!
         
         let docRef = Firestore.firestore().collection("users").document(userID)
@@ -48,17 +48,68 @@ class Quedadas: NSObject {
                 
                 var quedadasValue = document.get("quedadas") as! Array<Any>
                 
-                userRef = Firestore.firestore().document("quedadas/\(uuid)")
+                userRef = Firestore.firestore().document("quedadas/\(quedadaId)")
                 quedadasValue.append(userRef!)
                 
                 delegate.getQuedadasReference!(qudadasReference: quedadasValue)
             }
         }
     }
+    
+    static func getUsers(delegate: QuedadasDelegate) {
+        var users: [String:String] = [:]
+        
+        let docRef = Firestore.firestore().collection("users")
+        docRef.getDocuments { (querysnapchot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for documents in querysnapchot!.documents {
+                    docRef.document(documents.documentID).getDocument { (document, error) in
+                        
+                        guard let username = document?.get("username") else {return}
+                        users[documents.documentID] = username as? String
+                        delegate.getAllUsers?(users: users)
+                    }
+                }
+            }
+        }
+    }
+    static func getArrayQuedadasAllUsers(usersID: [String], quedadaId: String, delegate: QuedadasDelegate) {
+        
+    }
+    
+    /*static func getUsersID(usernameAdd: String, delegate: QuedadasDelegate) {
+        let docRef = Firestore.firestore().collection("users")
+        docRef.getDocuments { (querysnapchot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for documents in querysnapchot!.documents {
+                    //print("\(documents.documentID) => \(documents.data())")
+                    docRef.document(documents.documentID).getDocument { (document, error) in
+                        
+                        let username = document?.get("username") as! String
+                        print("Username nuevo \(usernameAdd)")
+                        print("Username de la bd \(username)")
+                        if username == usernameAdd {
+                            print("Si Señor")
+                            print(documents.documentID)
+                            //getArrayQuedadas(userID: documents.documentID, uuid: "aaaaaaaaaaaaaaaaa", delegate: QuedadasDelegate)
+                        } else {
+                            print("me da que no")
+                        }
+                        //print(username!)
+                    }
+                }
+            }
+        }
+    }*/
 }
 
 @objc protocol QuedadasDelegate {
     @objc optional func getAllQuedadas(quedadas: [String:[String]])
     @objc optional func getQuedadasReference(qudadasReference: Array<Any>)
+    @objc optional func getAllUsers(users: [String:String])
 }
 

@@ -29,6 +29,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var menuView: UIViewX!
     
     var quedadas: [String: [String]] = [:]
+    var users: [String:String] = [:]
     var quedadasName = [String]()
     var quedadasPlace = [String]()
     var tabImage: UIImage? {
@@ -42,6 +43,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         userID = Auth.auth().currentUser?.uid
         Quedadas.getQuedadas(userID: userID!, delegate: self)
+        Quedadas.getUsers(delegate: self)
         
         menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
     }
@@ -53,6 +55,10 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func getAllQuedadas(quedadas: [String : [String]]) {
         self.quedadas = quedadas
         myCollectionView.reloadData()
+    }
+    
+    func getAllUsers(users: [String : String]) {
+        self.users = users
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -123,6 +129,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             let destinationVC = segue.destination as! NewQuedadaController
             destinationVC.userID = userID
+            destinationVC.users = users
         }
     }
 }
