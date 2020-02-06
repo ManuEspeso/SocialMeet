@@ -47,31 +47,41 @@ class MapController: UIViewController, TabItem  {
         
         
         //my map
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
-        mapView.settings.myLocationButton = true
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //mapView.isMyLocationEnabled = true
-
-        // Add the map to the view, hide it until we've got a location update.
-        view.addSubview(mapView)
-        mapView.isHidden = true
+        
 
 
            	
        }
     override func loadView() {
-      // Create a GMSCameraPosition that tells the map to display the
+     // Create a GMSCameraPosition that tells the map to display the
       // coordinate -33.86,151.20 at zoom level 6.
-      let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+      let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 134.20, zoom: 6.0)
       let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
       view = mapView
-
-      // Creates a marker in the center of the map.
-      let marker = GMSMarker()
-      marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-      marker.map = mapView
-       
+      
+       // Creates a marker in the center of the map.
+       let marker = GMSMarker()
+        let house = UIImage(named: "mapIcon")!.withRenderingMode(.alwaysTemplate)
+        let makerView = UIImageView(image: house)
+       marker.position = CLLocationCoordinate2D(latitude: -38.86, longitude: 167.20)
+       marker.title = "Sydney"
+       marker.snippet = "Australia"
+        marker.iconView = makerView
+       marker.map = mapView
+        
+        // Creates a marker in the center of the map.
+        let marker2 = GMSMarker()
+        marker2.position = CLLocationCoordinate2D(latitude: -41.86, longitude: 191.20)
+        marker2.title = "Sydney"
+        marker2.snippet = "Australia"
+        marker2.map = mapView
+        
+        // Creates a marker in the center of the map.
+        let marker3 = GMSMarker()
+        marker3.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+        marker3.title = "Sydney"
+        marker3.snippet = "Australia"
+        marker3.map = mapView
         
 	
 
