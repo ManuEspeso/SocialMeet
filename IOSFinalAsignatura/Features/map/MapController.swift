@@ -46,12 +46,17 @@ class MapController: UIViewController, TabItem  {
         placesClient = GMSPlacesClient.shared()
         
         
-        //my map
-        
-
-
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: "next")
            	
        }
+    func next() {
+        let currentLocation = CLLocationCoordinate2DMake(37.621262, -122.378945)
+        
+}
+        
+        
+    
+    
     override func loadView() {
      // Create a GMSCameraPosition that tells the map to display the
       // coordinate -33.86,151.20 at zoom level 6.
@@ -104,12 +109,7 @@ extension MapController: CLLocationManagerDelegate {
                                           longitude: location.coordinate.longitude,
                                           zoom: zoomLevel)
 
-    if mapView.isHidden {
-      mapView.isHidden = false
-      mapView.camera = camera
-    } else {
-      mapView.animate(to: camera)
-    }
+    
 
     //listLikelyPlaces()
   }
