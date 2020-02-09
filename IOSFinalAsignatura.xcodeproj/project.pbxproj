@@ -210,9 +210,9 @@
 		DDAFCEB823ABE36C00FC668C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DD4A22BD23B29DA200400D01 /* cell */,
 				DDAFBB5023B37DC0005E9552 /* HomeController.swift */,
 				DDD3BFFF23DFA16D00741316 /* FloatingActionButton.swift */,
+				DD4A22BD23B29DA200400D01 /* cell */,
 			);
 			path = Home;
 			sourceTree = "<group>";

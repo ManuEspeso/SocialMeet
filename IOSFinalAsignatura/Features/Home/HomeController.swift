@@ -36,6 +36,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return UIImage(named: "material_logo")
     }
     var userID: String?
+    //var refreshControl: UIRefreshControl!
     let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
     
     override func viewDidLoad() {
@@ -46,13 +47,22 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         Quedadas.getUsers(delegate: self)
         
         menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+        //setUpRefreshControl()
     }
     
-    /*override func viewDidAppear(_ animated: Bool) {
-        myCollectionView.reloadData()
-    }*/
+    /*func setUpRefreshControl() {
+     refreshControl = UIRefreshControl()
+     refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
+     refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+     myCollectionView.addSubview(refreshControl)
+     }
+     @objc func refresh() {
+     Quedadas.getQuedadas(userID: userID!, delegate: self)
+     }*/
     
     func getAllQuedadas(quedadas: [String : [String]]) {
+        //guard let myQuedadas = quedadas else { return }
         self.quedadas = quedadas
         myCollectionView.reloadData()
     }

@@ -20,20 +20,25 @@ class Quedadas: NSObject {
                 let quedadasValue = document.get("quedadas") as! NSArray
                 
                 let quedadasIndex = quedadasValue.count
-                for i in 0...(quedadasIndex - 1) {
-                    let quedadaReference = quedadasValue[i] as! DocumentReference
-                    quedadaReference.getDocument { (documentSnapshot, error) in
-                        
-                        if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
-                            let dataDescription = documentSnapshot.data()
+                                
+                if quedadasIndex != 0 {
+                    for i in 0...(quedadasIndex - 1) {
+                        let quedadaReference = quedadasValue[i] as! DocumentReference
+                        quedadaReference.getDocument { (documentSnapshot, error) in
                             
-                            guard let dataQuedadas = dataDescription else {return}
-                            quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]
-                            delegate.getAllQuedadas!(quedadas: quedadas)
-                        } else{
-                            print("Document does not exist")
+                            if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
+                                let dataDescription = documentSnapshot.data()
+                                
+                                guard let dataQuedadas = dataDescription else {return}
+                                quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]
+                                delegate.getAllQuedadas!(quedadas: quedadas)
+                            } else{
+                                print("Document does not exist")
+                            }
                         }
                     }
+                } else {
+                    //delegate.getAllQuedadas?(quedadas: nil)
                 }
             }
         }
@@ -51,7 +56,7 @@ class Quedadas: NSObject {
                 userRef = Firestore.firestore().document("quedadas/\(quedadaId)")
                 quedadasValue.append(userRef!)
                 
-                delegate.getQuedadasReference!(qudadasReference: quedadasValue)
+                delegate.getMyQuedadasReference!(qudadasReference: quedadasValue)
             }
         }
     }
@@ -75,41 +80,11 @@ class Quedadas: NSObject {
             }
         }
     }
-    static func getArrayQuedadasAllUsers(usersID: [String], quedadaId: String, delegate: QuedadasDelegate) {
-        
-    }
-    
-    /*static func getUsersID(usernameAdd: String, delegate: QuedadasDelegate) {
-        let docRef = Firestore.firestore().collection("users")
-        docRef.getDocuments { (querysnapchot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for documents in querysnapchot!.documents {
-                    //print("\(documents.documentID) => \(documents.data())")
-                    docRef.document(documents.documentID).getDocument { (document, error) in
-                        
-                        let username = document?.get("username") as! String
-                        print("Username nuevo \(usernameAdd)")
-                        print("Username de la bd \(username)")
-                        if username == usernameAdd {
-                            print("Si Señor")
-                            print(documents.documentID)
-                            //getArrayQuedadas(userID: documents.documentID, uuid: "aaaaaaaaaaaaaaaaa", delegate: QuedadasDelegate)
-                        } else {
-                            print("me da que no")
-                        }
-                        //print(username!)
-                    }
-                }
-            }
-        }
-    }*/
 }
 
 @objc protocol QuedadasDelegate {
     @objc optional func getAllQuedadas(quedadas: [String:[String]])
-    @objc optional func getQuedadasReference(qudadasReference: Array<Any>)
+    @objc optional func getMyQuedadasReference(qudadasReference: Array<Any>)
     @objc optional func getAllUsers(users: [String:String])
 }
 

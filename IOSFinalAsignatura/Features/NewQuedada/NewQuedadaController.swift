@@ -16,11 +16,8 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var quedadaPlace: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBAction func addQuedada(_ sender: Any) {
-        //insertQuedada()
         arrayUsersID = selectedItems.map { $0.id }
-        
-        //print(arrayUsersID)
-        //print(selectedItems.map { $0.title })
+        insertQuedada()
     }
     
     var userID: String?
@@ -55,8 +52,6 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func insertQuedada() {
-        //TODO: Necesito crear un for para ir iterando sobre arrayUsersID para coger cada id e irlos concatenando en un array el cual luego insertare como un campo mas en la quedada que ira a firebase
-        
         guard let quedadaName = quedadaName.text else {return}
         guard let quedadaPlace = quedadaPlace.text else {return}
         
@@ -67,18 +62,43 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
             "nombre": quedadaName
         ]
         
-        db.collection("quedadas").document(quedadaId).setData(docData) { err in
-            if let err = err {
-                print("Error writing user on database: \(err)")
-            } else {
-                Quedadas.getArrayQuedadas(userID: self.userID!, quedadaId: quedadaId, delegate: self)
-                Quedadas.getArrayQuedadasAllUsers(usersID: self.arrayUsersID, quedadaId: quedadaId, delegate: self)
+        if !quedadaName.isEmpty && !quedadaPlace.isEmpty && arrayUsersID.count > 0  {
+            
+            db.collection("quedadas").document(quedadaId).setData(docData) { err in
+                if let err = err {
+                    print("Error writing user on database: \(err)")
+                } else {
+                    Quedadas.getArrayQuedadas(userID: self.userID!, quedadaId: quedadaId, delegate: self)
+                    self.getAllUsersQuedadasReference(quedadaID: quedadaId)
+                }
             }
+            
+        } else {
+            self.showAlert(alertText: "Campos Vacios", alertMessage: "Rellene todos los campos y seleccione los usuarios para poder crear la quedada")
         }
     }
     
-    func getQuedadasReference(qudadasReference: Array<Any>) {
+    func getMyQuedadasReference(qudadasReference: Array<Any>) {
         db.collection("users").document(userID!).updateData(["quedadas": qudadasReference])
+    }
+    
+    func getAllUsersQuedadasReference(quedadaID: String) {
+        for i in 0...(arrayUsersID.count - 1) {
+            var userRef: DocumentReference!
+            
+            let docRef = db.collection("users").document(arrayUsersID[i])
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    
+                    var quedadasValue = document.get("quedadas") as! Array<Any>
+                    
+                    userRef = Firestore.firestore().document("quedadas/\(quedadaID)")
+                    quedadasValue.append(userRef!)
+                    self.db.collection("users").document(self.arrayUsersID[i]).updateData(["quedadas": quedadasValue])
+                }
+            }
+        }
+        dismiss(animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -93,16 +113,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
         itemsUsers = usernames.map { ViewUserItem(item: $0) }
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NewQuedadaCell", for: indexPath) as? NewQuedadaViewCell {
             cell.item = itemsUsers[indexPath.row]
-            // select/deselect the cell
-            if itemsUsers[indexPath.row].isSelected {
-                if !cell.isSelected {
-                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-                }
-            } else {
-                if cell.isSelected {
-                    tableView.deselectRow(at: indexPath, animated: false)
-                }
-            }
+            
             return cell
         }
         return UITableViewCell()

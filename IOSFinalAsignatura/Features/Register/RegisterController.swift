@@ -26,6 +26,7 @@ class RegisterController: UIViewController {
     var db: Firestore!
     var colorArray: [(color1: UIColor, color2: UIColor)] = []
     var currentColorArrayIndex = -1
+    var emptyArray = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +128,8 @@ class RegisterController: UIViewController {
                         let docData: [String: Any] = [
                             "username": userName,
                             "email": userEmail,
-                            "imageProfile": url!.absoluteString
+                            "imageProfile": url!.absoluteString,
+                            "quedadas": self.emptyArray
                         ]
                         
                         if let error = error {
