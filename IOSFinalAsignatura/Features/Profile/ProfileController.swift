@@ -42,8 +42,7 @@ class ProfileController: UIViewController, TabItem {
         
         
         
-
-            
+        db = Firestore.firestore()
 
 
             let userID : String = (Auth.auth().currentUser?.uid)!
@@ -95,18 +94,13 @@ class ProfileController: UIViewController, TabItem {
                 
                 if let document = document, document.exists {
                     
-                    var quedadasValue = document.get("users") as! Array<Any>
+                    var quedadasValue = document.get("username") as! String
+                    var quedadasValue2 = document.get("email") as! String
+                    var quedadasValue3 = document.get("imageProfile") as! String
                     
-                    userRef = Firestore.firestore().document("users/\(userID)")
-                    quedadasValue.append(self.userRef!)
-                    self.db.collection("users").document(userID).getDocument { (snapshot, Error) in
-                        let myValue = DataSnapshot.value(forKey: "imageProfile")
-                        
-                        //let username = myValue?["imageProfile"] as? String ?? ""
-                        
-                        print(myValue)
-                        
-                    }
+                    
+                    
+                    print(quedadasValue3)
                 }
             }
         
