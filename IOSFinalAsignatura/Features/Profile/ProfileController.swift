@@ -21,95 +21,60 @@ class ProfileController: UIViewController, TabItem {
     var tabImage: UIImage? {
         return UIImage(named: "ic_person_outline_white_2x")
     }
+    var userEmail: String = ""
+    var userName: String = ""
+    var userImage: String = ""
+    
+    @IBOutlet weak var imageProfileView: UIImageView!
+    @IBOutlet weak var userEmailOutlet: UILabel!
+    @IBOutlet weak var usernameOutlet: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        /*let user = Auth.auth().currentUser
-        if let user = user {
-          
-          let uid = user.uid
-          let email = user.email
-            
-            
-          print(email)
-            
-            
-        }*/
-        
-        
-        
         db = Firestore.firestore()
-
-
-            let userID : String = (Auth.auth().currentUser?.uid)!
-            print("Current user ID is" + userID)
         
-        let queryRef = Database.database().reference().child("users")
+        imageProfileView.layer.cornerRadius = imageProfileView.bounds.height/2
+        imageProfileView.clipsToBounds = true
         
-       /* queryRef.child(userID).observeSingleEvent(of: .value, with: { (DataSnapshot) in
-                print("prueba")
-                print(DataSnapshot)
-            
-                let value = DataSnapshot.value as? NSDictionary
-                let username = value?["imageProfile"] as? String ?? ""
-                print(username)
-            
+        
+        //Gets current user ID
+        let userID : String = (Auth.auth().currentUser?.uid)!
+        
+        let docRef = db.collection("users").document(userID)
+        
+        docRef.getDocument { (document, error) in
                 
-            }) { (Error) in
-                print("error")
-            }*/
+        if let document = document, document.exists {
+                    
+            self.userName = document.get("username") as! String
+            self.userEmail = document.get("email") as! String
+            self.userImage = document.get("imageProfile") as! String
+            
+            self.userEmailOutlet.text = self.userEmail
+            self.usernameOutlet.text = self.userName
             
             
-       /* queryRef.child(userID).queryOrderedByKey().observe(.value) { (DataSnapshot) in
-            print("prueba")
-                print(DataSnapshot)
-            
-                let value = DataSnapshot.value as? NSDictionary
-                let username = value?["imageProfile"] as? String ?? ""
-                print(username)
-            
-        }
             
             
-        */
-
-        
-        //QV7W70zj3MVNZcFfCDp0ItWdrH33
-        
-        
-        
-       
-        
-        
-        
-        var userRef: DocumentReference!
-            
-            let docRef = db.collection("users").document(userID)
-        
-            docRef.getDocument { (document, error) in
+            let storage = Storage.storage()
+            var reference: StorageReference!
+            reference = storage.reference(forURL: self.userImage)
+            reference.downloadURL { (url, error) in
+                let data = NSData(contentsOf: url!)
+                let image = UIImage(data: data! as Data)
                 
-                if let document = document, document.exists {
-                    
-                    var quedadasValue = document.get("username") as! String
-                    var quedadasValue2 = document.get("email") as! String
-                    var quedadasValue3 = document.get("imageProfile") as! String
-                    
-                    
-                    
-                    print(quedadasValue3)
-                }
+                self.imageProfileView.image = image
+
             }
-        
             
-
+            
+            
+            
+            
+                }
         }
         
-        
-        
-        
+    }
 }
 

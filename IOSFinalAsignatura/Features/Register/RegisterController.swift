@@ -73,7 +73,7 @@ class RegisterController: UIViewController {
         }
     }
     
-    func createUser() {
+    func createUser() { 
         
         guard let userName = userName.text else {return}
         guard let userEmail = userEmail.text else {return}
