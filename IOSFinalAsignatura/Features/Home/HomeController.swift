@@ -32,13 +32,13 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var users: [String:String] = [:]
     var quedadasID = [String]()
     var quedadasName = [String]()
-    var quedadasPlace = [String]()
+    var quedadasDate = [String]()
     var quedadasImage = [UIImage]()
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }
     var userID: String?
-    //var refreshControl: UIRefreshControl!
+    var refreshControl: UIRefreshControl!
     //let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
     
     override func viewDidLoad() {
@@ -69,12 +69,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         myCollectionView.reloadData()
     }
     
-    func getQuedadasImage(imageQuedada: UIImage) {
-        //quedadasImage.append(imageQuedada)
-        //myCollectionView.reloadData()
-        print("el array de imagenes : \(quedadasImage)")
-    }
-    
     func getAllUsers(users: [String : String]) {
         self.users = users
     }
@@ -90,7 +84,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             print(quedadas.count)
             print("el array de quedaddas es : \(self.quedadas)")
             quedadasName.append(value[0] as! String)
-            quedadasPlace.append(value[1] as! String)
+            quedadasDate.append(value[1] as! String)
             quedadasImage.append(value[2] as! UIImage)
         }
         
@@ -99,15 +93,27 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         /*if quedadasImage2.count != 0 {*/
             //print("array de imagenes: \(quedadasImage2)")
             //print("array de imagenes count : \(quedadasImage2.count)")
+        
+        if quedadas.count == 0 {
+            cell.locationImage.image = nil
+            cell.locationName.text = nil
+            cell.locationDescription.text = nil
+        } else {
             cell.locationImage.image = quedadasImage[indexPath.row]
-            cell.locationName.text = quedadasName[indexPath.row]
-            cell.locationDescription.text = quedadasPlace[indexPath.row]
+            
+                cell.locationName.text = quedadasName[indexPath.row]
+            
+                cell.locationDescription.text = quedadasDate[indexPath.row]
+        }
+        
+            
+            
         /*} else {
             
         }*/
         
         //This creates the shadows and modifies the cards a little bit
-        cell.contentView.layer.cornerRadius = 4.0
+        /*cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.clear.cgColor
         cell.contentView.layer.masksToBounds = false
@@ -116,7 +122,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.layer.shadowRadius = 4.0
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath*/
         
         return cell
     }

@@ -58,7 +58,9 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
         quedadaImageView.clipsToBounds = true
         
         for (key, value) in self.users {
-            usernames.append(User(id: key, username: value))
+            if key != userID {
+                usernames.append(User(id: key, username: value))
+            }
         }
         
         db = Firestore.firestore()
@@ -73,6 +75,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
     func handler(sender: UIDatePicker) -> String {
         let timeFormatter = DateFormatter()
         timeFormatter.dateStyle = DateFormatter.Style.long
+        timeFormatter.locale = Locale(identifier: "es_ES")
         timeFormatter.dateFormat = "EEEE, yyy-MM-dd, HH:mm" /*"yyy-MM-dd'T'HH:mm"*/
         let strDate = timeFormatter.string(from: quedadaDate.date)
         
@@ -86,9 +89,10 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
         let quedadasDate = handler(sender: quedadaDate)
         
         
-        let quedadaId = UUID().uuidString
+        //let quedadaId = UUID().uuidString
+        let tempId = self.db.collection("quedadas").document().documentID
         
-        let storageRef = Storage.storage().reference().child("quedadas/\(quedadaId)")
+        let storageRef = Storage.storage().reference().child("quedadas/\(tempId)")
         guard let myImage = quedadaImageView.image else {return}
         
         if let imageData = UIImageJPEGRepresentation(myImage, 1) {
@@ -102,7 +106,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                     
                     storageRef.downloadURL{ url, error in
                         let docData: [String: Any] = [
-                            "id": quedadaId,
+                            "id": tempId,
                             "lugar": quedadaPlace,
                             "nombre": quedadaName,
                             "calle": quedadaStreet,
@@ -114,12 +118,15 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                             print(error)
                         } else {
                             if !quedadaName.isEmpty && !quedadaPlace.isEmpty && !quedadaStreet.isEmpty && !quedadasDate.isEmpty && self.arrayUsersID.count > 0  {
-                                self.db.collection("quedadas").document(quedadaId).setData(docData) { err in
+                                
+
+                                
+                                self.db.collection("quedadas").document(tempId).setData(docData) { err in
                                     if let err = err {
                                         print("Error writing user on database: \(err)")
                                     } else {
-                                        Quedadas.getArrayQuedadas(userID: self.userID!, quedadaId: quedadaId, delegate: self)
-                                        self.getAllUsersQuedadasReference(quedadaID: quedadaId)
+                                        Quedadas.getArrayQuedadas(userID: self.userID!, quedadaId: tempId, delegate: self)
+                                        self.getAllUsersQuedadasReference(quedadaID: tempId)
                                     }
                                 }
                                 
