@@ -12,7 +12,8 @@ import Firebase
 class Quedadas: NSObject {
     
     static func getQuedadas(userID: String, delegate: QuedadasDelegate) {
-        var quedadas: [String:[String]] = [:]
+        var quedadas: [String:[Any]] = [:]
+        
         
         let docRef = Firestore.firestore().collection("users").document(userID)
         docRef.getDocument { (document, error) in
@@ -20,7 +21,7 @@ class Quedadas: NSObject {
                 let quedadasValue = document.get("quedadas") as! NSArray
                 
                 let quedadasIndex = quedadasValue.count
-                                
+                
                 if quedadasIndex != 0 {
                     for i in 0...(quedadasIndex - 1) {
                         let quedadaReference = quedadasValue[i] as! DocumentReference
@@ -30,8 +31,28 @@ class Quedadas: NSObject {
                                 let dataDescription = documentSnapshot.data()
                                 
                                 guard let dataQuedadas = dataDescription else {return}
-                                quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String]
-                                delegate.getAllQuedadas!(quedadas: quedadas)
+                                
+                                let quedadaImage = dataQuedadas["imageQuedada"] as! String
+                                
+                                let storage = Storage.storage()
+                                var reference: StorageReference!
+                                reference = storage.reference(forURL: quedadaImage)
+                                reference.downloadURL { (url, error) in
+                                    let data = NSData(contentsOf: url!)
+                                    let image = UIImage(data: data! as Data)
+                                    
+                                    quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String, image!]
+                                    delegate.getAllQuedadas!(quedadas: quedadas)
+                                    //self.imageProfileView.image = image
+                                    //delegate.getQuedadasImage?(imageQuedada: image!)
+                                }
+                                
+                                
+                                
+                                
+                                
+//                                quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String, dataQuedadas["imageQuedada"] as! UIImage]
+//                                delegate.getAllQuedadas!(quedadas: quedadas)
                             } else{
                                 print("Document does not exist")
                             }
@@ -43,6 +64,51 @@ class Quedadas: NSObject {
                 }
             }
         }
+    }
+    
+    static func getQuedadaImage(quedadasID: [String], delegate: QuedadasDelegate) {
+        
+        let quedadasIndex = quedadasID.count
+        
+        if quedadasIndex != 0 {
+            for i in 0...(quedadasIndex - 1) {
+                let docRef = Firestore.firestore().collection("quedadas").document(quedadasID[i])
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        
+                        let quedadaImage = document.get("imageQuedada") as! String
+                        
+                        let storage = Storage.storage()
+                        var reference: StorageReference!
+                        reference = storage.reference(forURL: quedadaImage)
+                        reference.downloadURL { (url, error) in
+                            let data = NSData(contentsOf: url!)
+                            let image = UIImage(data: data! as Data)
+                            //self.imageProfileView.image = image
+                            delegate.getQuedadasImage?(imageQuedada: image!)
+                        }
+                    }
+                }
+            }
+        } else {
+        }
+        /*let docRef = Firestore.firestore().collection("quedadas").document(quedadaID)
+         docRef.getDocument { (document, error) in
+         if let document = document, document.exists {
+         
+         let quedadaImage = document.get("imageQuedada") as! String
+         
+         let storage = Storage.storage()
+         var reference: StorageReference!
+         reference = storage.reference(forURL: quedadaImage)
+         reference.downloadURL { (url, error) in
+         let data = NSData(contentsOf: url!)
+         let image = UIImage(data: data! as Data)
+         //self.imageProfileView.image = image
+         delegate.getQuedadasImage?(imageQuedada: image!)
+         }
+         }
+         }*/
     }
     
     static func getArrayQuedadas(userID: String, quedadaId: String, delegate: QuedadasDelegate) {
@@ -84,8 +150,9 @@ class Quedadas: NSObject {
 }
 
 @objc protocol QuedadasDelegate {
-    @objc optional func getAllQuedadas(quedadas: [String:[String]])
+    @objc optional func getAllQuedadas(quedadas: [String:[Any]])
     @objc optional func getMyQuedadasReference(qudadasReference: Array<Any>)
     @objc optional func getAllUsers(users: [String:String])
+    @objc optional func getQuedadasImage(imageQuedada: UIImage)
 }
 

@@ -28,16 +28,18 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var myCollectionView: UICollectionView!
     @IBOutlet weak var menuView: UIViewX!
     
-    var quedadas: [String: [String]] = [:]
+    var quedadas: [String: [Any]] = [:]
     var users: [String:String] = [:]
+    var quedadasID = [String]()
     var quedadasName = [String]()
     var quedadasPlace = [String]()
+    var quedadasImage = [UIImage]()
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }
     var userID: String?
     //var refreshControl: UIRefreshControl!
-    let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
+    //let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,19 +54,25 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     /*func setUpRefreshControl() {
-     refreshControl = UIRefreshControl()
-     refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
-     refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-     myCollectionView.addSubview(refreshControl)
-     }
-     @objc func refresh() {
-     Quedadas.getQuedadas(userID: userID!, delegate: self)
-     }*/
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        myCollectionView.addSubview(refreshControl)
+    }
+    @objc func refresh() {
+        Quedadas.getQuedadas(userID: userID!, delegate: self)
+    }*/
     
-    func getAllQuedadas(quedadas: [String : [String]]) {
-        //guard let myQuedadas = quedadas else { return }
+    func getAllQuedadas(quedadas: [String : [Any]]) {
         self.quedadas = quedadas
+        //Quedadas.getQuedadaImage(quedadasID: quedadasID, delegate: self)
         myCollectionView.reloadData()
+    }
+    
+    func getQuedadasImage(imageQuedada: UIImage) {
+        //quedadasImage.append(imageQuedada)
+        //myCollectionView.reloadData()
+        print("el array de imagenes : \(quedadasImage)")
     }
     
     func getAllUsers(users: [String : String]) {
@@ -77,14 +85,27 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeViewCell
-        
+     
         for (_, value) in self.quedadas {
-            quedadasName.append(value[0])
-            quedadasPlace.append(value[1])
+            print(quedadas.count)
+            print("el array de quedaddas es : \(self.quedadas)")
+            quedadasName.append(value[0] as! String)
+            quedadasPlace.append(value[1] as! String)
+            quedadasImage.append(value[2] as! UIImage)
         }
-        cell.locationImage.image = locationImages[indexPath.row]
-        cell.locationName.text = quedadasName[indexPath.row]
-        cell.locationDescription.text = quedadasPlace[indexPath.row]
+        
+       //print(quedadasID)
+        //print("array de imagenes count : \(quedadasImage2.count)")
+        /*if quedadasImage2.count != 0 {*/
+            //print("array de imagenes: \(quedadasImage2)")
+            //print("array de imagenes count : \(quedadasImage2.count)")
+            cell.locationImage.image = quedadasImage[indexPath.row]
+            cell.locationName.text = quedadasName[indexPath.row]
+            cell.locationDescription.text = quedadasPlace[indexPath.row]
+        /*} else {
+            
+        }*/
+        
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
