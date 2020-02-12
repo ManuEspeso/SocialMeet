@@ -38,6 +38,7 @@ class Quedadas: NSObject {
                         }
                     }
                 } else {
+                    //NO EXISTEN LAS QUEDADAS
                     //delegate.getAllQuedadas?(quedadas: nil)
                 }
             }
