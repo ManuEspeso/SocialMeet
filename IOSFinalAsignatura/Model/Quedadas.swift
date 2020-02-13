@@ -43,16 +43,7 @@ class Quedadas: NSObject {
                                     
                                     quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["fecha"] as! String, image!]
                                     delegate.getAllQuedadas!(quedadas: quedadas)
-                                    //self.imageProfileView.image = image
-                                    //delegate.getQuedadasImage?(imageQuedada: image!)
                                 }
-                                
-                                
-                                
-                                
-                                
-//                                quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["lugar"] as! String, dataQuedadas["imageQuedada"] as! UIImage]
-//                                delegate.getAllQuedadas!(quedadas: quedadas)
                             } else{
                                 print("Document does not exist")
                             }

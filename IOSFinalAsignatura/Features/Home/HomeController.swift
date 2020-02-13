@@ -39,7 +39,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     var userID: String?
     var refreshControl: UIRefreshControl!
-    //let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
+    let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
+    let locationImages2 = ["material_logo1", "material_logo2", "material_logo3", "material_logo4"]
+    let locationImages3 = ["material_logo1", "material_logo2", "material_logo3", "material_logo4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,23 +52,33 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
-        //setUpRefreshControl()
+        setUpRefreshControl()
     }
     
-    /*func setUpRefreshControl() {
-        refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
-        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-        myCollectionView.addSubview(refreshControl)
+    func setUpRefreshControl() {
+     refreshControl = UIRefreshControl()
+     refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
+     refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+     myCollectionView.addSubview(refreshControl)
+     }
+     @objc func refresh() {
+        refreshControl.beginRefreshing()
+     Quedadas.getQuedadas(userID: userID!, delegate: self)
+        refreshControl.endRefreshing()
+     }
+    
+    func run(after seconds: Int, completion: @escaping () -> Void) {
+        let deadline = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            completion()
+        }
     }
-    @objc func refresh() {
-        Quedadas.getQuedadas(userID: userID!, delegate: self)
-    }*/
     
     func getAllQuedadas(quedadas: [String : [Any]]) {
         self.quedadas = quedadas
-        //Quedadas.getQuedadaImage(quedadasID: quedadasID, delegate: self)
-        myCollectionView.reloadData()
+        run(after: 1) {
+            self.myCollectionView.reloadData()
+        }
     }
     
     func getAllUsers(users: [String : String]) {
@@ -79,41 +91,25 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeViewCell
-     
+        
         for (_, value) in self.quedadas {
-            print(quedadas.count)
-            print("el array de quedaddas es : \(self.quedadas)")
             quedadasName.append(value[0] as! String)
             quedadasDate.append(value[1] as! String)
             quedadasImage.append(value[2] as! UIImage)
         }
         
-       //print(quedadasID)
-        //print("array de imagenes count : \(quedadasImage2.count)")
-        /*if quedadasImage2.count != 0 {*/
-            //print("array de imagenes: \(quedadasImage2)")
-            //print("array de imagenes count : \(quedadasImage2.count)")
-        
-        if quedadas.count == 0 {
-            cell.locationImage.image = nil
-            cell.locationName.text = nil
-            cell.locationDescription.text = nil
-        } else {
-            cell.locationImage.image = quedadasImage[indexPath.row]
-            
-                cell.locationName.text = quedadasName[indexPath.row]
-            
-                cell.locationDescription.text = quedadasDate[indexPath.row]
-        }
-        
-            
-            
-        /*} else {
-            
-        }*/
+        /*if quedadas.count == 0 {
+         cell.locationImage.image = nil
+         cell.locationName.text = nil
+         cell.locationDescription.text = nil
+         } else {*/
+        cell.locationImage.image = quedadasImage[indexPath.row]
+        cell.locationName.text = quedadasName[indexPath.row]
+        cell.locationDescription.text = quedadasDate[indexPath.row]
+        //}
         
         //This creates the shadows and modifies the cards a little bit
-        /*cell.contentView.layer.cornerRadius = 4.0
+        cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.clear.cgColor
         cell.contentView.layer.masksToBounds = false
@@ -122,7 +118,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.layer.shadowRadius = 4.0
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath*/
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
         return cell
     }
