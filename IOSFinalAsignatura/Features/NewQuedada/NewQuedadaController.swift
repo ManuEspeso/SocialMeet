@@ -18,12 +18,23 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var quedadaDate: UIDatePicker!
     @IBOutlet weak var quedadaImageView: UIImageView!
     @IBOutlet weak var uploadQuedadaImage: UIButton!
-    @IBOutlet weak var addButton: UIButton!
-    @IBAction func addQuedada(_ sender: Any) {
-        arrayUsersID = selectedItems.map { $0.id }
-        insertQuedada()
+    @IBOutlet weak var topCustomButton: CustomButton!
+    @IBAction func customButton(_ sender: CustomButton) {
+        
+        let quedadasName = quedadaName.text
+        let quedadasPlace = quedadaPlace.text
+        let quedadasStreet = quedadaStreet.text
+        let myImage = quedadaImageView.image
+        let quedadasDate = handler(sender: quedadaDate)
+        
+        if !quedadasName!.isEmpty && !quedadasPlace!.isEmpty && !quedadasStreet!.isEmpty && !quedadasDate.isEmpty && myImage != nil  {
+            arrayUsersID = selectedItems.map { $0.id }
+            insertQuedada()
+        } else {
+            topCustomButton.shake()
+        }
     }
-    
+
     var userID: String?
     var db: Firestore!
     var users: [String:String] = [:]
@@ -83,44 +94,34 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func insertQuedada() {
-        guard let quedadaName = quedadaName.text else {return}
-        guard let quedadaPlace = quedadaPlace.text else {return}
-        guard let quedadaStreet = quedadaStreet.text else {return}
         let quedadasDate = handler(sender: quedadaDate)
         
-        
-        //let quedadaId = UUID().uuidString
-        let tempId = self.db.collection("quedadas").document().documentID
-        
-        let storageRef = Storage.storage().reference().child("quedadas/\(tempId)")
-        guard let myImage = quedadaImageView.image else {return}
-        
-        if let imageData = UIImageJPEGRepresentation(myImage, 1) {
-            storageRef.putData(imageData, metadata: nil, completion:
-                { (_, error) in
-                    
-                    if error != nil {
-                        print(error!)
-                        return
-                    }
-                    
-                    storageRef.downloadURL{ url, error in
-                        let docData: [String: Any] = [
-                            "id": tempId,
-                            "lugar": quedadaPlace,
-                            "nombre": quedadaName,
-                            "calle": quedadaStreet,
-                            "fecha": quedadasDate,
-                            "imageQuedada": url!.absoluteString,
-                        ]
+        if self.arrayUsersID.count > 0  {
+            let tempId = self.db.collection("quedadas").document().documentID
+            
+            let storageRef = Storage.storage().reference().child("quedadas/\(tempId)")
+            if let imageData = UIImageJPEGRepresentation(quedadaImageView.image!, 1) {
+                storageRef.putData(imageData, metadata: nil, completion:
+                    { (_, error) in
                         
-                        if let error = error {
-                            print(error)
-                        } else {
-                            if !quedadaName.isEmpty && !quedadaPlace.isEmpty && !quedadaStreet.isEmpty && !quedadasDate.isEmpty && self.arrayUsersID.count > 0  {
-                                
-
-                                
+                        if error != nil {
+                            print(error!)
+                            return
+                        }
+                        
+                        storageRef.downloadURL{ url, error in
+                            let docData: [String: Any] = [
+                                "id": tempId,
+                                "lugar": self.quedadaPlace.text!,
+                                "nombre": self.quedadaName.text!,
+                                "calle": self.quedadaStreet.text!,
+                                "fecha": quedadasDate,
+                                "imageQuedada": url!.absoluteString,
+                            ]
+                            
+                            if let error = error {
+                                print(error)
+                            } else {                                
                                 self.db.collection("quedadas").document(tempId).setData(docData) { err in
                                     if let err = err {
                                         print("Error writing user on database: \(err)")
@@ -129,13 +130,12 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                                         self.getAllUsersQuedadasReference(quedadaID: tempId)
                                     }
                                 }
-                                
-                            } else {
-                                self.showAlert(alertText: "Campos Vacios", alertMessage: "Rellene todos los campos y seleccione los usuarios para poder crear la quedada")
                             }
                         }
-                    }
-            })
+                })
+            }
+        } else {
+            self.showAlert(alertText: "Sin Participantes!", alertMessage: "Debe de añadir minimo un participante para poder crear la quedada")
         }
     }
     

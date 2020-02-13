@@ -23,6 +23,7 @@
 		DDAFCEB023ABDF5B00FC668C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */; };
 		DDB2F99823E30AEB0057E0D8 /* NewQuedadaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */; };
 		DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB64C9D23D05B72005D83A1 /* UIViewX.swift */; };
+		DDB71F6E23F5BB3E00696FCF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB71F6D23F5BB3E00696FCF /* CustomButton.swift */; };
 		DDD3A45E23EB533700D1830C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3A45D23EB533700D1830C /* User.swift */; };
 		DDD3A46023EB537800D1830C /* NewQuedadaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3A45F23EB537800D1830C /* NewQuedadaViewCell.swift */; };
 		DDD3A46623EB8A1900D1830C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3A46523EB8A1900D1830C /* Extensions.swift */; };
@@ -50,6 +51,7 @@
 		DDAFCEAF23ABDF5B00FC668C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDB2F99723E30AEB0057E0D8 /* NewQuedadaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuedadaController.swift; sourceTree = "<group>"; };
 		DDB64C9D23D05B72005D83A1 /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		DDB71F6D23F5BB3E00696FCF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DDD3A45D23EB533700D1830C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DDD3A45F23EB537800D1830C /* NewQuedadaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuedadaViewCell.swift; sourceTree = "<group>"; };
 		DDD3A46523EB8A1900D1830C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				DDB64C9D23D05B72005D83A1 /* UIViewX.swift */,
 				386044ED23C8FFDB0083B73C /* GradientView.swift */,
 				DDD3BFFD23DFA08B00741316 /* UIButtonX.swift */,
+				DDB71F6D23F5BB3E00696FCF /* CustomButton.swift */,
 			);
 			path = DesignableX;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
 				DDD3A46023EB537800D1830C /* NewQuedadaViewCell.swift in Sources */,
+				DDB71F6E23F5BB3E00696FCF /* CustomButton.swift in Sources */,
 				DDD3A46623EB8A1900D1830C /* Extensions.swift in Sources */,
 				DDB2F99823E30AEB0057E0D8 /* NewQuedadaController.swift in Sources */,
 				386044EE23C8FFDB0083B73C /* GradientView.swift in Sources */,

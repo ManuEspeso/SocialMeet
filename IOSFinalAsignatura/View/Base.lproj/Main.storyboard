@@ -487,26 +487,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="material_logo" translatesAutoresizingMaskIntoConstraints="NO" id="B6O-wz-p6x">
-                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="150"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="kmo-br-QeA"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="177"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCR-cV-NYp">
-                                                    <rect key="frame" x="20" y="158" width="309" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dia cualquiera" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLM-rI-O6U">
+                                                    <rect key="frame" x="20" y="216" width="309" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="I2F-VR-z1O"/>
+                                                        <constraint firstAttribute="height" constant="25" id="p7A-Dj-GUg"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A beautiful beach resort off the coast of Hawaii" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLM-rI-O6U">
-                                                    <rect key="frame" x="20" y="193" width="309" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCR-cV-NYp">
+                                                    <rect key="frame" x="20" y="184" width="309" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="p7A-Dj-GUg"/>
+                                                        <constraint firstAttribute="height" constant="30" id="I2F-VR-z1O"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -515,13 +512,14 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="KLM-rI-O6U" secondAttribute="trailing" constant="12" id="5Et-9h-vBv"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="KLM-rI-O6U" secondAttribute="bottom" constant="1" id="B1j-T2-3Ot"/>
                                             <constraint firstItem="KLM-rI-O6U" firstAttribute="leading" secondItem="51g-s0-Atc" secondAttribute="leadingMargin" constant="12" id="IE0-Hn-hVo"/>
-                                            <constraint firstItem="cCR-cV-NYp" firstAttribute="top" secondItem="B6O-wz-p6x" secondAttribute="bottom" constant="8" id="LYD-hZ-nNm"/>
                                             <constraint firstAttribute="trailing" secondItem="B6O-wz-p6x" secondAttribute="trailing" id="LaQ-Yc-uNO"/>
+                                            <constraint firstItem="cCR-cV-NYp" firstAttribute="top" secondItem="B6O-wz-p6x" secondAttribute="bottom" constant="7" id="fWd-Sf-345"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="cCR-cV-NYp" secondAttribute="trailing" constant="12" id="mg7-bt-ea7"/>
                                             <constraint firstItem="B6O-wz-p6x" firstAttribute="top" secondItem="51g-s0-Atc" secondAttribute="top" id="pZa-sG-cio"/>
                                             <constraint firstItem="B6O-wz-p6x" firstAttribute="leading" secondItem="51g-s0-Atc" secondAttribute="leading" id="piJ-9e-Ijd"/>
-                                            <constraint firstItem="KLM-rI-O6U" firstAttribute="top" secondItem="cCR-cV-NYp" secondAttribute="bottom" constant="5" id="wN5-0p-gwM"/>
+                                            <constraint firstItem="KLM-rI-O6U" firstAttribute="top" secondItem="cCR-cV-NYp" secondAttribute="bottom" constant="2" id="wN5-0p-gwM"/>
                                             <constraint firstItem="cCR-cV-NYp" firstAttribute="leading" secondItem="51g-s0-Atc" secondAttribute="leadingMargin" constant="12" id="xhx-fC-BFc"/>
                                         </constraints>
                                         <size key="customSize" width="349" height="250"/>
@@ -628,7 +626,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mOI-5z-w0C">
-                                <rect key="frame" x="44" y="514" width="287" height="165"/>
+                                <rect key="frame" x="44" y="510" width="287" height="151"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="287" id="M8x-gQ-hfN"/>
@@ -642,8 +640,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5H-cS-wPw">
-                                                    <rect key="frame" x="15" y="21" width="257" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="15" y="21" width="257" height="19"/>
+                                                    <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -661,7 +659,7 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9u-KM-49Y" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="44" y="215" width="287" height="43"/>
+                                <rect key="frame" x="44" y="216" width="287" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="oEG-Kr-0ae"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="287" id="x6n-9c-FkI"/>
@@ -685,7 +683,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lugar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIp-v8-f8q" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="44" y="268" width="287" height="43"/>
+                                <rect key="frame" x="44" y="269" width="287" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="287" id="ao7-Di-t3Q"/>
                                     <constraint firstAttribute="height" constant="43" id="zSb-ZI-RuR"/>
@@ -708,19 +706,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oO-IT-XRc">
-                                <rect key="frame" x="165" y="694" width="45" height="30"/>
-                                <state key="normal" title="Añadir"/>
-                                <connections>
-                                    <action selector="addQuedada:" destination="0em-Iv-hCf" eventType="touchUpInside" id="kjD-jg-GKy"/>
-                                </connections>
-                            </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="doy-PP-KIg">
-                                <rect key="frame" x="44" y="379" width="287" height="120"/>
+                                <rect key="frame" x="44" y="380" width="287" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="5f5-Ly-6Zb"/>
                                     <constraint firstAttribute="width" constant="287" id="d0H-ln-afZ"/>
                                 </constraints>
+                                <locale key="locale" localeIdentifier="es_ES"/>
                             </datePicker>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qUo-hm-yjN">
                                 <rect key="frame" x="112.66666666666669" y="15" width="150" height="150"/>
@@ -730,13 +722,14 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKl-Pf-aqe">
-                                <rect key="frame" x="138" y="175" width="99" height="30"/>
+                                <rect key="frame" x="134" y="175" width="107" height="31"/>
+                                <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="17"/>
                                 <state key="normal" title="Añadir Imagen">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Calle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxP-xX-FZl" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="44" y="321" width="287" height="43"/>
+                                <rect key="frame" x="44" y="322" width="287" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="287" id="jer-MB-gMl"/>
                                     <constraint firstAttribute="height" constant="43" id="l0u-lq-lQN"/>
@@ -759,10 +752,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oO-IT-XRc" customClass="CustomButton" customModule="IOSFinalAsignatura" customModuleProvider="target">
+                                <rect key="frame" x="92.666666666666686" y="671" width="190" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="UAD-V6-LPS"/>
+                                    <constraint firstAttribute="height" constant="50" id="ktx-SM-I5j"/>
+                                </constraints>
+                                <state key="normal" title="Añadir"/>
+                                <connections>
+                                    <action selector="customButton:" destination="0em-Iv-hCf" eventType="touchUpInside" id="QT0-Fb-ts0"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.8637872338" green="0.2903639972" blue="0.47759193179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mOI-5z-w0C" firstAttribute="top" secondItem="doy-PP-KIg" secondAttribute="bottom" constant="15" id="7J3-ze-Y3y"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2oO-IT-XRc" secondAttribute="bottom" constant="3" id="3eI-WH-SlE"/>
                             <constraint firstItem="XIp-v8-f8q" firstAttribute="centerX" secondItem="2UZ-Yl-VS4" secondAttribute="centerX" id="9TU-qY-4dO"/>
                             <constraint firstItem="BxP-xX-FZl" firstAttribute="centerX" secondItem="2UZ-Yl-VS4" secondAttribute="centerX" id="CEM-pv-UAT"/>
                             <constraint firstItem="B9u-KM-49Y" firstAttribute="centerX" secondItem="2UZ-Yl-VS4" secondAttribute="centerX" id="Cnh-1O-8EM"/>
@@ -772,25 +776,24 @@
                             <constraint firstItem="qUo-hm-yjN" firstAttribute="centerX" secondItem="2UZ-Yl-VS4" secondAttribute="centerX" id="bO7-Ms-JcZ"/>
                             <constraint firstItem="B9u-KM-49Y" firstAttribute="top" secondItem="nKl-Pf-aqe" secondAttribute="bottom" constant="10" id="bYv-Zb-lDX"/>
                             <constraint firstItem="mOI-5z-w0C" firstAttribute="centerX" secondItem="2UZ-Yl-VS4" secondAttribute="centerX" id="dRL-PK-fbY"/>
-                            <constraint firstItem="2oO-IT-XRc" firstAttribute="bottom" secondItem="S1U-gD-cMB" secondAttribute="bottom" id="eWn-HE-vul"/>
                             <constraint firstItem="nKl-Pf-aqe" firstAttribute="top" secondItem="qUo-hm-yjN" secondAttribute="bottom" constant="10" id="gT7-dM-3WE"/>
-                            <constraint firstItem="2oO-IT-XRc" firstAttribute="centerX" secondItem="2UZ-Yl-VS4" secondAttribute="centerX" id="gTM-8F-4h4"/>
+                            <constraint firstItem="2oO-IT-XRc" firstAttribute="centerX" secondItem="2UZ-Yl-VS4" secondAttribute="centerX" id="hLr-vt-FWc"/>
                             <constraint firstItem="doy-PP-KIg" firstAttribute="top" secondItem="BxP-xX-FZl" secondAttribute="bottom" constant="15" id="hU6-K2-XBp"/>
-                            <constraint firstItem="2oO-IT-XRc" firstAttribute="top" secondItem="mOI-5z-w0C" secondAttribute="bottom" constant="15" id="nmR-8f-17h"/>
+                            <constraint firstItem="2oO-IT-XRc" firstAttribute="top" secondItem="mOI-5z-w0C" secondAttribute="bottom" constant="10" id="hgd-ek-E8M"/>
                             <constraint firstItem="XIp-v8-f8q" firstAttribute="top" secondItem="B9u-KM-49Y" secondAttribute="bottom" constant="10" id="u0a-y9-kNO"/>
                             <constraint firstItem="BxP-xX-FZl" firstAttribute="top" secondItem="XIp-v8-f8q" secondAttribute="bottom" constant="10" id="uz6-5K-oR8"/>
-                            <constraint firstItem="mOI-5z-w0C" firstAttribute="top" secondItem="doy-PP-KIg" secondAttribute="bottom" constant="15" id="ycP-Tf-F3S"/>
+                            <constraint firstItem="mOI-5z-w0C" firstAttribute="top" secondItem="doy-PP-KIg" secondAttribute="bottom" constant="10" id="ycP-Tf-F3S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S1U-gD-cMB"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="2oO-IT-XRc" id="8t1-vL-xTP"/>
                         <outlet property="mTableView" destination="mOI-5z-w0C" id="vmA-n5-DpI"/>
                         <outlet property="quedadaDate" destination="doy-PP-KIg" id="JMN-GY-gYS"/>
                         <outlet property="quedadaImageView" destination="qUo-hm-yjN" id="Gge-64-p6a"/>
                         <outlet property="quedadaName" destination="B9u-KM-49Y" id="JFA-Wa-v1p"/>
                         <outlet property="quedadaPlace" destination="XIp-v8-f8q" id="Kod-Zd-WIw"/>
                         <outlet property="quedadaStreet" destination="BxP-xX-FZl" id="jSz-Mo-YL7"/>
+                        <outlet property="topCustomButton" destination="2oO-IT-XRc" id="1yZ-fM-B6a"/>
                         <outlet property="uploadQuedadaImage" destination="nKl-Pf-aqe" id="dKh-t5-otZ"/>
                     </connections>
                 </viewController>

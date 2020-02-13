@@ -30,7 +30,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var quedadas: [String: [Any]] = [:]
     var users: [String:String] = [:]
-    var quedadasID = [String]()
     var quedadasName = [String]()
     var quedadasDate = [String]()
     var quedadasImage = [UIImage]()
@@ -39,9 +38,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     var userID: String?
     var refreshControl: UIRefreshControl!
-    let locationImages = [UIImage(named: "material_logo"), UIImage(named: "material_logo"), UIImage(named: "material_logo"),  UIImage(named: "material_logo")]
-    let locationImages2 = ["material_logo1", "material_logo2", "material_logo3", "material_logo4"]
-    let locationImages3 = ["material_logo1", "material_logo2", "material_logo3", "material_logo4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,16 +52,16 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func setUpRefreshControl() {
-     refreshControl = UIRefreshControl()
-     refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
-     refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-     myCollectionView.addSubview(refreshControl)
-     }
-     @objc func refresh() {
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        myCollectionView.addSubview(refreshControl)
+    }
+    @objc func refresh() {
         refreshControl.beginRefreshing()
-     Quedadas.getQuedadas(userID: userID!, delegate: self)
+        Quedadas.getQuedadas(userID: userID!, delegate: self)
         refreshControl.endRefreshing()
-     }
+    }
     
     func run(after seconds: Int, completion: @escaping () -> Void) {
         let deadline = DispatchTime.now() + .seconds(seconds)
@@ -98,15 +94,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             quedadasImage.append(value[2] as! UIImage)
         }
         
-        /*if quedadas.count == 0 {
-         cell.locationImage.image = nil
-         cell.locationName.text = nil
-         cell.locationDescription.text = nil
-         } else {*/
         cell.locationImage.image = quedadasImage[indexPath.row]
         cell.locationName.text = quedadasName[indexPath.row]
         cell.locationDescription.text = quedadasDate[indexPath.row]
-        //}
         
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
