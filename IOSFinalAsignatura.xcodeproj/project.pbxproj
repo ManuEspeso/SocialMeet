@@ -17,6 +17,8 @@
 		DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D679223BBC0ED00905BE7 /* TabBarController.swift */; };
 		DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D679423BBC1BA00905BE7 /* ProfileController.swift */; };
 		DD97094F23D85899009881FA /* Quedadas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD97094E23D85899009881FA /* Quedadas.swift */; };
+		DDA2971623F84DC800B73BB9 /* QuedadaDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2971523F84DC800B73BB9 /* QuedadaDetailController.swift */; };
+		DDA2971923F8649B00B73BB9 /* QuedadaDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2971823F8649B00B73BB9 /* QuedadaDetailViewCell.swift */; };
 		DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */; };
 		DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */; };
 		DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB5023B37DC0005E9552 /* HomeController.swift */; };
@@ -45,6 +47,8 @@
 		DD6D679223BBC0ED00905BE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD6D679423BBC1BA00905BE7 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		DD97094E23D85899009881FA /* Quedadas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quedadas.swift; sourceTree = "<group>"; };
+		DDA2971523F84DC800B73BB9 /* QuedadaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuedadaDetailController.swift; sourceTree = "<group>"; };
+		DDA2971823F8649B00B73BB9 /* QuedadaDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuedadaDetailViewCell.swift; sourceTree = "<group>"; };
 		DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		DDAFBB5023B37DC0005E9552 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,23 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		DDA2971423F84D9900B73BB9 /* QuedadaDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DDA2971523F84DC800B73BB9 /* QuedadaDetailController.swift */,
+				DDA2971723F8647500B73BB9 /* cell */,
+			);
+			path = QuedadaDetail;
+			sourceTree = "<group>";
+		};
+		DDA2971723F8647500B73BB9 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDA2971823F8649B00B73BB9 /* QuedadaDetailViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		DDAFCEB123ABE2CB00FC668C /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +195,7 @@
 		DDAFCEB423ABE31000FC668C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				DDA2971423F84D9900B73BB9 /* QuedadaDetail */,
 				DDB2F99623E30ACC0057E0D8 /* NewQuedada */,
 				DDAFCEB623ABE34C00FC668C /* Login */,
 				DDAFCEB723ABE35D00FC668C /* Register */,
@@ -391,8 +413,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD3A45E23EB533700D1830C /* User.swift in Sources */,
+				DDA2971623F84DC800B73BB9 /* QuedadaDetailController.swift in Sources */,
 				895CF82323A1195500B16D37 /* LoginController.swift in Sources */,
 				DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */,
+				DDA2971923F8649B00B73BB9 /* QuedadaDetailViewCell.swift in Sources */,
 				DDD3BFFE23DFA08B00741316 /* UIButtonX.swift in Sources */,
 				DDB64C9E23D05B72005D83A1 /* UIViewX.swift in Sources */,
 				DD97094F23D85899009881FA /* Quedadas.swift in Sources */,

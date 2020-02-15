@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U4A-cV-dN2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -21,10 +21,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                        <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                        <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -182,7 +182,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JJM-TZ-57o" firstAttribute="trailing" secondItem="9h7-6x-PYk" secondAttribute="trailing" constant="20" id="5bK-FD-Hdy"/>
                             <constraint firstItem="toc-o5-wXM" firstAttribute="trailing" secondItem="JJM-TZ-57o" secondAttribute="trailing" id="66U-f0-oCu"/>
@@ -216,10 +216,10 @@
                         <viewLayoutGuide key="safeArea" id="JJM-TZ-57o"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="thirdColor">
                                 <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -266,10 +266,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                        <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                        <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -431,10 +431,10 @@
                         <viewLayoutGuide key="safeArea" id="jhI-3C-97r"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -617,6 +617,143 @@
             </objects>
             <point key="canvasLocation" x="3365.5999999999999" y="-75.369458128078819"/>
         </scene>
+        <!--Quedada Detail Controller-->
+        <scene sceneID="OWh-CD-eNf">
+            <objects>
+                <viewController storyboardIdentifier="QuedadaDetailController" id="v2H-KZ-nHb" customClass="QuedadaDetailController" customModule="IOSFinalAsignatura" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BQx-qh-Z6R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vvg-ZC-OCV">
+                                <rect key="frame" x="97.666666666666686" y="84" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="0X2-Du-vL7"/>
+                                    <constraint firstAttribute="width" constant="180" id="zGC-b4-Y8q"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuedadaName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrv-Za-UMv">
+                                <rect key="frame" x="107.66666666666669" y="324" width="160" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="YcE-dG-pc9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuedadaPlace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-gM-udb">
+                                <rect key="frame" x="125.66666666666669" y="392" width="124" height="23"/>
+                                <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuedadaStreet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXL-Sb-AIb">
+                                <rect key="frame" x="123" y="455" width="129" height="23"/>
+                                <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuedadaDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoE-8e-30R">
+                                <rect key="frame" x="128.66666666666666" y="518" width="118" height="23"/>
+                                <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gAB-ph-RSN">
+                                <rect key="frame" x="99.666666666666671" y="516" width="24" height="23"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="ktj-0q-JGH"/>
+                                    <constraint firstAttribute="width" constant="24" id="o6O-6Z-lwg"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-5Y-ySI">
+                                <rect key="frame" x="94" y="454.33333333333331" width="24" height="23"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="WY6-YZ-4SF"/>
+                                    <constraint firstAttribute="width" constant="24" id="wiE-wH-bvB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cu2-IZ-ZYS">
+                                <rect key="frame" x="96.666666666666671" y="391.66666666666669" width="24" height="23.666666666666686"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="WDv-bS-ZNt"/>
+                                    <constraint firstAttribute="height" constant="24" id="lLc-8G-hAu"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-eX-Y4N">
+                                <rect key="frame" x="44" y="581" width="287" height="146"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="287" id="mAW-Rc-6cj"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="61" id="Jau-cA-q7n" customClass="QuedadaDetailViewCell" customModule="IOSFinalAsignatura" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="287" height="61"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jau-cA-q7n" id="to5-fr-Ep4">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-e2-XC5">
+                                                    <rect key="frame" x="15" y="21" width="257" height="19"/>
+                                                    <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="M0c-e2-XC5" firstAttribute="leading" secondItem="to5-fr-Ep4" secondAttribute="leadingMargin" id="bK6-03-MBC"/>
+                                                <constraint firstItem="M0c-e2-XC5" firstAttribute="top" secondItem="to5-fr-Ep4" secondAttribute="topMargin" constant="10" id="d2a-vV-LgY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="M0c-e2-XC5" secondAttribute="trailing" id="tzM-DG-fqZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="userNameLabel" destination="M0c-e2-XC5" id="Kav-xB-P5C"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8637872338" green="0.2903639972" blue="0.47759193179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cu2-IZ-ZYS" firstAttribute="top" secondItem="7kJ-gM-udb" secondAttribute="top" id="06y-Rt-XKJ"/>
+                            <constraint firstItem="LXL-Sb-AIb" firstAttribute="leading" secondItem="LlL-5Y-ySI" secondAttribute="trailing" constant="5" id="1xf-XO-FgB"/>
+                            <constraint firstItem="LXL-Sb-AIb" firstAttribute="top" secondItem="7kJ-gM-udb" secondAttribute="bottom" constant="40" id="2xI-h0-uUC"/>
+                            <constraint firstItem="Vvg-ZC-OCV" firstAttribute="centerX" secondItem="BQx-qh-Z6R" secondAttribute="centerX" id="6hX-Ne-fvU"/>
+                            <constraint firstItem="7kJ-gM-udb" firstAttribute="leading" secondItem="cu2-IZ-ZYS" secondAttribute="trailing" constant="5" id="7XW-Z7-IMa"/>
+                            <constraint firstItem="gAB-ph-RSN" firstAttribute="top" secondItem="JoE-8e-30R" secondAttribute="top" constant="-3" id="8Re-gF-sEc"/>
+                            <constraint firstItem="JoE-8e-30R" firstAttribute="top" secondItem="LXL-Sb-AIb" secondAttribute="bottom" constant="40" id="A66-Hm-S8Y"/>
+                            <constraint firstItem="7kJ-gM-udb" firstAttribute="centerX" secondItem="BQx-qh-Z6R" secondAttribute="centerX" id="AEx-Ba-t3e"/>
+                            <constraint firstItem="yrv-Za-UMv" firstAttribute="top" secondItem="Vvg-ZC-OCV" secondAttribute="bottom" constant="60" id="Ev1-jc-feo"/>
+                            <constraint firstItem="JoE-8e-30R" firstAttribute="centerX" secondItem="BQx-qh-Z6R" secondAttribute="centerX" id="Krw-WS-OJe"/>
+                            <constraint firstItem="yrv-Za-UMv" firstAttribute="centerX" secondItem="BQx-qh-Z6R" secondAttribute="centerX" id="LVy-xY-y80"/>
+                            <constraint firstItem="7kJ-gM-udb" firstAttribute="top" secondItem="yrv-Za-UMv" secondAttribute="bottom" constant="40" id="RwF-id-YqJ"/>
+                            <constraint firstItem="nUg-vW-d0a" firstAttribute="bottom" secondItem="3Rg-eX-Y4N" secondAttribute="bottom" constant="51" id="VTt-i9-OvV"/>
+                            <constraint firstItem="3Rg-eX-Y4N" firstAttribute="centerX" secondItem="BQx-qh-Z6R" secondAttribute="centerX" id="Wod-Fc-Uwi"/>
+                            <constraint firstItem="JoE-8e-30R" firstAttribute="leading" secondItem="gAB-ph-RSN" secondAttribute="trailing" constant="5" id="aNO-h2-m1G"/>
+                            <constraint firstItem="Vvg-ZC-OCV" firstAttribute="top" secondItem="nUg-vW-d0a" secondAttribute="top" constant="40" id="hui-ml-2It"/>
+                            <constraint firstItem="LXL-Sb-AIb" firstAttribute="centerX" secondItem="BQx-qh-Z6R" secondAttribute="centerX" id="lfy-NE-vLs"/>
+                            <constraint firstItem="LlL-5Y-ySI" firstAttribute="top" secondItem="LXL-Sb-AIb" secondAttribute="top" constant="-1.9999999999999432" id="qAk-qk-hgW"/>
+                            <constraint firstItem="3Rg-eX-Y4N" firstAttribute="top" secondItem="JoE-8e-30R" secondAttribute="bottom" constant="40" id="qzE-GC-mEo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nUg-vW-d0a"/>
+                    </view>
+                    <connections>
+                        <outlet property="mTableView" destination="3Rg-eX-Y4N" id="902-tn-4mK"/>
+                        <outlet property="quedadaDate" destination="JoE-8e-30R" id="Nvj-Wa-khH"/>
+                        <outlet property="quedadaImage" destination="Vvg-ZC-OCV" id="kRJ-zV-bcw"/>
+                        <outlet property="quedadaName" destination="yrv-Za-UMv" id="szR-FG-Jt7"/>
+                        <outlet property="quedadaPlace" destination="7kJ-gM-udb" id="3hD-1e-Tv6"/>
+                        <outlet property="quedadaStreet" destination="LXL-Sb-AIb" id="eg1-Jv-WN0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="srL-Ou-2Tf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4428" y="308.86699507389164"/>
+        </scene>
         <!--New Quedada Controller-->
         <scene sceneID="703-tf-D7p">
             <objects>
@@ -625,7 +762,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mOI-5z-w0C">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mOI-5z-w0C">
                                 <rect key="frame" x="44" y="510" width="287" height="151"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -799,7 +936,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD7-Mf-CAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4272.8000000000002" y="-75.369458128078819"/>
+            <point key="canvasLocation" x="4409" y="-409"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YBF-jv-XVa">
@@ -854,9 +991,12 @@
     <resources>
         <image name="addQuedada" width="48" height="48"/>
         <image name="baseline_arrow_back_white_24dp" width="24" height="24"/>
+        <image name="clock" catalog="system" width="64" height="62"/>
+        <image name="house" catalog="system" width="64" height="54"/>
         <image name="ic_lock_outline_white_2x" width="48" height="48"/>
         <image name="ic_mail_outline_white_2x-1" width="24" height="24"/>
         <image name="ic_person_outline_white_2x" width="48" height="48"/>
+        <image name="mappin.and.ellipse" catalog="system" width="62" height="64"/>
         <image name="material_logo" width="1024" height="1024"/>
         <image name="person.crop.circle.fill" catalog="system" width="64" height="62"/>
         <image name="plus" width="18.333333969116211" height="18.333333969116211"/>

@@ -29,19 +29,22 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
         
         if !quedadasName!.isEmpty && !quedadasPlace!.isEmpty && !quedadasStreet!.isEmpty && !quedadasDate.isEmpty && myImage != nil  {
             arrayUsersID = selectedItems.map { $0.id }
+            arrayUsersName = selectedItems.map { $0.username }
             insertQuedada()
         } else {
             topCustomButton.shake()
         }
     }
-
+    
     var userID: String?
     var db: Firestore!
     var users: [String:String] = [:]
     var usernames = [User]()
     var arrayUsersID = [String]()
+    var arrayUsersName = [String]()
     var itemsUsers = [ViewUserItem]()
     var imagePicker: UIImagePickerController!
+    var userName: String = ""
     
     var didToggleSelection: ((_ hasSelection: Bool) -> ())? {
         didSet {
@@ -73,6 +76,8 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                 usernames.append(User(id: key, username: value))
             }
         }
+        
+        Quedadas.getMyUserName(userID: self.userID!, delegate: self)
         
         db = Firestore.firestore()
         
@@ -109,6 +114,8 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                             return
                         }
                         
+                        self.arrayUsersName.append(self.userName)
+                        
                         storageRef.downloadURL{ url, error in
                             let docData: [String: Any] = [
                                 "id": tempId,
@@ -116,6 +123,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                                 "nombre": self.quedadaName.text!,
                                 "calle": self.quedadaStreet.text!,
                                 "fecha": quedadasDate,
+                                "usuarios": self.arrayUsersName,
                                 "imageQuedada": url!.absoluteString,
                             ]
                             
@@ -132,11 +140,16 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                                 }
                             }
                         }
+                        
                 })
             }
         } else {
             self.showAlert(alertText: "Sin Participantes!", alertMessage: "Debe de añadir minimo un participante para poder crear la quedada")
         }
+    }
+    
+    func getMyUserName(userName: String) {
+        self.userName = userName
     }
     
     func getMyQuedadasReference(qudadasReference: Array<Any>) {

@@ -14,7 +14,6 @@ class Quedadas: NSObject {
     static func getQuedadas(userID: String, delegate: QuedadasDelegate) {
         var quedadas: [String:[Any]] = [:]
         
-        
         let docRef = Firestore.firestore().collection("users").document(userID)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -41,7 +40,7 @@ class Quedadas: NSObject {
                                     let data = NSData(contentsOf: url!)
                                     let image = UIImage(data: data! as Data)
                                     
-                                    quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["fecha"] as! String, image!]
+                                    quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["fecha"] as! String, image!, dataQuedadas["lugar"] as! String, dataQuedadas["calle"] as! String, dataQuedadas["usuarios"] as! Array<Any>]
                                     delegate.getAllQuedadas!(quedadas: quedadas)
                                 }
                             } else{
@@ -74,6 +73,19 @@ class Quedadas: NSObject {
         }
     }
     
+    static func getMyUserName(userID: String, delegate: QuedadasDelegate) {
+        var userName: String = ""
+        
+        let docRef = Firestore.firestore().collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                userName = document.get("username") as! String
+                delegate.getMyUserName?(userName: userName)
+            }
+        }
+    }
+    
     static func getUsers(delegate: QuedadasDelegate) {
         var users: [String:String] = [:]
         
@@ -99,5 +111,6 @@ class Quedadas: NSObject {
     @objc optional func getAllQuedadas(quedadas: [String:[Any]])
     @objc optional func getMyQuedadasReference(qudadasReference: Array<Any>)
     @objc optional func getAllUsers(users: [String:String])
+    @objc optional func getMyUserName(userName: String)
 }
 

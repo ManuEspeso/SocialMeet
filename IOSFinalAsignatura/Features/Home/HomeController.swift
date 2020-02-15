@@ -33,6 +33,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var quedadasName = [String]()
     var quedadasDate = [String]()
     var quedadasImage = [UIImage]()
+    var quedadasPlace = [String]()
+    var quedadasStreet = [String]()
+    var quedadasArrayUsers = Array<Any>()
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }
@@ -92,6 +95,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             quedadasName.append(value[0] as! String)
             quedadasDate.append(value[1] as! String)
             quedadasImage.append(value[2] as! UIImage)
+            quedadasPlace.append(value[3] as! String)
+            quedadasStreet.append(value[4] as! String)
+            quedadasArrayUsers = value[5] as! Array<Any>
         }
         
         cell.locationImage.image = quedadasImage[indexPath.row]
@@ -114,6 +120,19 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "QuedadaDetailController") as? QuedadaDetailController {
+            
+            controller.quedadaImageSelected = quedadasImage[indexPath.row]
+            controller.quedadaNameSelected = quedadasName[indexPath.row]
+            controller.quedadaDateSelected = quedadasDate[indexPath.row]
+            controller.quedadaPlaceSelected = quedadasPlace[indexPath.row]
+            controller.quedadaStreetSelected = quedadasStreet[indexPath.row]
+            controller.quedadaArrayUsersSelected = quedadasArrayUsers
+            
+            controller.modalTransitionStyle = .flipHorizontal
+            
+            present(controller, animated: true, completion: nil)
+        }
     }
     
     func signOut() {
