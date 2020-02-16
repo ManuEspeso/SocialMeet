@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class NewQuedadaController: UIViewController, UITableViewDataSource, UITableViewDelegate, QuedadasDelegate {
     
@@ -144,7 +145,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                 })
             }
         } else {
-            self.showAlert(alertText: "Sin Participantes!", alertMessage: "Debe de añadir minimo un participante para poder crear la quedada")
+            self.showAlert(alertText: "Without Members!", alertMessage: "You should add one members at leats if you want create a new meet")
         }
     }
     

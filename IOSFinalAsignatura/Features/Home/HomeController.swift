@@ -10,6 +10,7 @@ import UIKit
 import AMTabView
 import Firebase
 import FirebaseDatabase
+import HGPlaceholders
 
 class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem, QuedadasDelegate {
     
@@ -41,6 +42,10 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     var userID: String?
     var refreshControl: UIRefreshControl!
+    var haveQuedadas: Bool = false
+    var placeholderCollectionView: CollectionView? {
+        return myCollectionView as? CollectionView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +53,10 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         userID = Auth.auth().currentUser?.uid
         Quedadas.getQuedadas(userID: userID!, delegate: self)
         Quedadas.getUsers(delegate: self)
+        
+        placeholderCollectionView?.placeholdersProvider = .summer
+        placeholderCollectionView?.placeholderDelegate = self
+        placeholderCollectionView?.showLoadingPlaceholder()
         
         menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
@@ -90,7 +99,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeViewCell
-        
+
         for (_, value) in self.quedadas {
             quedadasName.append(value[0] as! String)
             quedadasDate.append(value[1] as! String)
@@ -103,6 +112,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.locationImage.image = quedadasImage[indexPath.row]
         cell.locationName.text = quedadasName[indexPath.row]
         cell.locationDescription.text = quedadasDate[indexPath.row]
+        
         
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
@@ -119,6 +129,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        /*let key = PlaceholderKey.custom(key: "starWars")
+        placeholderCollectionView?.showCustomPlaceholder(with: key)*/
         
         if let controller = storyboard?.instantiateViewController(withIdentifier: "QuedadaDetailController") as? QuedadaDetailController {
             
@@ -173,6 +186,12 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             destinationVC.userID = userID
             destinationVC.users = users
         }
+    }
+}
+
+extension HomeController: PlaceholderDelegate {
+    func view(_ view: Any, actionButtonTappedFor placeholder: Placeholder) {
+        (view as? CollectionView)?.showDefault()
     }
 }
 

@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class Quedadas: NSObject {
-    
+        
     static func getQuedadas(userID: String, delegate: QuedadasDelegate) {
         var quedadas: [String:[Any]] = [:]
         
@@ -50,7 +51,7 @@ class Quedadas: NSObject {
                     }
                 } else {
                     //NO EXISTEN LAS QUEDADAS
-                    //delegate.getAllQuedadas?(quedadas: nil)
+                    delegate.getAllQuedadas?(quedadas: quedadas)
                 }
             }
         }

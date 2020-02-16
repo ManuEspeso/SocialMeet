@@ -54,7 +54,7 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return quedadaArrayUsersSelected!.count
     }
-    
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? QuedadaDetailViewCell {
             let user = quedadaArrayUsersSelected![indexPath.row] as! String
