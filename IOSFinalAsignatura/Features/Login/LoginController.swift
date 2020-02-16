@@ -12,6 +12,7 @@ import GoogleSignIn
 
 class LoginController: UIViewController, GIDSignInDelegate {
     
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var loginView: UIViewX!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -32,6 +33,8 @@ class LoginController: UIViewController, GIDSignInDelegate {
         
         loginbutton.layer.cornerRadius = 8
         googleAction.layer.cornerRadius = 18
+        
+        logoImageView.layer.cornerRadius = logoImageView.bounds.height/2;        logoImageView.clipsToBounds = true
         
         GIDSignIn.sharedInstance().presentingViewController = self
         
