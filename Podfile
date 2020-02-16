@@ -15,5 +15,9 @@ target 'IOSFinalAsignatura' do
     pod 'AMTabView'
     pod 'Firebase/Storage'
     pod 'Firebase/Database'
+pod 'SwiftyJSON'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'      
     pod 'HGPlaceholders'
       end
+

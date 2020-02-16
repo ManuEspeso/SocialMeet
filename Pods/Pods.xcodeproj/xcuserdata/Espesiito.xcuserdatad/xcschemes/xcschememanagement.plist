@@ -137,6 +137,16 @@
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
+		<key>GoogleMaps.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>32</integer>
+		</dict>
+		<key>GooglePlaces.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>33</integer>
+		</dict>
 		<key>GoogleSignIn.xcscheme</key>
 		<dict>
 			<key>isShown</key>

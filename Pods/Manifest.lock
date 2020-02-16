@@ -246,6 +246,13 @@ PODS:
   - GoogleDataTransportCCTSupport (1.2.3):
     - GoogleDataTransport (~> 3.2)
     - nanopb (~> 0.3.901)
+  - GoogleMaps (3.7.0):
+    - GoogleMaps/Maps (= 3.7.0)
+  - GoogleMaps/Base (3.7.0)
+  - GoogleMaps/Maps (3.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.7.0):
+    - GoogleMaps/Base (= 3.7.0)
   - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
@@ -309,12 +316,14 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseCore
   - FirebaseFirestore
+  - GoogleMaps
+  - GooglePlaces
   - GoogleSignIn
   - HGPlaceholders
   - TextFieldEffects
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - abseil
     - AMTabView
     - AppAuth
@@ -333,6 +342,8 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleSignIn
     - GoogleUtilities
     - "gRPC-C++"
@@ -363,6 +374,8 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: db118eb61a97dd8c4f7014e368d3c335cbbcf80a
   GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
   GoogleDataTransportCCTSupport: 202d7cdf9c4a7d81a2bb7f7e7e1ba6faa421b1f2
+  GoogleMaps: 55da829c68aa931f3ae982b9e341cc2f3d89c587
+  GooglePlaces: a62077320f9d64239245af63aa1aa136393ebeb6
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 29bd0d8f850efbd28cff6d99e8b7da1f8d236bcf
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
@@ -376,4 +389,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d313556944b5b854276c381d23758df9560f1361
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
