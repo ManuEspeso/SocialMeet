@@ -9,7 +9,16 @@
 import UIKit
 
 class HomeViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var locationName: UILabel!
     @IBOutlet weak var locationDescription: UILabel!
+    
+    var item: ViewQuedadaItem? {
+        didSet {
+            locationImage.image = item?.quedadaimage
+            locationName.text = item?.quedadaname
+            locationDescription.text = item?.quedadadate
+        }
+    }
 }
