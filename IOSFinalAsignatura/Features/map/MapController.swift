@@ -60,7 +60,7 @@ class MapController: UIViewController, TabItem  {
     override func loadView() {
      // Create a GMSCameraPosition that tells the map to display the
       // coordinate -33.86,151.20 at zoom level 6.
-      let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 134.20, zoom: 6.0)
+      let camera = GMSCameraPosition.camera(withLatitude: 40.4165000, longitude: -3.7025600, zoom: 14.0)
       let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
       view = mapView
       
@@ -68,28 +68,60 @@ class MapController: UIViewController, TabItem  {
        let marker = GMSMarker()
         let house = UIImage(named: "mapIcon")!.withRenderingMode(.alwaysTemplate)
         let makerView = UIImageView(image: house)
-       marker.position = CLLocationCoordinate2D(latitude: -38.86, longitude: 167.20)
-       marker.title = "Sydney"
-       marker.snippet = "Australia"
+       marker.position = CLLocationCoordinate2D(latitude: 40.4165000, longitude: -3.7025600)
+       marker.title = "Madrid"
+       marker.snippet = "Spain"
         marker.iconView = makerView
        marker.map = mapView
         
-        // Creates a marker in the center of the map.
+        
         let marker2 = GMSMarker()
-        marker2.position = CLLocationCoordinate2D(latitude: -41.86, longitude: 191.20)
-        marker2.title = "Sydney"
-        marker2.snippet = "Australia"
+        marker2.position = CLLocationCoordinate2D(latitude: 40.413543, longitude: -3.685525)
+        marker2.title = "El retiro de Madrid"
+        marker2.snippet = "Spain"
         marker2.map = mapView
         
-        // Creates a marker in the center of the map.
+        
         let marker3 = GMSMarker()
-        marker3.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker3.title = "Sydney"
-        marker3.snippet = "Australia"
+        marker3.position = CLLocationCoordinate2D(latitude: 40.423964, longitude: -3.717833)
+        marker3.title = "Templo de debod / Madrid"
+        marker3.snippet = "Spain"
         marker3.map = mapView
         
-	
-
+        
+        let marker4 = GMSMarker()
+        marker4.position = CLLocationCoordinate2D(latitude: 40.418647, longitude: -3.731009)
+        marker4.title = "Lago casa de campo / Madrid"
+        marker4.snippet = "Spain"
+        marker4.map = mapView
+        
+        
+        
+        let marker5 = GMSMarker()
+        marker5.position = CLLocationCoordinate2D(latitude: 40.419964, longitude: -3.701269)
+        marker5.title = "Gran Vía / Madrid"
+        marker5.snippet = "Spain"
+        marker5.map = mapView
+        
+        
+        let marker6 = GMSMarker()
+        marker6.position = CLLocationCoordinate2D(latitude: 40.443292, longitude: -3.726965)
+        marker6.title = "Plaza de ramón y cajal / Madrid"
+        marker6.snippet = "Spain"
+        marker6.map = mapView
+        
+        
+        let marker7 = GMSMarker()
+        marker7.position = CLLocationCoordinate2D(latitude: 40.408708, longitude: -3.693884)
+        marker7.title = "Museo de arte Reina Sofía/ Madrid"
+        marker7.snippet = "Spain"
+        marker7.map = mapView
+        
+        let marker8 = GMSMarker()
+        marker8.position = CLLocationCoordinate2D(latitude: 40.411266, longitude: -3.708314)
+        marker8.title = "Plaza de la Cebada / Madrid"
+        marker8.snippet = "Spain"
+        marker8.map = mapView
     }
     
 }
