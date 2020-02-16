@@ -29,6 +29,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
         let quedadasDate = handler(sender: quedadaDate)
         
         if !quedadasName!.isEmpty && !quedadasPlace!.isEmpty && !quedadasStreet!.isEmpty && !quedadasDate.isEmpty && myImage != nil  {
+            self.showSpinner()
             arrayUsersID = selectedItems.map { $0.id }
             arrayUsersName = selectedItems.map { $0.username }
             insertQuedada()
@@ -173,6 +174,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
         }
+        self.removeSpinner()
         dismiss(animated: true)
     }
     

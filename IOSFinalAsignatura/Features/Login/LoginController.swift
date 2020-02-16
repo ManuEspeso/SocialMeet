@@ -76,10 +76,13 @@ class LoginController: UIViewController, GIDSignInDelegate {
         guard let userEmail = userEmail.text else {return}
         guard let userPassword = userPassword.text else {return}
         
+        self.showSpinner()
+        
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (user, error) in
             
             if let error = error {
-                print("Failed to sign user in with error: ", error.localizedDescription)
+                self.removeSpinner()
+                self.showAlert(alertText: "Something Wrong", alertMessage: error.localizedDescription)
                 return
             } else {
                 
@@ -160,6 +163,8 @@ class LoginController: UIViewController, GIDSignInDelegate {
             
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            
+            self.removeSpinner()
             
             present(controller, animated: true, completion: nil)
         }

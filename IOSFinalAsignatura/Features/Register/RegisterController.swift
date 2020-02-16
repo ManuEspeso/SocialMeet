@@ -80,10 +80,13 @@ class RegisterController: UIViewController {
         guard let userEmail = userEmail.text else {return}
         guard let userPassword = userPassword.text else {return}
         
+        self.showSpinner()
+        
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { authResult, error in
             
             if let error = error {
-                print("Failed to sign user in with error: ", error.localizedDescription)
+                self.removeSpinner()
+                self.showAlert(alertText: "Something Wrong", alertMessage: error.localizedDescription)
                 return
             } else {
                 let user = Auth.auth().currentUser
@@ -93,6 +96,7 @@ class RegisterController: UIViewController {
                     //_ = self.saveInCoreData(email: userEmail, id: user.uid)
                     self.imageStorageFirebase(userId: user.uid, userName: userName, userEmail: userEmail)
                 } else {
+                    self.removeSpinner()
                     print(error!)
                 }
             }
@@ -121,7 +125,8 @@ class RegisterController: UIViewController {
                 { (metadata, error) in
                     
                     if error != nil {
-                        print(error!)
+                        self.removeSpinner()
+                        self.showAlert(alertText: "Something Wrong", alertMessage: error! as! String)
                         return
                     }
                     
@@ -134,7 +139,8 @@ class RegisterController: UIViewController {
                         ]
                         
                         if let error = error {
-                            print(error)
+                            self.removeSpinner()
+                            self.showAlert(alertText: "Something Wrong", alertMessage: error as! String)
                         } else {
                             self.insertUsersOnDB(userId: userId, docData: docData)
                         }
@@ -160,6 +166,8 @@ class RegisterController: UIViewController {
             
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            
+            self.removeSpinner()
             
             present(controller, animated: true, completion: nil)
         }
