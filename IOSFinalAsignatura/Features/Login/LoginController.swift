@@ -131,19 +131,9 @@ class LoginController: UIViewController, GIDSignInDelegate {
     }
     
     func insertGoogleUserOnDB(userId: String, userName: String, userEmail: String) {
-        let docData: [String: Any] = [
-            "username": userName,
-            "email": userEmail
-            // TODO: Hay que bajarse las quedadas del usuario y añadirlas en este apartado por que si no al loguearse se eliminan el apartado quedadas de su usuario
-        ]
-        db.collection("users").document(userId).setData(docData) { err in
-            
-            if let err = err {
-                print("Error writing user on database: \(err)")
-            } else {
-                print("User successfully write in database!")
-            }
-        }
+        db.collection("users").document(userId).updateData(["username": userName])
+        db.collection("users").document(userId).updateData(["email": userEmail])
+        db.collection("users").document(userId).updateData(["id": userId])
     }
     
     func autoLogIn() {

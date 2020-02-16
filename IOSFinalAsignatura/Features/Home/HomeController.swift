@@ -54,7 +54,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         Quedadas.getQuedadas(userID: userID!, delegate: self)
         Quedadas.getUsers(delegate: self)
         
-        placeholderCollectionView?.placeholdersProvider = .summer
+        placeholderCollectionView?.placeholdersProvider = .default
         placeholderCollectionView?.placeholderDelegate = self
         placeholderCollectionView?.showLoadingPlaceholder()
         
