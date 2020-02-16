@@ -45,6 +45,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var userName: String = ""
     var refreshControl: UIRefreshControl!
     var haveQuedadas: Bool = false
+    var myQuedadas = [Quedada]()
+    var itemsQuedadas = [ViewQuedadaItem]()
     var placeholderCollectionView: CollectionView? {
         return myCollectionView as? CollectionView
     }
@@ -76,7 +78,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         label.textColor = .white
         label.sizeToFit()
         label.textAlignment = .center
-
+        
         self.navigationItem.titleView = label
     }
     
@@ -102,6 +104,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     @objc func refresh() {
         refreshControl.beginRefreshing()
+        self.quedadas.removeAll()
         Quedadas.getQuedadas(userID: userID!, delegate: self)
         refreshControl.endRefreshing()
     }
@@ -116,6 +119,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func getAllQuedadas(quedadas: [String : [Any]]) {
         self.quedadas = quedadas
         run(after: 1) {
+            self.myQuedadas.removeAll()
+            self.itemsQuedadas.removeAll()
             self.myCollectionView.reloadData()
         }
     }
@@ -130,20 +135,14 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeViewCell
-
-        for (_, value) in self.quedadas {
-            quedadasName.append(value[0] as! String)
-            quedadasDate.append(value[1] as! String)
-            quedadasImage.append(value[2] as! UIImage)
-            quedadasPlace.append(value[3] as! String)
-            quedadasStreet.append(value[4] as! String)
+        
+        for (key, value) in self.quedadas {
+            myQuedadas.append(Quedada(id: key, quedadaname: value[0] as! String, quedadaplace: value[3] as! String, quedadastreet: value[4] as! String, quedadadate: value[1] as! String, quedadaimage: value[2] as! UIImage))
             quedadasArrayUsers = value[5] as! Array<Any>
         }
         
-        cell.locationImage.image = quedadasImage[indexPath.row]
-        cell.locationName.text = quedadasName[indexPath.row]
-        cell.locationDescription.text = quedadasDate[indexPath.row]
-        
+        itemsQuedadas = myQuedadas.map { ViewQuedadaItem(item: $0) }
+        cell.item = itemsQuedadas[indexPath.row]
         
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
@@ -162,15 +161,15 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         /*let key = PlaceholderKey.custom(key: "starWars")
-        placeholderCollectionView?.showCustomPlaceholder(with: key)*/
+         placeholderCollectionView?.showCustomPlaceholder(with: key)*/
         
         if let controller = storyboard?.instantiateViewController(withIdentifier: "QuedadaDetailController") as? QuedadaDetailController {
             
-            controller.quedadaImageSelected = quedadasImage[indexPath.row]
-            controller.quedadaNameSelected = quedadasName[indexPath.row]
-            controller.quedadaDateSelected = quedadasDate[indexPath.row]
-            controller.quedadaPlaceSelected = quedadasPlace[indexPath.row]
-            controller.quedadaStreetSelected = quedadasStreet[indexPath.row]
+            controller.quedadaImageSelected = itemsQuedadas[indexPath.row].quedadaimage
+            controller.quedadaNameSelected = itemsQuedadas[indexPath.row].quedadaname
+            controller.quedadaDateSelected = itemsQuedadas[indexPath.row].quedadadate
+            controller.quedadaPlaceSelected = itemsQuedadas[indexPath.row].quedadaplace
+            controller.quedadaStreetSelected = itemsQuedadas[indexPath.row].quedadastreet
             controller.quedadaArrayUsersSelected = quedadasArrayUsers
             
             controller.modalTransitionStyle = .flipHorizontal

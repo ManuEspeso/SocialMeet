@@ -16,6 +16,7 @@
 		CAE175C8F3612B5C52FAC0EF /* Pods_IOSFinalAsignatura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FC3C6314563F69E1D1CFCE /* Pods_IOSFinalAsignatura.framework */; };
 		DD532C1323F9AE160099CB57 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD532C1223F9AE160099CB57 /* PersistenceService.swift */; };
 		DD532C1623F9AED90099CB57 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD532C1423F9AED80099CB57 /* DataModel.xcdatamodeld */; };
+		DD532C1C23F9DEF00099CB57 /* Quedada.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD532C1B23F9DEF00099CB57 /* Quedada.swift */; };
 		DD6D679323BBC0ED00905BE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D679223BBC0ED00905BE7 /* TabBarController.swift */; };
 		DD6D679523BBC1BA00905BE7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D679423BBC1BA00905BE7 /* ProfileController.swift */; };
 		DD97094F23D85899009881FA /* Quedadas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD97094E23D85899009881FA /* Quedadas.swift */; };
@@ -49,6 +50,7 @@
 		D22E3332A575AA99A4941916 /* Pods-IOSFinalAsignatura.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFinalAsignatura.release.xcconfig"; path = "Target Support Files/Pods-IOSFinalAsignatura/Pods-IOSFinalAsignatura.release.xcconfig"; sourceTree = "<group>"; };
 		DD532C1223F9AE160099CB57 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		DD532C1523F9AED80099CB57 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		DD532C1B23F9DEF00099CB57 /* Quedada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quedada.swift; sourceTree = "<group>"; };
 		DD6D679223BBC0ED00905BE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD6D679423BBC1BA00905BE7 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		DD97094E23D85899009881FA /* Quedadas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quedadas.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				DD97094E23D85899009881FA /* Quedadas.swift */,
 				DDD3A45D23EB533700D1830C /* User.swift */,
 				DD532C1723F9AF740099CB57 /* CoreData */,
+				DD532C1B23F9DEF00099CB57 /* Quedada.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
 				DDA9167023F88EAA005BCC2C /* PlaceholdersProvider.swift in Sources */,
+				DD532C1C23F9DEF00099CB57 /* Quedada.swift in Sources */,
 				DDD3A46023EB537800D1830C /* NewQuedadaViewCell.swift in Sources */,
 				DDB71F6E23F5BB3E00696FCF /* CustomButton.swift in Sources */,
 				DDD3A46623EB8A1900D1830C /* Extensions.swift in Sources */,
