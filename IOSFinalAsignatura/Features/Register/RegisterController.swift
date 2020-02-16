@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import CoreData
 
 class RegisterController: UIViewController {
     
@@ -92,8 +93,7 @@ class RegisterController: UIViewController {
                 let user = Auth.auth().currentUser
                 
                 if let user = user {
-                    //Esta linea comentada servira para guardar los datos del user al registrase en el core data para el auto login
-                    //_ = self.saveInCoreData(email: userEmail, id: user.uid)
+                    _ = self.saveInCoreData(email: userEmail, id: user.uid)
                     self.imageStorageFirebase(userId: user.uid, userName: userName, userEmail: userEmail)
                 } else {
                     self.removeSpinner()
@@ -103,7 +103,7 @@ class RegisterController: UIViewController {
         }
     }
     
-    /*func saveInCoreData(email: String, id: String) -> Bool {
+    func saveInCoreData(email: String, id: String) -> Bool {
      
      let personaEntity = NSEntityDescription.entity(forEntityName: "Usuarios", in: PersistenceService.context)!
      let usuario = NSManagedObject(entity: personaEntity, insertInto: PersistenceService.context)
@@ -113,7 +113,7 @@ class RegisterController: UIViewController {
      
      return PersistenceService.saveContext()
      
-     }*/
+     }
     
     func imageStorageFirebase(userId: String, userName: String, userEmail: String) {
         let storageRef = Storage.storage().reference().child("users/\(userId)")

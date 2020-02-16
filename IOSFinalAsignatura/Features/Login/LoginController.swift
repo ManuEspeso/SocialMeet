@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FirebaseFirestore
+import CoreData
 
 class LoginController: UIViewController, GIDSignInDelegate {
     
@@ -27,6 +28,8 @@ class LoginController: UIViewController, GIDSignInDelegate {
     var db: Firestore!
     var colorArray: [(color1: UIColor, color2: UIColor)] = []
     var currentColorArrayIndex = -1
+    var email: String = ""
+    var id: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +45,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //Cuando el Core Data este bien implementado descomentar esta linea para que el autoLogin pueda funcionar
-        //autoLogIn()
+        autoLogIn()
         
         userEmail.text = ""
         userPassword.text = ""
@@ -87,8 +89,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
             } else {
                 
                 if let user = Auth.auth().currentUser {
-                    //Aqui se llamara a una funcion en la que se guarden los datos de la variable user en el core data
-                    //_ = self.saveInCoreData(email: userEmail, id: user.uid)
+                    _ = self.saveInCoreData(email: userEmail, id: user.uid)
                     self.goToHomePage()
                 } else {
                     print(error!)
@@ -97,16 +98,16 @@ class LoginController: UIViewController, GIDSignInDelegate {
         }
     }
     
-    /*func saveInCoreData(email: String, id: String) -> Bool {
-     
-     let personaEntity = NSEntityDescription.entity(forEntityName: "Usuarios", in: PersistenceService.context)!
-     let usuario = NSManagedObject(entity: personaEntity, insertInto: PersistenceService.context)
-     
-     usuario.setValue(email, forKey: "email")
-     usuario.setValue(id, forKey: "id")
-     
-     return PersistenceService.saveContext()
-     }*/
+    func saveInCoreData(email: String, id: String) -> Bool {
+        
+        let personaEntity = NSEntityDescription.entity(forEntityName: "Usuarios", in: PersistenceService.context)!
+        let usuario = NSManagedObject(entity: personaEntity, insertInto: PersistenceService.context)
+        
+        usuario.setValue(email, forKey: "email")
+        usuario.setValue(id, forKey: "id")
+        
+        return PersistenceService.saveContext()
+    }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -140,22 +141,22 @@ class LoginController: UIViewController, GIDSignInDelegate {
     }
     
     func autoLogIn() {
-        /*let context = PersistenceService.context
-         let fechtRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuarios")
-         
-         do {
-         let result = try context.fetch(fechtRequest)
-         
-         for data in result as! [NSManagedObject] {
-         email = data.value(forKey: "email") as! String
-         id = data.value(forKey: "id") as! String
-         }
-         if(!email.isEmpty && !id.isEmpty) {
-         goToHomePage()
-         }
-         } catch {
-         print("ERROR, SOMETHING WRONG")
-         }*/
+        let context = PersistenceService.context
+        let fechtRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuarios")
+        
+        do {
+            let result = try context.fetch(fechtRequest)
+            
+            for data in result as! [NSManagedObject] {
+                email = data.value(forKey: "email") as! String
+                id = data.value(forKey: "id") as! String
+            }
+            if(!email.isEmpty && !id.isEmpty) {
+                goToHomePage()
+            }
+        } catch {
+            print("ERROR, SOMETHING WRONG")
+        }
     }
     
     func goToHomePage() {

@@ -11,6 +11,7 @@ import AMTabView
 import Firebase
 import FirebaseDatabase
 import HGPlaceholders
+import CoreData
 
 class HomeController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabItem, QuedadasDelegate {
     
@@ -41,6 +42,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return UIImage(named: "material_logo")
     }
     var userID: String?
+    var userName: String = ""
     var refreshControl: UIRefreshControl!
     var haveQuedadas: Bool = false
     var placeholderCollectionView: CollectionView? {
@@ -60,7 +62,36 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
+        getEmailFromCoreData()
         setUpRefreshControl()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: 50, height: 40))
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+        
+        label.text = userName
+        label.numberOfLines = 2
+        label.textColor = .white
+        label.sizeToFit()
+        label.textAlignment = .center
+
+        self.navigationItem.titleView = label
+    }
+    
+    func getEmailFromCoreData() {
+        let context = PersistenceService.context
+        let fechtRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuarios")
+        
+        do {
+            let result = try context.fetch(fechtRequest)
+            for data in result as! [NSManagedObject] {
+                userName = data.value(forKey: "email") as! String
+            }
+        } catch {
+            print("ERROR, SOMETHING WRONG")
+        }
     }
     
     func setUpRefreshControl() {
@@ -161,7 +192,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                       handler: { action in
                                         do {
                                             try Auth.auth().signOut()
-                                            //self.deleteDataFromCoreData()
+                                            self.deleteDataFromCoreData()
                                             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "LoginController") as? LoginController {
                                                 
                                                 controller.modalTransitionStyle = .flipHorizontal
@@ -176,6 +207,29 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.present(alert,
                      animated: true,
                      completion: nil)
+    }
+    
+    func deleteDataFromCoreData() {
+        let context = PersistenceService.context
+        let fechtRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuarios")
+        
+        do {
+            let test = try context.fetch(fechtRequest)
+            
+            if (!test.isEmpty) {
+                let objectToDelete = test[0] as! NSManagedObject
+                context.delete(objectToDelete)
+            }
+            do {
+                try context.save()
+            }
+            catch {
+                print(error)
+            }
+        }
+        catch {
+            print(error)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
