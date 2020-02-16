@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FirebaseFirestore
+import CoreData
 
 class LoginController: UIViewController, GIDSignInDelegate {
     
@@ -27,6 +29,8 @@ class LoginController: UIViewController, GIDSignInDelegate {
     var db: Firestore!
     var colorArray: [(color1: UIColor, color2: UIColor)] = []
     var currentColorArrayIndex = -1
+    var email: String = ""
+    var id: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +48,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //Cuando el Core Data este bien implementado descomentar esta linea para que el autoLogin pueda funcionar
-        //autoLogIn()
+        autoLogIn()
         
         userEmail.text = ""
         userPassword.text = ""
@@ -78,16 +81,18 @@ class LoginController: UIViewController, GIDSignInDelegate {
         guard let userEmail = userEmail.text else {return}
         guard let userPassword = userPassword.text else {return}
         
+        self.showSpinner()
+        
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (user, error) in
             
             if let error = error {
-                print("Failed to sign user in with error: ", error.localizedDescription)
+                self.removeSpinner()
+                self.showAlert(alertText: "Something Wrong", alertMessage: error.localizedDescription)
                 return
             } else {
                 
                 if let user = Auth.auth().currentUser {
-                    //Aqui se llamara a una funcion en la que se guarden los datos de la variable user en el core data
-                    //_ = self.saveInCoreData(email: userEmail, id: user.uid)
+                    _ = self.saveInCoreData(email: userEmail, id: user.uid)
                     self.goToHomePage()
                 } else {
                     print(error!)
@@ -96,16 +101,16 @@ class LoginController: UIViewController, GIDSignInDelegate {
         }
     }
     
-    /*func saveInCoreData(email: String, id: String) -> Bool {
-     
-     let personaEntity = NSEntityDescription.entity(forEntityName: "Usuarios", in: PersistenceService.context)!
-     let usuario = NSManagedObject(entity: personaEntity, insertInto: PersistenceService.context)
-     
-     usuario.setValue(email, forKey: "email")
-     usuario.setValue(id, forKey: "id")
-     
-     return PersistenceService.saveContext()
-     }*/
+    func saveInCoreData(email: String, id: String) -> Bool {
+        
+        let personaEntity = NSEntityDescription.entity(forEntityName: "Usuarios", in: PersistenceService.context)!
+        let usuario = NSManagedObject(entity: personaEntity, insertInto: PersistenceService.context)
+        
+        usuario.setValue(email, forKey: "email")
+        usuario.setValue(id, forKey: "id")
+        
+        return PersistenceService.saveContext()
+    }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -133,38 +138,28 @@ class LoginController: UIViewController, GIDSignInDelegate {
     }
     
     func insertGoogleUserOnDB(userId: String, userName: String, userEmail: String) {
-        let docData: [String: Any] = [
-            "username": userName,
-            "email": userEmail
-            // TODO: Hay que bajarse las quedadas del usuario y añadirlas en este apartado por que si no al loguearse se eliminan el apartado quedadas de su usuario
-        ]
-        db.collection("users").document(userId).setData(docData) { err in
-            
-            if let err = err {
-                print("Error writing user on database: \(err)")
-            } else {
-                print("User successfully write in database!")
-            }
-        }
+        db.collection("users").document(userId).updateData(["username": userName])
+        db.collection("users").document(userId).updateData(["email": userEmail])
+        db.collection("users").document(userId).updateData(["id": userId])
     }
     
     func autoLogIn() {
-        /*let context = PersistenceService.context
-         let fechtRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuarios")
-         
-         do {
-         let result = try context.fetch(fechtRequest)
-         
-         for data in result as! [NSManagedObject] {
-         email = data.value(forKey: "email") as! String
-         id = data.value(forKey: "id") as! String
-         }
-         if(!email.isEmpty && !id.isEmpty) {
-         goToHomePage()
-         }
-         } catch {
-         print("ERROR, SOMETHING WRONG")
-         }*/
+        let context = PersistenceService.context
+        let fechtRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuarios")
+        
+        do {
+            let result = try context.fetch(fechtRequest)
+            
+            for data in result as! [NSManagedObject] {
+                email = data.value(forKey: "email") as! String
+                id = data.value(forKey: "id") as! String
+            }
+            if(!email.isEmpty && !id.isEmpty) {
+                goToHomePage()
+            }
+        } catch {
+            print("ERROR, SOMETHING WRONG")
+        }
     }
     
     func goToHomePage() {
@@ -172,6 +167,8 @@ class LoginController: UIViewController, GIDSignInDelegate {
             
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            
+            self.removeSpinner()
             
             present(controller, animated: true, completion: nil)
         }

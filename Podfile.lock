@@ -299,13 +299,13 @@ PODS:
   - GTMSessionFetcher/Core (1.3.0)
   - GTMSessionFetcher/Full (1.3.0):
     - GTMSessionFetcher/Core (= 1.3.0)
+  - HGPlaceholders (0.4.0)
   - leveldb-library (1.22)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - SwiftyJSON (5.0.0)
   - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
@@ -319,7 +319,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - GoogleSignIn
-  - SwiftyJSON
+  - HGPlaceholders
   - TextFieldEffects
 
 SPEC REPOS:
@@ -350,9 +350,9 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - HGPlaceholders
     - leveldb-library
     - nanopb
-    - SwiftyJSON
     - TextFieldEffects
 
 SPEC CHECKSUMS:
@@ -382,11 +382,11 @@ SPEC CHECKSUMS:
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
+  HGPlaceholders: fd580aaf6050782bf2ee51eb62ed499ded6615b7
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 9ac3641e75a44430472e128695a7d55e5604faae
+PODFILE CHECKSUM: d313556944b5b854276c381d23758df9560f1361
 
 COCOAPODS: 1.8.4

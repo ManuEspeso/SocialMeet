@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
+import CoreData
 
 class RegisterController: UIViewController {
     
@@ -26,6 +28,7 @@ class RegisterController: UIViewController {
     var db: Firestore!
     var colorArray: [(color1: UIColor, color2: UIColor)] = []
     var currentColorArrayIndex = -1
+    var emptyArray = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +43,7 @@ class RegisterController: UIViewController {
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         
-        
-        profileImageView.layer.cornerRadius = profileImageView.bounds.height/2
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width/2
         profileImageView.clipsToBounds = true
         
         animatedBackgroundColor()
@@ -79,26 +81,29 @@ class RegisterController: UIViewController {
         guard let userEmail = userEmail.text else {return}
         guard let userPassword = userPassword.text else {return}
         
+        self.showSpinner()
+        
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { authResult, error in
             
             if let error = error {
-                print("Failed to sign user in with error: ", error.localizedDescription)
+                self.removeSpinner()
+                self.showAlert(alertText: "Something Wrong", alertMessage: error.localizedDescription)
                 return
             } else {
                 let user = Auth.auth().currentUser
                 
                 if let user = user {
-                    //Esta linea comentada servira para guardar los datos del user al registrase en el core data para el auto login
-                    //_ = self.saveInCoreData(email: userEmail, id: user.uid)
+                    _ = self.saveInCoreData(email: userEmail, id: user.uid)
                     self.imageStorageFirebase(userId: user.uid, userName: userName, userEmail: userEmail)
                 } else {
+                    self.removeSpinner()
                     print(error!)
                 }
             }
         }
     }
     
-    /*func saveInCoreData(email: String, id: String) -> Bool {
+    func saveInCoreData(email: String, id: String) -> Bool {
      
      let personaEntity = NSEntityDescription.entity(forEntityName: "Usuarios", in: PersistenceService.context)!
      let usuario = NSManagedObject(entity: personaEntity, insertInto: PersistenceService.context)
@@ -108,7 +113,7 @@ class RegisterController: UIViewController {
      
      return PersistenceService.saveContext()
      
-     }*/
+     }
     
     func imageStorageFirebase(userId: String, userName: String, userEmail: String) {
         let storageRef = Storage.storage().reference().child("users/\(userId)")
@@ -120,7 +125,8 @@ class RegisterController: UIViewController {
                 { (metadata, error) in
                     
                     if error != nil {
-                        print(error!)
+                        self.removeSpinner()
+                        self.showAlert(alertText: "Something Wrong", alertMessage: error! as! String)
                         return
                     }
                     
@@ -128,11 +134,13 @@ class RegisterController: UIViewController {
                         let docData: [String: Any] = [
                             "username": userName,
                             "email": userEmail,
-                            "imageProfile": url!.absoluteString
+                            "imageProfile": url!.absoluteString,
+                            "quedadas": self.emptyArray
                         ]
                         
                         if let error = error {
-                            print(error)
+                            self.removeSpinner()
+                            self.showAlert(alertText: "Something Wrong", alertMessage: error as! String)
                         } else {
                             self.insertUsersOnDB(userId: userId, docData: docData)
                         }
@@ -158,6 +166,8 @@ class RegisterController: UIViewController {
             
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            
+            self.removeSpinner()
             
             present(controller, animated: true, completion: nil)
         }
