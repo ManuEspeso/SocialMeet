@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestore
 
 class Quedadas: NSObject {
-        
+    
     static func getQuedadas(userID: String, delegate: QuedadasDelegate) {
         var quedadas: [String:[Any]] = [:]
         

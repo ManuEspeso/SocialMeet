@@ -16,4 +16,6 @@ target 'IOSFinalAsignatura' do
     pod 'Firebase/Storage'
     pod 'Firebase/Database'
     pod 'HGPlaceholders'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
       end

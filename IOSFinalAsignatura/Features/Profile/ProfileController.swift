@@ -17,7 +17,7 @@ class ProfileController: UIViewController {
     
     var db: Firestore!
     var userRef: DocumentReference!
-
+    
     var userEmail: String = ""
     var userName: String = ""
     var userImage: String = ""
@@ -41,17 +41,22 @@ class ProfileController: UIViewController {
         
         imageProfileView.layer.cornerRadius = imageProfileView.bounds.height/2
         imageProfileView.clipsToBounds = true
+        iconImageView.layer.cornerRadius = imageProfileView.bounds.height/2
+        iconImageView.clipsToBounds = true
         
+        setUpCardView()
+        getUserDatas()
+    }
+    
+    func setUpCardView() {
         cardView.layer.cornerRadius = 20.0
         cardView.layer.shadowColor = UIColor.gray.cgColor
         cardView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         cardView.layer.shadowRadius = 12.0
         cardView.layer.shadowOpacity = 0.7
-        
-        iconImageView.layer.cornerRadius = imageProfileView.bounds.height/2
-        iconImageView.clipsToBounds = true
-        
-        //Gets current user ID
+    }
+    
+    func getUserDatas() {
         let userID : String = (Auth.auth().currentUser?.uid)!
         //gets collection
         let docRef = db.collection("users").document(userID)
@@ -59,7 +64,6 @@ class ProfileController: UIViewController {
         docRef.getDocument { (document, error) in
             
             if let document = document, document.exists {
-                
                 //gets fields
                 self.userName = document.get("username") as! String
                 self.userEmail = document.get("email") as! String
@@ -67,9 +71,6 @@ class ProfileController: UIViewController {
                 
                 self.userEmailOutlet.text = self.userEmail
                 self.usernameOutlet.text = self.userName
-                
-                
-                
                 //download the profileImage to show
                 let storage = Storage.storage()
                 var reference: StorageReference!
@@ -87,7 +88,6 @@ class ProfileController: UIViewController {
     
     func animatedBackgroundColor() {
         //for gradient view
-        
         colorArray.append((color1: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), color2: #colorLiteral(red: 0.5631721616, green: 0.2642064691, blue: 0.8086007237, alpha: 1)))
         colorArray.append((color1: #colorLiteral(red: 0.5631721616, green: 0.2642064691, blue: 0.8086007237, alpha: 1), color2: #colorLiteral(red: 0.3322192132, green: 0.4146331549, blue: 0.722286284, alpha: 1)))
         colorArray.append((color1: #colorLiteral(red: 0.3308110141, green: 0.4146197245, blue: 0.7213475571, alpha: 1), color2: #colorLiteral(red: 0.1417086422, green: 0.3959283233, blue: 0.5574072599, alpha: 1)))

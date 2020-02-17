@@ -24,6 +24,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
         loginUser()
     }
     @IBOutlet weak var googleAction: GIDSignInButton!
+    @IBOutlet weak var imageLogo: UIImageView!
     
     var db: Firestore!
     var colorArray: [(color1: UIColor, color2: UIColor)] = []
@@ -36,6 +37,8 @@ class LoginController: UIViewController, GIDSignInDelegate {
         
         loginbutton.layer.cornerRadius = 8
         googleAction.layer.cornerRadius = 18
+        imageLogo.layer.cornerRadius = imageLogo.bounds.width/2
+        imageLogo.clipsToBounds = true
         
         GIDSignIn.sharedInstance().presentingViewController = self
         

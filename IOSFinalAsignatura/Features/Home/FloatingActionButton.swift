@@ -23,8 +23,4 @@ class FloatingActionButton: UIButtonX {
         })
         return super.beginTracking(touch, with: event)
     }
-    
-    /*override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        
-    }*/
 }

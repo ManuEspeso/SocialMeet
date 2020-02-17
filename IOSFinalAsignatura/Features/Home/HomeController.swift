@@ -98,7 +98,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func setUpRefreshControl() {
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Arrastra para refrescar")
+        refreshControl.attributedTitle = NSAttributedString(string: "Swipe to refresh")
+        refreshControl.tintColor = UIColor.white
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         myCollectionView.addSubview(refreshControl)
     }

@@ -23,6 +23,7 @@
 		DDA2971623F84DC800B73BB9 /* QuedadaDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2971523F84DC800B73BB9 /* QuedadaDetailController.swift */; };
 		DDA2971923F8649B00B73BB9 /* QuedadaDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2971823F8649B00B73BB9 /* QuedadaDetailViewCell.swift */; };
 		DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */; };
+		DDA7ABBC23FA181F000B51FD /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7ABBB23FA181F000B51FD /* MapController.swift */; };
 		DDA9167023F88EAA005BCC2C /* PlaceholdersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9166F23F88EAA005BCC2C /* PlaceholdersProvider.swift */; };
 		DDAFBB4F23B37D48005E9552 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */; };
 		DDAFBB5123B37DC0005E9552 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFBB5023B37DC0005E9552 /* HomeController.swift */; };
@@ -57,6 +58,7 @@
 		DDA2971523F84DC800B73BB9 /* QuedadaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuedadaDetailController.swift; sourceTree = "<group>"; };
 		DDA2971823F8649B00B73BB9 /* QuedadaDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuedadaDetailViewCell.swift; sourceTree = "<group>"; };
 		DDA5AD9A23ACE2AB0043C3FE /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		DDA7ABBB23FA181F000B51FD /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		DDA9166F23F88EAA005BCC2C /* PlaceholdersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholdersProvider.swift; sourceTree = "<group>"; };
 		DDAFBB4E23B37D48005E9552 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		DDAFBB5023B37DC0005E9552 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		DDA7ABBA23FA1803000B51FD /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DDA7ABBB23FA181F000B51FD /* MapController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		DDAFCEB123ABE2CB00FC668C /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 		DDAFCEB423ABE31000FC668C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				DDA7ABBA23FA1803000B51FD /* Map */,
 				DDA2971423F84D9900B73BB9 /* QuedadaDetail */,
 				DDB2F99623E30ACC0057E0D8 /* NewQuedada */,
 				DDAFCEB623ABE34C00FC668C /* Login */,
@@ -448,6 +459,7 @@
 				895CF82123A1195500B16D37 /* AppDelegate.swift in Sources */,
 				DDA5AD9B23ACE2AC0043C3FE /* RegisterController.swift in Sources */,
 				DDA9167023F88EAA005BCC2C /* PlaceholdersProvider.swift in Sources */,
+				DDA7ABBC23FA181F000B51FD /* MapController.swift in Sources */,
 				DD532C1C23F9DEF00099CB57 /* Quedada.swift in Sources */,
 				DDD3A46023EB537800D1830C /* NewQuedadaViewCell.swift in Sources */,
 				DDB71F6E23F5BB3E00696FCF /* CustomButton.swift in Sources */,
