@@ -20,11 +20,11 @@ class TabBarController: AMTabsViewController {
     private func setTabsControllers() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: "UINavigationController")
-        let profileController = storyboard.instantiateViewController(withIdentifier: "ProfileController")
+        //let profileController = storyboard.instantiateViewController(withIdentifier: "ProfileController")
         
         viewControllers = [
-            homeViewController,
-            profileController
+            homeViewController
+            //profileController
         ]
     }
 }
