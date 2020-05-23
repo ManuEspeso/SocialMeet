@@ -15,43 +15,51 @@ class Quedadas: NSObject {
     static func getQuedadas(userID: String, delegate: QuedadasDelegate) {
         var quedadas: [String:[Any]] = [:]
         
-        let docRef = Firestore.firestore().collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let quedadasValue = document.get("quedadas") as! NSArray
-                
-                let quedadasIndex = quedadasValue.count
-                
-                if quedadasIndex != 0 {
-                    for i in 0...(quedadasIndex - 1) {
-                        let quedadaReference = quedadasValue[i] as! DocumentReference
-                        quedadaReference.getDocument { (documentSnapshot, error) in
-                            
-                            if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
-                                let dataDescription = documentSnapshot.data()
+        DispatchQueue.global(qos: .background).async {
+            
+            let docRef = Firestore.firestore().collection("users").document(userID)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let quedadasValue = document.get("quedadas") as! NSArray
+                    
+                    let quedadasIndex = quedadasValue.count
+                    
+                    if quedadasIndex != 0 {
+                        for i in 0...(quedadasIndex - 1) {
+                            let quedadaReference = quedadasValue[i] as! DocumentReference
+                            quedadaReference.getDocument { (documentSnapshot, error) in
                                 
-                                guard let dataQuedadas = dataDescription else {return}
-                                
-                                let quedadaImage = dataQuedadas["imageQuedada"] as! String
-                                
-                                let storage = Storage.storage()
-                                var reference: StorageReference!
-                                reference = storage.reference(forURL: quedadaImage)
-                                reference.downloadURL { (url, error) in
-                                    let data = NSData(contentsOf: url!)
-                                    let image = UIImage(data: data! as Data)
+                                if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
+                                    let dataDescription = documentSnapshot.data()
                                     
-                                    quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["fecha"] as! String, image!, dataQuedadas["lugar"] as! String, dataQuedadas["calle"] as! String, dataQuedadas["usuarios"] as! Array<Any>]
-                                    delegate.getAllQuedadas!(quedadas: quedadas)
+                                    guard let dataQuedadas = dataDescription else {return}
+                                    
+                                    let quedadaImage = dataQuedadas["imageQuedada"] as! String
+                                    
+                                    let storage = Storage.storage()
+                                    var reference: StorageReference!
+                                    reference = storage.reference(forURL: quedadaImage)
+                                    reference.downloadURL { (url, error) in
+                                        let data = NSData(contentsOf: url!)
+                                        let image = UIImage(data: data! as Data)
+                                        
+                                        quedadas[dataQuedadas["id"] as! String] = [dataQuedadas["nombre"] as! String, dataQuedadas["fecha"] as! String, image!, dataQuedadas["lugar"] as! String, dataQuedadas["calle"] as! String, dataQuedadas["usuarios"] as! Array<Any>]
+                                        DispatchQueue.main.async {
+                                            delegate.getAllQuedadas!(quedadas: quedadas)
+                                        }
+                                    }
+                                } else{
+                                    print("Document does not exist")
                                 }
-                            } else{
-                                print("Document does not exist")
                             }
                         }
+                    } else {
+                        //NO EXISTEN LAS QUEDADAS
+                        DispatchQueue.main.async {
+                            delegate.getAllQuedadas?(quedadas: quedadas)
+                            docRef.delete()
+                        }
                     }
-                } else {
-                    //NO EXISTEN LAS QUEDADAS
-                    delegate.getAllQuedadas?(quedadas: quedadas)
                 }
             }
         }
@@ -60,29 +68,37 @@ class Quedadas: NSObject {
     static func getArrayQuedadas(userID: String, quedadaId: String, delegate: QuedadasDelegate) {
         var userRef: DocumentReference!
         
-        let docRef = Firestore.firestore().collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                
-                var quedadasValue = document.get("quedadas") as! Array<Any>
-                
-                userRef = Firestore.firestore().document("quedadas/\(quedadaId)")
-                quedadasValue.append(userRef!)
-                
-                delegate.getMyQuedadasReference!(qudadasReference: quedadasValue)
+        DispatchQueue.global(qos: .background).async {
+            let docRef = Firestore.firestore().collection("users").document(userID)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    
+                    var quedadasValue = document.get("quedadas") as! Array<Any>
+                    
+                    userRef = Firestore.firestore().document("quedadas/\(quedadaId)")
+                    quedadasValue.append(userRef!)
+                    
+                    DispatchQueue.main.async {
+                        delegate.getMyQuedadasReference!(qudadasReference: quedadasValue)
+                    }
+                }
             }
         }
     }
     
     static func getMyUserName(userID: String, delegate: QuedadasDelegate) {
         var userName: String = ""
-        
-        let docRef = Firestore.firestore().collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                
-                userName = document.get("username") as! String
-                delegate.getMyUserName?(userName: userName)
+        DispatchQueue.global(qos: .background).async {
+            let docRef = Firestore.firestore().collection("users").document(userID)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    
+                    userName = document.get("username") as! String
+                    
+                    DispatchQueue.main.async {
+                        delegate.getMyUserName?(userName: userName)
+                    }
+                }
             }
         }
     }
@@ -90,17 +106,23 @@ class Quedadas: NSObject {
     static func getUsers(delegate: QuedadasDelegate) {
         var users: [String:String] = [:]
         
-        let docRef = Firestore.firestore().collection("users")
-        docRef.getDocuments { (querysnapchot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for documents in querysnapchot!.documents {
-                    docRef.document(documents.documentID).getDocument { (document, error) in
-                        
-                        guard let username = document?.get("username") else {return}
-                        users[documents.documentID] = username as? String
-                        delegate.getAllUsers?(users: users)
+        DispatchQueue.global(qos: .background).async {
+            
+            let docRef = Firestore.firestore().collection("users")
+            docRef.getDocuments { (querysnapchot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    for documents in querysnapchot!.documents {
+                        docRef.document(documents.documentID).getDocument { (document, error) in
+                            
+                            guard let username = document?.get("username") else {return}
+                            users[documents.documentID] = username as? String
+                            
+                            DispatchQueue.main.async {
+                                delegate.getAllUsers?(users: users)
+                            }
+                        }
                     }
                 }
             }

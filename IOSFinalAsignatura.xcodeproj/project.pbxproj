@@ -95,6 +95,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		66968B75247945B9000F50AD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DDAFCEB623ABE34C00FC668C /* Login */,
+				DDAFCEB723ABE35D00FC668C /* Register */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		895CF81423A1195500B16D37 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +131,7 @@
 				DDAFCEB223ABE2E500FC668C /* Resources */,
 				DDD3A46423EB89EC00D1830C /* Extensions */,
 				DDAFCEB323ABE30800FC668C /* Model */,
+				66968B75247945B9000F50AD /* UI */,
 				DDAFCEB423ABE31000FC668C /* Features */,
 				DDAFCEB523ABE33100FC668C /* View */,
 			);
@@ -227,8 +237,6 @@
 				DDA7ABBA23FA1803000B51FD /* Map */,
 				DDA2971423F84D9900B73BB9 /* QuedadaDetail */,
 				DDB2F99623E30ACC0057E0D8 /* NewQuedada */,
-				DDAFCEB623ABE34C00FC668C /* Login */,
-				DDAFCEB723ABE35D00FC668C /* Register */,
 				DD6D679623BBC5E900905BE7 /* TabBar */,
 				DDAFCEB823ABE36C00FC668C /* Home */,
 				DD6D679723BBC6BE00905BE7 /* Profile */,
