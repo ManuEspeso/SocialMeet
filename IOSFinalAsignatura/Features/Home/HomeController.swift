@@ -54,10 +54,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userID = Auth.auth().currentUser?.uid
-        Quedadas.getQuedadas(userID: userID!, delegate: self)
-        Quedadas.getUsers(delegate: self)
-        
         placeholderCollectionView?.placeholdersProvider = .default
         placeholderCollectionView?.placeholderDelegate = self
         placeholderCollectionView?.showLoadingPlaceholder()
@@ -65,11 +61,23 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
         getEmailFromCoreData()
+        setupNameInNav()
         setUpRefreshControl()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        showsSpinner()
+        
+        userID = Auth.auth().currentUser?.uid
+        Quedadas.getQuedadas(userID: userID!, delegate: self)
+        Quedadas.getUsers(delegate: self)
+        
+        UserDefaults.standard.set(true, forKey: "show_spinner")
+    }
+    
+    private func setupNameInNav() {
         let label = UILabel(frame: CGRect(x: 10, y: 0, width: 50, height: 40))
         label.font = UIFont.boldSystemFont(ofSize: 17)
         
@@ -105,9 +113,19 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     @objc func refresh() {
         refreshControl.beginRefreshing()
+        
+        showsSpinner()
         self.quedadas.removeAll()
+        
         Quedadas.getQuedadas(userID: userID!, delegate: self)
+        
         refreshControl.endRefreshing()
+    }
+    
+    private func showsSpinner() {
+        if (UserDefaults.standard.bool(forKey: "show_spinner")) {
+            self.showSpinner()
+        }
     }
     
     func run(after seconds: Int, completion: @escaping () -> Void) {
@@ -122,6 +140,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         run(after: 1) {
             self.myQuedadas.removeAll()
             self.itemsQuedadas.removeAll()
+            self.removeSpinner()
             self.myCollectionView.reloadData()
         }
     }
@@ -160,10 +179,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        /*let key = PlaceholderKey.custom(key: "starWars")
-         placeholderCollectionView?.showCustomPlaceholder(with: key)*/
-        
         if let controller = storyboard?.instantiateViewController(withIdentifier: "QuedadaDetailController") as? QuedadaDetailController {
             
             controller.quedadaImageSelected = itemsQuedadas[indexPath.row].quedadaimage
@@ -233,7 +248,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if (segue.identifier == "newQuedada") {
             
             let destinationVC = segue.destination as! NewQuedadaController
@@ -248,6 +262,3 @@ extension HomeController: PlaceholderDelegate {
         (view as? CollectionView)?.showDefault()
     }
 }
-
-
-

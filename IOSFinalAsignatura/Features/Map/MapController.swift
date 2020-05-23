@@ -26,11 +26,25 @@ class MapController: UIViewController, TabItem  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.showAlert(alertText: "Welcome to our Map Advise", alertMessage: "In this map you can find some interesting places for meet and visit if you don`t have any idea or place to meet ")
-        
+        showAlertFirstTime()
         setUpLocationManager()
         placesClient = GMSPlacesClient.shared()
         
+    }
+    
+    func showAlertFirstTime() {
+        if isFirstLaunch() {
+             self.showAlert(alertText: "Welcome to our Map Advise", alertMessage: "In this map you can find some interesting places for meet and visit if you don`t have any idea or place to meet ")
+        }
+    }
+    
+    func isFirstLaunch() -> Bool {
+
+        if (!UserDefaults.standard.bool(forKey: "launched_before")) {
+            UserDefaults.standard.set(true, forKey: "launched_before")
+            return true
+        }
+        return false
     }
     
     func setUpLocationManager() {

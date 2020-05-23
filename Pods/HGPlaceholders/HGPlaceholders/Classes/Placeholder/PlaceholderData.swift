@@ -52,7 +52,7 @@ public struct PlaceholderData {
         var loadingStyle = PlaceholderData()
         loadingStyle.image = PlaceholdersProvider.image(named: "hg_default-loading")
         loadingStyle.title = NSLocalizedString("Loading...", comment: "")
-        loadingStyle.action = NSLocalizedString("Cancel", comment: "")
+//        loadingStyle.action = NSLocalizedString("Cancel", comment: "")
         loadingStyle.subtitle = NSLocalizedString("We are loading your meets\nwait one moment please", comment: "")
         loadingStyle.showsLoading = true
         
