@@ -108,7 +108,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
             guard let uid = result?.user.uid else { return }
             guard let email = result?.user.email else { return }
             guard let username = result?.user.displayName else { return }
-            
+//            result?.user.photoURL
             self.insertGoogleUserOnDB(userId: uid, userName: username, userEmail: email)
             self.goToHomePage()
         }

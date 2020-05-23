@@ -40,11 +40,14 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
     
     var userID: String?
     var db: Firestore!
-    var users: [String:String] = [:]
-    var usernames = [User]()
+    var usersName: [String:String] = [:]
+    var usersImage: [String:String] = [:]
+    var usernames = [UserName]()
+    var userImage = [UserImage]()
     var arrayUsersID = [String]()
     var arrayUsersName = [String]()
-    var itemsUsers = [ViewUserItem]()
+    var itemsUsers = [ViewUserItemName]()
+    var itemsUsersImage = [ViewUserItemImage]()
     var imagePicker: UIImagePickerController!
     var userName: String = ""
     
@@ -53,7 +56,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
             didToggleSelection?(!selectedItems.isEmpty)
         }
     }
-    var selectedItems: [ViewUserItem] {
+    var selectedItems: [ViewUserItemName] {
         return itemsUsers.filter { return $0.isSelected }
     }
     
@@ -73,9 +76,15 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
         quedadaImageView.layer.cornerRadius = quedadaImageView.bounds.width/2
         quedadaImageView.clipsToBounds = true
         
-        for (key, value) in self.users {
+        for (key, value) in self.usersName {
             if key != userID {
-                usernames.append(User(id: key, username: value))
+                usernames.append(UserName(id: key, username: value))
+            }
+        }
+        
+        for (key, value) in self.usersImage {
+            if key != userID {
+                userImage.append(UserImage(id: key, image: value))
             }
         }
         
@@ -188,9 +197,12 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        itemsUsers = usernames.map { ViewUserItem(item: $0) }
+        itemsUsers = usernames.map { ViewUserItemName(item: $0) }
+        itemsUsersImage = userImage.map { ViewUserItemImage(item: $0) }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NewQuedadaCell", for: indexPath) as? NewQuedadaViewCell {
             cell.item = itemsUsers[indexPath.row]
+            cell.itemImage = itemsUsersImage[indexPath.row]
             
             return cell
         }

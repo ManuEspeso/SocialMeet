@@ -104,7 +104,8 @@ class Quedadas: NSObject {
     }
     
     static func getUsers(delegate: QuedadasDelegate) {
-        var users: [String:String] = [:]
+        var usersName: [String:String] = [:]
+        var usersImage: [String:String] = [:]
         
         DispatchQueue.global(qos: .background).async {
             
@@ -116,11 +117,14 @@ class Quedadas: NSObject {
                     for documents in querysnapchot!.documents {
                         docRef.document(documents.documentID).getDocument { (document, error) in
                             
-                            guard let username = document?.get("username") else {return}
-                            users[documents.documentID] = username as? String
+                            guard let username = document?.get("username") else { return }
+                            guard let userImage = document?.get("imageProfile") else { return }
+                            
+                            usersName[documents.documentID] = username as? String
+                            usersImage[documents.documentID] = userImage as? String
                             
                             DispatchQueue.main.async {
-                                delegate.getAllUsers?(users: users)
+                                delegate.getAllUsers?(usersName, usersImage)
                             }
                         }
                     }
@@ -131,9 +135,9 @@ class Quedadas: NSObject {
 }
 
 @objc protocol QuedadasDelegate {
-    @objc optional func getAllQuedadas(quedadas: [String:[Any]])
+    @objc optional func getAllQuedadas(quedadas: [String: [Any]])
     @objc optional func getMyQuedadasReference(qudadasReference: Array<Any>)
-    @objc optional func getAllUsers(users: [String:String])
+    @objc optional func getAllUsers(_ usersName: [String: String], _ usersImage: [String: String])
     @objc optional func getMyUserName(userName: String)
 }
 

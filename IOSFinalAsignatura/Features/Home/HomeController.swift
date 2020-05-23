@@ -31,7 +31,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var menuView: UIViewX!
     
     var quedadas: [String: [Any]] = [:]
-    var users: [String:String] = [:]
+    var usersName: [String:String] = [:]
+    var usersImage: [String:String] = [:]
     var quedadasName = [String]()
     var quedadasDate = [String]()
     var quedadasImage = [UIImage]()
@@ -145,8 +146,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func getAllUsers(users: [String : String]) {
-        self.users = users
+    func getAllUsers(_ usersName: [String: String], _ usersImage: [String: String]) {
+        self.usersName = usersName
+        self.usersImage = usersImage
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -252,7 +254,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             let destinationVC = segue.destination as! NewQuedadaController
             destinationVC.userID = userID
-            destinationVC.users = users
+            destinationVC.usersName = usersName
+            destinationVC.usersImage = usersImage
         }
     }
 }

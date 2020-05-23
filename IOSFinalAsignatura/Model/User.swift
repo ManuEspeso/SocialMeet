@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct User {
+struct UserName {
     var id: String
     var username: String
 }
 
-class ViewUserItem {
-    private var item: User
+class ViewUserItemName {
+    private var item: UserName
     
     var isSelected = false
     
@@ -26,7 +26,31 @@ class ViewUserItem {
         return item.username
     }
     
-    init(item: User) {
+    init(item: UserName) {
+        self.item = item
+    }
+}
+
+
+struct UserImage {
+    var id: String
+    var image: String
+}
+
+class ViewUserItemImage {
+    private var item: UserImage
+    
+    var isSelected = false
+    
+    var id: String {
+        return item.id
+    }
+    
+    var image: String {
+        return item.image
+    }
+    
+    init(item: UserImage) {
         self.item = item
     }
 }

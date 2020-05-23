@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class NewQuedadaViewCell: UITableViewCell {
   
     @IBOutlet weak var userNameLabel: UILabel!
-    
-    var item: ViewUserItem? {
-        didSet {
-            userNameLabel.text = item?.username
-        }
-    }
+    @IBOutlet weak var userNameImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        userNameImage.layer.borderWidth = 1
+        userNameImage.layer.masksToBounds = false
+        userNameImage.layer.borderColor = UIColor.black.cgColor
+        userNameImage.layer.cornerRadius = userNameImage.frame.height/2
+        userNameImage.clipsToBounds = true
         
         selectionStyle = .none
     }
@@ -27,5 +31,38 @@ class NewQuedadaViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         accessoryType = selected ? .checkmark : .none
+    }
+    
+    var item: ViewUserItemName? {
+        didSet {
+            userNameLabel.text = item?.username
+        }
+    }
+    
+    var itemImage: ViewUserItemImage? {
+        didSet {
+            if (self.itemImage?.image.contains("https://lh3.googleusercontent.com"))! {
+                let fileUrl = URL(fileURLWithPath: itemImage!.image)
+                
+                if let data = try? Data(contentsOf: fileUrl) {
+                    print("no esta entando")
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.userNameImage.image = image
+                        }
+                    }
+                }
+            } else {
+                let storage = Storage.storage()
+                var reference: StorageReference!
+                reference = storage.reference(forURL: self.itemImage!.image)
+                reference.downloadURL { (url, error) in
+                    let data = NSData(contentsOf: url!)
+                    let image = UIImage(data: data! as Data)
+                    
+                    self.userNameImage.image = image
+                }
+            }
+        }
     }
 }
