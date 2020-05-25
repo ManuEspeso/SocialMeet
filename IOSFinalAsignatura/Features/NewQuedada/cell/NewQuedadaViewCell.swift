@@ -42,10 +42,9 @@ class NewQuedadaViewCell: UITableViewCell {
     var itemImage: ViewUserItemImage? {
         didSet {
             if (self.itemImage?.image.contains("https://lh3.googleusercontent.com"))! {
-                let fileUrl = URL(fileURLWithPath: itemImage!.image)
+                let fileUrl = URL(string: itemImage!.image)
                 
-                if let data = try? Data(contentsOf: fileUrl) {
-                    print("no esta entando")
+                if let data = try? Data(contentsOf: fileUrl!) {
                     if let image = UIImage(data: data) {
                         DispatchQueue.main.async {
                             self.userNameImage.image = image

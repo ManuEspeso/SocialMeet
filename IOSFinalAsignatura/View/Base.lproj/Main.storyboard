@@ -703,20 +703,30 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-e2-XC5">
-                                                    <rect key="frame" x="15" y="21" width="257" height="19"/>
+                                                    <rect key="frame" x="65" y="21" width="207" height="19"/>
                                                     <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rk5-4a-vnE">
+                                                    <rect key="frame" x="5" y="10" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="3Y5-CP-ilb"/>
+                                                        <constraint firstAttribute="height" constant="40" id="aFV-JA-YV2"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="M0c-e2-XC5" firstAttribute="leading" secondItem="to5-fr-Ep4" secondAttribute="leadingMargin" id="bK6-03-MBC"/>
+                                                <constraint firstItem="Rk5-4a-vnE" firstAttribute="leading" secondItem="to5-fr-Ep4" secondAttribute="leading" constant="5" id="LC3-wi-3S7"/>
                                                 <constraint firstItem="M0c-e2-XC5" firstAttribute="top" secondItem="to5-fr-Ep4" secondAttribute="topMargin" constant="10" id="d2a-vV-LgY"/>
+                                                <constraint firstItem="Rk5-4a-vnE" firstAttribute="top" secondItem="to5-fr-Ep4" secondAttribute="top" constant="10" id="fgH-6d-YYl"/>
+                                                <constraint firstItem="M0c-e2-XC5" firstAttribute="leading" secondItem="Rk5-4a-vnE" secondAttribute="trailing" constant="20" id="hSv-Jd-h4j"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="M0c-e2-XC5" secondAttribute="trailing" id="tzM-DG-fqZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.8637872338" green="0.2903639972" blue="0.47759193179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="userNameImage" destination="Rk5-4a-vnE" id="otK-3p-AKY"/>
                                             <outlet property="userNameLabel" destination="M0c-e2-XC5" id="Kav-xB-P5C"/>
                                         </connections>
                                     </tableViewCell>

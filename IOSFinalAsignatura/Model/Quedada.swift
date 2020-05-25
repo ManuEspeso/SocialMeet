@@ -16,6 +16,7 @@ struct Quedada {
     var quedadastreet: String
     var quedadadate: String
     var quedadaimage: UIImage
+    var quedadaUsers: Array<String>
 }
 
 class ViewQuedadaItem {
@@ -43,6 +44,10 @@ class ViewQuedadaItem {
     
     var quedadaimage: UIImage {
         return item.quedadaimage
+    }
+    
+    var quedadaUsers: Array<String> {
+        return item.quedadaUsers
     }
     
     init(item: Quedada) {

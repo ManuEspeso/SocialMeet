@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -23,7 +26,10 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
     var quedadaPlaceSelected: String?
     var quedadaStreetSelected: String?
     var quedadaDateSelected: String?
-    var quedadaArrayUsersSelected: Array<Any>?
+    var quedadaArrayUsersSelected: Array<String>?
+    var usersImage: [String:String] = [:]
+    var userImage = [UserImage]()
+    var itemsUsersImage = [ViewUserItemImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +43,10 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
         quedadaImage.clipsToBounds = true
         
         setUpIBOutlets()
+        
+        for (key, value) in self.usersImage {
+            userImage.append(UserImage(id: key, image: value))
+        }
     }
     
     func setUpIBOutlets() {
@@ -56,10 +66,34 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        itemsUsersImage = userImage.map { ViewUserItemImage(item: $0) }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? QuedadaDetailViewCell {
-            let user = quedadaArrayUsersSelected![indexPath.row] as! String
-            cell.userNameLabel.text = user
+
+            cell.userNameLabel.text = quedadaArrayUsersSelected![indexPath.row]
             
+            
+            if (itemsUsersImage[indexPath.row].image.contains("https://lh3.googleusercontent.com")) {
+                let fileUrl = URL(string: itemsUsersImage[indexPath.row].image)
+
+                if let data = try? Data(contentsOf: fileUrl!) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            cell.userNameImage.image = image
+                        }
+                    }
+                }
+            } else {
+                let storage = Storage.storage()
+                var reference: StorageReference!
+                reference = storage.reference(forURL: itemsUsersImage[indexPath.row].image)
+                reference.downloadURL { (url, error) in
+                    let data = NSData(contentsOf: url!)
+                    let image = UIImage(data: data! as Data)
+
+                    cell.userNameImage.image = image
+                }
+            }
             return cell
         }
         return UITableViewCell()

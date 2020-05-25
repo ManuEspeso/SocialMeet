@@ -38,7 +38,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var quedadasImage = [UIImage]()
     var quedadasPlace = [String]()
     var quedadasStreet = [String]()
-    var quedadasArrayUsers = Array<Any>()
     var tabImage: UIImage? {
         return UIImage(named: "material_logo")
     }
@@ -159,8 +158,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeViewCell
         
         for (key, value) in self.quedadas {
-            myQuedadas.append(Quedada(id: key, quedadaname: value[0] as! String, quedadaplace: value[3] as! String, quedadastreet: value[4] as! String, quedadadate: value[1] as! String, quedadaimage: value[2] as! UIImage))
-            quedadasArrayUsers = value[5] as! Array<Any>
+            myQuedadas.append(Quedada(id: key, quedadaname: value[0] as! String, quedadaplace: value[3] as! String, quedadastreet: value[4] as! String, quedadadate: value[1] as! String, quedadaimage: value[2] as! UIImage, quedadaUsers: value[5] as! Array<String>))
         }
         
         itemsQuedadas = myQuedadas.map { ViewQuedadaItem(item: $0) }
@@ -188,7 +186,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             controller.quedadaDateSelected = itemsQuedadas[indexPath.row].quedadadate
             controller.quedadaPlaceSelected = itemsQuedadas[indexPath.row].quedadaplace
             controller.quedadaStreetSelected = itemsQuedadas[indexPath.row].quedadastreet
-            controller.quedadaArrayUsersSelected = quedadasArrayUsers
+            controller.quedadaArrayUsersSelected = itemsQuedadas[indexPath.row].quedadaUsers
+            controller.usersImage = usersImage
             
             controller.modalTransitionStyle = .flipHorizontal
             

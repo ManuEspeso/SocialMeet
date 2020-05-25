@@ -10,4 +10,15 @@ import UIKit
 
 class QuedadaDetailViewCell: UITableViewCell { 
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userNameImage: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        userNameImage.layer.borderWidth = 1
+        userNameImage.layer.masksToBounds = false
+        userNameImage.layer.borderColor = UIColor.black.cgColor
+        userNameImage.layer.cornerRadius = userNameImage.frame.height/2
+        userNameImage.clipsToBounds = true
+    }
 }
