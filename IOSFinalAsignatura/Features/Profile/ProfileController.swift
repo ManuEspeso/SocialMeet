@@ -22,15 +22,9 @@ class ProfileController: UIViewController {
     var userName: String = ""
     var userImage: String = ""
     
-    var currentColorArrayIndex = -1
-    var colorArray: [(color1: UIColor, color2: UIColor)] = []
-    
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var profileView: UIViewX!
     @IBOutlet weak var imageProfileView: UIImageView!
     @IBOutlet weak var userEmailOutlet: UILabel!
     @IBOutlet weak var usernameOutlet: UILabel!
-    @IBOutlet weak var iconImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,19 +33,8 @@ class ProfileController: UIViewController {
         
         imageProfileView.layer.cornerRadius = imageProfileView.bounds.height/2
         imageProfileView.clipsToBounds = true
-        iconImageView.layer.cornerRadius = imageProfileView.bounds.height/2
-        iconImageView.clipsToBounds = true
-        
-        setUpCardView()
+
         getUserDatas()
-    }
-    
-    func setUpCardView() {
-        cardView.layer.cornerRadius = 20.0
-        cardView.layer.shadowColor = UIColor.gray.cgColor
-        cardView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        cardView.layer.shadowRadius = 12.0
-        cardView.layer.shadowOpacity = 0.7
     }
     
     func getUserDatas() {
