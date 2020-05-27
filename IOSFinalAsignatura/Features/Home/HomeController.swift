@@ -54,7 +54,11 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        myCollectionView?.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
+        if let patternImage = UIImage(named: "Pattern") {
+          view.backgroundColor = UIColor(patternImage: patternImage)
+        }
+        
+        myCollectionView?.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
         
         placeholderCollectionView?.placeholdersProvider = .default
         placeholderCollectionView?.placeholderDelegate = self
@@ -165,17 +169,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         itemsQuedadas = myQuedadas.map { ViewQuedadaItem(item: $0) }
         cell.item = itemsQuedadas[indexPath.row]
-        
-        cell.contentView.layer.cornerRadius = 4.0
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = false
-        cell.layer.shadowColor = UIColor.gray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        cell.layer.shadowRadius = 4.0
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
 
         return cell
     }
@@ -195,12 +191,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             present(controller, animated: true, completion: nil)
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//      let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
-//        print(itemSize)
-//      return CGSize(width: itemSize, height: itemSize)
-//    }
     
     func signOut() {
         let alert = UIAlertController(title: "Sign Out",

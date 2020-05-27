@@ -103,7 +103,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
         let timeFormatter = DateFormatter()
         timeFormatter.dateStyle = DateFormatter.Style.long
         timeFormatter.locale = Locale(identifier: "es_ES")
-        timeFormatter.dateFormat = "EEEE, yyy-MM-dd, HH:mm" /*"yyy-MM-dd'T'HH:mm"*/
+        timeFormatter.dateFormat = "dd/MM/yyyy, HH:mm"
         let strDate = timeFormatter.string(from: quedadaDate.date)
         
         return strDate
