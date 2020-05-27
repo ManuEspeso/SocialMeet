@@ -57,7 +57,6 @@ class Quedadas: NSObject {
                         //NO EXISTEN LAS QUEDADAS
                         DispatchQueue.main.async {
                             delegate.getAllQuedadas?(quedadas: quedadas)
-                            docRef.delete()
                         }
                     }
                 }

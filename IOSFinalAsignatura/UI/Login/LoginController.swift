@@ -31,9 +31,12 @@ class LoginController: UIViewController, GIDSignInDelegate {
     var currentColorArrayIndex = -1
     var email: String = ""
     var id: String = ""
+    var emptyArray = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserDefaults.standard.set(false, forKey: "show_spinner")
         
         loginbutton.layer.cornerRadius = 8
         googleAction.layer.cornerRadius = 18
@@ -108,16 +111,41 @@ class LoginController: UIViewController, GIDSignInDelegate {
             guard let uid = result?.user.uid else { return }
             guard let email = result?.user.email else { return }
             guard let username = result?.user.displayName else { return }
-//            result?.user.photoURL
-            self.insertGoogleUserOnDB(userId: uid, userName: username, userEmail: email)
+            guard let userImage = result?.user.photoURL else { return }
+            
+            self.insertGoogleUserOnDB(userId: uid, userName: username, userEmail: email, userImage: userImage.absoluteString)
             self.goToHomePage()
         }
     }
     
-    func insertGoogleUserOnDB(userId: String, userName: String, userEmail: String) {
-        db.collection("users").document(userId).updateData(["username": userName])
-        db.collection("users").document(userId).updateData(["email": userEmail])
-        db.collection("users").document(userId).updateData(["id": userId])
+    func insertGoogleUserOnDB(userId: String, userName: String, userEmail: String, userImage: String) {
+        
+        let docRef = db.collection("users").document(userId)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.db.collection("users").document(userId).updateData(["username": userName])
+                self.db.collection("users").document(userId).updateData(["email": userEmail])
+                self.db.collection("users").document(userId).updateData(["id": userId])
+                self.db.collection("users").document(userId).updateData(["imageProfile": userImage])
+            } else {
+                let docData: [String: Any] = [
+                    "id": "\(userId)1",
+                    "username": userName,
+                    "email": userEmail,
+                    "imageProfile": userImage,
+                    "quedadas": self.emptyArray
+                ]
+                
+                self.db.collection("users").document("\(userId)1").setData(docData) { err in
+                    if let err = err {
+                        print("Error writing user on database: \(err)")
+                    } else {
+                        _ = self.saveInCoreData(email: userEmail, id: "\(userId)1")
+                    }
+                }
+            }
+        }
     }
     
     func autoLogIn() {

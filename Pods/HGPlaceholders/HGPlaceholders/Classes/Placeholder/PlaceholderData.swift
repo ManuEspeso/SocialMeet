@@ -42,7 +42,7 @@ public struct PlaceholderData {
         noResultsStyle.image = PlaceholdersProvider.image(named: "hg_default-no_results")
         noResultsStyle.title = NSLocalizedString("No results found", comment: "")
         noResultsStyle.subtitle = NSLocalizedString("You don`t have any\nmeet in your account.", comment: "")
-        noResultsStyle.action = NSLocalizedString("Accept", comment: "")
+//        noResultsStyle.action = NSLocalizedString("Accept", comment: "")
         
         return noResultsStyle
     }

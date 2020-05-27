@@ -547,7 +547,7 @@
                                             <color key="titleColor" white="0.088238441779999996" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="kG0-AH-uOC" kind="presentation" modalTransitionStyle="flipHorizontal" id="fOe-Vj-3Rp"/>
+                                            <segue destination="kG0-AH-uOC" kind="presentation" identifier="profileScreen" modalTransitionStyle="flipHorizontal" id="fOe-Vj-3Rp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWy-Gk-5ja">

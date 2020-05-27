@@ -41,7 +41,7 @@ class NewQuedadaViewCell: UITableViewCell {
     
     var itemImage: ViewUserItemImage? {
         didSet {
-            if (self.itemImage?.image.contains("https://lh3.googleusercontent.com"))! {
+            if (self.itemImage?.image.contains("googleusercontent.com"))! {
                 let fileUrl = URL(string: itemImage!.image)
                 
                 if let data = try? Data(contentsOf: fileUrl!) {

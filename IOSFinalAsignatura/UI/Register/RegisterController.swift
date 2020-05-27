@@ -19,7 +19,13 @@ class RegisterController: UIViewController {
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBAction func signUpButtonAction(_ sender: Any) {
-        createUser()
+        if profileImageView.image == nil {
+            showAlert(alertText: "Missing Image", alertMessage: "Please add an image account")
+        } else if userName.text == "" {
+            showAlert(alertText: "Missing Username", alertMessage: "Please add an username account")
+        } else {
+          createUser()
+        }
     }
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var uploadProfileImage: UIButton!
@@ -32,6 +38,8 @@ class RegisterController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserDefaults.standard.set(false, forKey: "show_spinner")
         
         signUpButton.layer.cornerRadius = 8
         
@@ -55,9 +63,9 @@ class RegisterController: UIViewController {
     
     func createUser() {
         
-        guard let userName = userName.text else {return}
-        guard let userEmail = userEmail.text else {return}
-        guard let userPassword = userPassword.text else {return}
+        guard let userName = userName.text else { return }
+        guard let userEmail = userEmail.text else { return }
+        guard let userPassword = userPassword.text else { return }
         
         self.showSpinner()
         
@@ -96,15 +104,14 @@ class RegisterController: UIViewController {
     func imageStorageFirebase(userId: String, userName: String, userEmail: String) {
         let storageRef = Storage.storage().reference().child("users/\(userId)")
         
-        guard let myImage = profileImageView.image else {return}
-        if let imageData = UIImageJPEGRepresentation(myImage, 1) {
+        if let imageData = UIImageJPEGRepresentation(profileImageView.image!, 1) {
             
             storageRef.putData(imageData, metadata: nil, completion:
                 { (metadata, error) in
                     
                     if error != nil {
                         self.removeSpinner()
-                        self.showAlert(alertText: "Something Wrong", alertMessage: error! as! String)
+                        self.showAlert(alertText: "Something Wrong", alertMessage: "Something fail when trying to save the image in the storage")
                         return
                     }
                     
@@ -116,9 +123,9 @@ class RegisterController: UIViewController {
                             "quedadas": self.emptyArray
                         ]
                         
-                        if let error = error {
+                        if let _ = error {
                             self.removeSpinner()
-                            self.showAlert(alertText: "Something Wrong", alertMessage: error as! String)
+                            self.showAlert(alertText: "Something Wrong", alertMessage: "Something fail when trying to save the image in the storage")
                         } else {
                             self.insertUsersOnDB(userId: userId, docData: docData)
                         }

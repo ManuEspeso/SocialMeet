@@ -73,7 +73,7 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
             cell.userNameLabel.text = quedadaArrayUsersSelected![indexPath.row]
             
             
-            if (itemsUsersImage[indexPath.row].image.contains("https://lh3.googleusercontent.com")) {
+            if (itemsUsersImage[indexPath.row].image.contains("googleusercontent.com")) {
                 let fileUrl = URL(string: itemsUsersImage[indexPath.row].image)
 
                 if let data = try? Data(contentsOf: fileUrl!) {
