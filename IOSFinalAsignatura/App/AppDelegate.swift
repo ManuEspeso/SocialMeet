@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
-        AMTabView.settings.ballColor = #colorLiteral(red: 0.8637872338, green: 0.2903639972, blue: 0.4775919318, alpha: 1)
-        AMTabView.settings.tabColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        AMTabView.settings.selectedTabTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        AMTabView.settings.unSelectedTabTintColor = #colorLiteral(red: 0.8637872338, green: 0.2903639972, blue: 0.4775919318, alpha: 1)
+        AMTabView.settings.ballColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        AMTabView.settings.tabColor = #colorLiteral(red: 0.6117647059, green: 0.1529411765, blue: 0.6901960784, alpha: 1)
+        AMTabView.settings.selectedTabTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        AMTabView.settings.unSelectedTabTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         // Chnage the animation duration
         AMTabView.settings.animationDuration = 1

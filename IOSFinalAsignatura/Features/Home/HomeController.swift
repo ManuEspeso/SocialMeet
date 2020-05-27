@@ -54,6 +54,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        myCollectionView?.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
+        
         placeholderCollectionView?.placeholdersProvider = .default
         placeholderCollectionView?.placeholderDelegate = self
         placeholderCollectionView?.showLoadingPlaceholder()
@@ -164,7 +166,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         itemsQuedadas = myQuedadas.map { ViewQuedadaItem(item: $0) }
         cell.item = itemsQuedadas[indexPath.row]
         
-        //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.clear.cgColor
@@ -175,7 +176,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-        
+
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -194,6 +195,12 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             present(controller, animated: true, completion: nil)
         }
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//      let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
+//        print(itemSize)
+//      return CGSize(width: itemSize, height: itemSize)
+//    }
     
     func signOut() {
         let alert = UIAlertController(title: "Sign Out",
