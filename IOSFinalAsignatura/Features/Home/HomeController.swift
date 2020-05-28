@@ -112,7 +112,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func setUpRefreshControl() {
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Swipe to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: refreshAction.toLocalized())
         refreshControl.tintColor = UIColor.white
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         myCollectionView.addSubview(refreshControl)
@@ -193,14 +193,14 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func signOut() {
-        let alert = UIAlertController(title: "Sign Out",
-                                      message: "Are you sure do you want to Sign Out?",
+        let alert = UIAlertController(title: signOutAction.toLocalized(),
+                                      message: signOutCheck.toLocalized(),
                                       preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel",
+        alert.addAction(UIAlertAction(title: cancelAction.toLocalized(),
                                       style: UIAlertAction.Style.default,
                                       handler: nil))
-        alert.addAction(UIAlertAction(title: "Sign Out",
+        alert.addAction(UIAlertAction(title: signOutAction,
                                       style: UIAlertAction.Style.destructive,
                                       handler: { action in
                                         do {

@@ -20,9 +20,9 @@ class RegisterController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBAction func signUpButtonAction(_ sender: Any) {
         if profileImageView.image == nil {
-            showAlert(alertText: "Missing Image", alertMessage: "Please add an image account")
+            showAlert(alertText: somethingWrong.toLocalized(), alertMessage: addImage.toLocalized())
         } else if userName.text == "" {
-            showAlert(alertText: "Missing Username", alertMessage: "Please add an username account")
+            showAlert(alertText: somethingWrong.toLocalized(), alertMessage: addUsername.toLocalized())
         } else {
           createUser()
         }
@@ -73,7 +73,7 @@ class RegisterController: UIViewController {
             
             if let error = error {
                 self.removeSpinner()
-                self.showAlert(alertText: "Something Wrong", alertMessage: error.localizedDescription)
+                self.showAlert(alertText: somethingWrong.toLocalized(), alertMessage: error.localizedDescription)
                 return
             } else {
                 let user = Auth.auth().currentUser
@@ -111,7 +111,7 @@ class RegisterController: UIViewController {
                     
                     if error != nil {
                         self.removeSpinner()
-                        self.showAlert(alertText: "Something Wrong", alertMessage: "Something fail when trying to save the image in the storage")
+                        self.showAlert(alertText: somethingWrong.toLocalized(), alertMessage: errorMessageImage.toLocalized())
                         return
                     }
                     
@@ -125,7 +125,7 @@ class RegisterController: UIViewController {
                         
                         if let _ = error {
                             self.removeSpinner()
-                            self.showAlert(alertText: "Something Wrong", alertMessage: "Something fail when trying to save the image in the storage")
+                            self.showAlert(alertText: somethingWrong.toLocalized(), alertMessage: errorMessageImage.toLocalized())
                         } else {
                             self.insertUsersOnDB(userId: userId, docData: docData)
                         }

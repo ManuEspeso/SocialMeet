@@ -156,7 +156,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
             }
         } else {
             self.removeSpinner()
-            self.showAlert(alertText: "Without Members!", alertMessage: "You should add one members at leats if you want create a new meet")
+            self.showAlert(alertText: withoutMembersTitle.toLocalized(), alertMessage: withoutMembersMessage.toLocalized())
         }
     }
     

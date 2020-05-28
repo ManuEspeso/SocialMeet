@@ -724,7 +724,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="M0c-e2-XC5" secondAttribute="trailing" id="tzM-DG-fqZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.8637872338" green="0.2903639972" blue="0.47759193179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="userNameImage" destination="Rk5-4a-vnE" id="otK-3p-AKY"/>
                                             <outlet property="userNameLabel" destination="M0c-e2-XC5" id="Kav-xB-P5C"/>
@@ -831,7 +831,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9u-KM-49Y" customClass="HoshiTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9u-KM-49Y" customClass="HoshiTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="44" y="216" width="287" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="oEG-Kr-0ae"/>
@@ -855,7 +855,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lugar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIp-v8-f8q" customClass="HoshiTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Place" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIp-v8-f8q" customClass="HoshiTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="44" y="269" width="287" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="287" id="ao7-Di-t3Q"/>
@@ -895,13 +895,13 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKl-Pf-aqe">
-                                <rect key="frame" x="134" y="175" width="107" height="31"/>
+                                <rect key="frame" x="147.66666666666666" y="175" width="80" height="31"/>
                                 <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="17"/>
-                                <state key="normal" title="Añadir Imagen">
+                                <state key="normal" title="Add Image">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Calle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxP-xX-FZl" customClass="HoshiTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Street" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxP-xX-FZl" customClass="HoshiTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="44" y="322" width="287" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="287" id="jer-MB-gMl"/>
@@ -931,7 +931,7 @@
                                     <constraint firstAttribute="width" constant="190" id="UAD-V6-LPS"/>
                                     <constraint firstAttribute="height" constant="50" id="ktx-SM-I5j"/>
                                 </constraints>
-                                <state key="normal" title="Añadir"/>
+                                <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="customButton:" destination="0em-Iv-hCf" eventType="touchUpInside" id="QT0-Fb-ts0"/>
                                 </connections>
@@ -1045,8 +1045,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnt-rR-T9c">
-                                <rect key="frame" x="29.999999999999993" y="481" width="78.333333333333314" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnt-rR-T9c">
+                                <rect key="frame" x="30.000000000000007" y="481" width="103.66666666666669" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4vG-nT-T9U"/>
                                 </constraints>

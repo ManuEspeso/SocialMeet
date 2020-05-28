@@ -1,0 +1,17 @@
+
+"something_wrong" = "Something Wrong";
+"add_image" = "Please add an image account";
+"add_username" = "Please add an username account";
+"error_message_image" = "Something fail when trying to save the image in the storage";
+
+"map_advise_title" = "Welcome to our Map Advise";
+"map_advise_message" = "In this map you can find some interesting places for meet and visit if you don`t have any idea or place to meet";
+
+"without_members_title" = "Without Members!";
+"without_members_message" = "You should add one members at leats if you want create a new meet";
+
+"refresh_action" = "Swipe to refresh";
+
+"sign_out" = "Sign Out";
+"sign_out_check" = "Are you sure do you want to Sign Out?";
+"cancel_action" = "Cancel";

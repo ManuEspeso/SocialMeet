@@ -1,0 +1,84 @@
+
+/* Class = "UIButton"; normalTitle = "Añadir"; ObjectID = "2oO-IT-XRc"; */
+"2oO-IT-XRc.normalTitle" = "Añadir";
+
+/* Class = "UILabel"; text = "QuedadaPlace"; ObjectID = "7kJ-gM-udb"; */
+"7kJ-gM-udb.text" = "Lugar de la quedada";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "8eW-Nk-DoA"; */
+"8eW-Nk-DoA.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Nombre"; ObjectID = "B9u-KM-49Y"; */
+"B9u-KM-49Y.placeholder" = "Nombre";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "BHq-Tr-SeZ"; */
+"BHq-Tr-SeZ.placeholder" = "Contraseña";
+
+/* Class = "UITextField"; placeholder = "Calle"; ObjectID = "BxP-xX-FZl"; */
+"BxP-xX-FZl.placeholder" = "Calle";
+
+/* Class = "UIButton"; normalTitle = "LOG IN"; ObjectID = "F6C-sT-GtF"; */
+"F6C-sT-GtF.normalTitle" = "INICIAR SESION";
+
+/* Class = "UIButton"; normalTitle = "SIGN UP"; ObjectID = "H7z-Ay-m49"; */
+"H7z-Ay-m49.normalTitle" = "REGISTRARSE";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Hhf-u0-cJc"; */
+"Hhf-u0-cJc.placeholder" = "Username";
+
+/* Class = "UILabel"; text = "Email : "; ObjectID = "Iht-pC-XLJ"; */
+"Iht-pC-XLJ.text" = "Email : ";
+
+/* Class = "UILabel"; text = "QuedadaDate"; ObjectID = "JoE-8e-30R"; */
+"JoE-8e-30R.text" = "Fecha de la quedada";
+
+/* Class = "UILabel"; text = "Un dia cualquiera"; ObjectID = "KLM-rI-O6U"; */
+"KLM-rI-O6U.text" = "Un dia cualquiera";
+
+/* Class = "UILabel"; text = "a@a.es"; ObjectID = "LKS-aW-fba"; */
+"LKS-aW-fba.text" = "a@a.es";
+
+/* Class = "UILabel"; text = "QuedadaStreet"; ObjectID = "LXL-Sb-AIb"; */
+"LXL-Sb-AIb.text" = "Calle de la quedada";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "M0c-e2-XC5"; */
+"M0c-e2-XC5.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "VU9-h4-HW9"; */
+"VU9-h4-HW9.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Lugar"; ObjectID = "XIp-v8-f8q"; */
+"XIp-v8-f8q.placeholder" = "Lugar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Z5H-cS-wPw"; */
+"Z5H-cS-wPw.text" = "Label";
+
+/* Class = "UILabel"; text = "Datos de la Cuenta : "; ObjectID = "ZI3-07-W8t"; */
+"ZI3-07-W8t.text" = "Datos de la Cuenta : ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cCR-cV-NYp"; */
+"cCR-cV-NYp.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Don't have an account? Sign up"; ObjectID = "gHr-DS-NZ4"; */
+"gHr-DS-NZ4.normalTitle" = "No tienes ninguna cuenta? Registrate";
+
+/* Class = "UILabel"; text = "aaaaaa"; ObjectID = "hq5-ll-950"; */
+"hq5-ll-950.text" = "aaaaaa";
+
+/* Class = "UILabel"; text = "Usuario : "; ObjectID = "jnt-rR-T9c"; */
+"jnt-rR-T9c.text" = "Usuario : ";
+
+/* Class = "UILabel"; text = "OR"; ObjectID = "lB7-Po-KUW"; */
+"lB7-Po-KUW.text" = "OR";
+
+/* Class = "UIButton"; normalTitle = "Añadir Imagen"; ObjectID = "nKl-Pf-aqe"; */
+"nKl-Pf-aqe.normalTitle" = "Añadir Imagen";
+
+/* Class = "UIButton"; normalTitle = "Upload Profile Image"; ObjectID = "npz-A5-6GR"; */
+"npz-A5-6GR.normalTitle" = "Añadir imagen de perfil";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "tNe-h7-Ir3"; */
+"tNe-h7-Ir3.placeholder" = "Contraseña";
+
+/* Class = "UILabel"; text = "QuedadaName"; ObjectID = "yrv-Za-UMv"; */
+"yrv-Za-UMv.text" = "Nombre de la quedada";

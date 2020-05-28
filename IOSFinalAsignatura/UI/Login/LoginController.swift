@@ -67,7 +67,7 @@ class LoginController: UIViewController, GIDSignInDelegate {
             
             if let error = error {
                 self.removeSpinner()
-                self.showAlert(alertText: "Something Wrong", alertMessage: error.localizedDescription)
+                self.showAlert(alertText: somethingWrong.toLocalized(), alertMessage: error.localizedDescription)
                 return
             } else {
                 

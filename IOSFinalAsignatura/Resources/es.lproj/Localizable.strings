@@ -1,0 +1,17 @@
+
+"something_wrong" = "Algo ha salido mal";
+"add_image" = "Por favor añade una imagen para la cuenta";
+"add_username" = "Por favor añade un username para la cuenta";
+"error_message_image" = "Algo ha fallado intentando guardar la imagen en la base de datos";
+
+"map_advise_title" = "Bienvenido al nuestro servicio del mapa";
+"map_advise_message" = "En este mapa puedes encontrar algunos puntos de interes por si quieres organizar alguna quedada en alguno de estos sitios o si necesitas alguna idea de algun plan";
+
+"without_members_title" = "Sin participantes!";
+"without_members_message" = "Debes añadir al menos un participante si deseas crear una quedada";
+
+"refresh_action" = "Arrastra para refrescar";
+
+"sign_out" = "Cerrar sesion";
+"sign_out_check" = "Estas seguro de que quieres cerrar sesion?";
+"cancel_action" = "Cancelar";

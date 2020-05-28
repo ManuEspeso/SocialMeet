@@ -34,7 +34,7 @@ class MapController: UIViewController, TabItem  {
     
     func showAlertFirstTime() {
         if isFirstLaunch() {
-             self.showAlert(alertText: "Welcome to our Map Advise", alertMessage: "In this map you can find some interesting places for meet and visit if you don`t have any idea or place to meet ")
+            self.showAlert(alertText: mapAdvise.toLocalized(), alertMessage: mapAdviseMessage.toLocalized())
         }
     }
     
