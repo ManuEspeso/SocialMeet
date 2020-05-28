@@ -18,7 +18,10 @@ let signOutAction = "sign_out"
 let signOutCheck = "sign_out_check"
 let cancelAction = "cancel_action"
 
-
+let emailTextTitle = "email_text_title"
+let emailTextMessage = "email_text_message"
+let nameTextTitle = "name_text_title"
+let nameTextMessage = "name_text_message"
 
 extension String {
     func toLocalized() -> String {

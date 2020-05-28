@@ -15,3 +15,8 @@
 "sign_out" = "Sign Out";
 "sign_out_check" = "Are you sure do you want to Sign Out?";
 "cancel_action" = "Cancel";
+
+"email_text_title" = "Change user email";
+"email_text_message" = "Write the new user email";
+"name_text_title" = "Change username";
+"name_text_message" = "Write the new username";

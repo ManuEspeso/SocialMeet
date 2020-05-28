@@ -15,3 +15,8 @@
 "sign_out" = "Cerrar sesion";
 "sign_out_check" = "Estas seguro de que quieres cerrar sesion?";
 "cancel_action" = "Cancelar";
+
+"email_text_title" = "Cambia el email del usuario";
+"email_text_message" = "Escribe el nuevo email que desees";
+"name_text_title" = "Cambia el nombre del usuario";
+"name_text_message" = "Escribe el nuevo nombre que desees";

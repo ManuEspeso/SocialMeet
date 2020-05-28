@@ -177,7 +177,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "QuedadaDetailController") as? QuedadaDetailController {
-            
+//            pasar el itemsQuedadas[indexPath.row].id de la quedada
             controller.quedadaImageSelected = itemsQuedadas[indexPath.row].quedadaimage
             controller.quedadaNameSelected = itemsQuedadas[indexPath.row].quedadaname
             controller.quedadaDateSelected = itemsQuedadas[indexPath.row].quedadadate
@@ -185,7 +185,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             controller.quedadaStreetSelected = itemsQuedadas[indexPath.row].quedadastreet
             controller.quedadaArrayUsersSelected = itemsQuedadas[indexPath.row].quedadaUsers
             controller.usersImage = usersImage
-            
+//            pasar los ids de los usuarios de la quedada por si hay que borrarlos, primero habra que cogerlo del for de array que itera en quedadas y append en myQuedadas
             controller.modalTransitionStyle = .flipHorizontal
             
             present(controller, animated: true, completion: nil)

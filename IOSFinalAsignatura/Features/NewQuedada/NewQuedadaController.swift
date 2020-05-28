@@ -126,7 +126,7 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                         }
                         
                         self.arrayUsersName.append(self.userName)
-                        
+                        //Al arrayUsersID append tu id y eso añadirlo como otro campo por que sera necesario para luego borrar la quedada
                         storageRef.downloadURL{ url, error in
                             let docData: [String: Any] = [
                                 "id": tempId,
@@ -140,7 +140,8 @@ class NewQuedadaController: UIViewController, UITableViewDataSource, UITableView
                             
                             if let error = error {
                                 print(error)
-                            } else {                                
+                            } else {
+                                print("stop")
                                 self.db.collection("quedadas").document(tempId).setData(docData) { err in
                                     if let err = err {
                                         print("Error writing user on database: \(err)")

@@ -18,6 +18,6 @@ target 'IOSFinalAsignatura' do
     pod 'HGPlaceholders'
     pod 'GoogleMaps'
     pod 'GooglePlaces'
-pod 'RxAlamofire'
-pod 'Swinject'
+    pod 'RxAlamofire'
+    pod 'Swinject'
       end
