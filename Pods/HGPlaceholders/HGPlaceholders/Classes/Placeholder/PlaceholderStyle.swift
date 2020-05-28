@@ -15,7 +15,7 @@ public struct PlaceholderStyle {
     // MARK: properties
     
     /// The color of the placeholder title, the default value is darkText
-    public var titleColor: UIColor = .darkText
+    public var titleColor: UIColor = .lightText
     /// The font of the placeholder title, the default value is boldSystemFont 19
     public var titleFont = UIFont.boldSystemFont(ofSize: 19)
 
