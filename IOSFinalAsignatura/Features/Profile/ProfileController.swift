@@ -27,6 +27,29 @@ class ProfileController: UIViewController {
     @IBOutlet weak var imageProfileView: UIImageView!
     @IBOutlet weak var userEmailOutlet: UILabel!
     @IBOutlet weak var usernameOutlet: UILabel!
+    @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: modificatePasswordTitle.toLocalized(), message: modificatePasswordMessage.toLocalized(), preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = passwordElement.toLocalized()
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+
+            if let user = Auth.auth().currentUser {
+                user.updatePassword(to: (textField?.text)!) { (error) in
+                    if error != nil {
+                        self.showAlert(alertText: somethingWrong.toLocalized(), alertMessage: error!.localizedDescription)
+                    } else {
+                        self.showAlert(alertText: passwordUpdatedTitle.toLocalized(), alertMessage: passwordUpdatedMessage.toLocalized())
+                    }
+                }
+            }
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +84,7 @@ class ProfileController: UIViewController {
         let alert = UIAlertController(title: emailTextTitle.toLocalized(), message: emailTextMessage.toLocalized(), preferredStyle: .alert)
         
         alert.addTextField { (textField) in
-            textField.text = self.userEmailOutlet.text
+            textField.placeholder = self.userEmailOutlet.text
         }
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
@@ -81,7 +104,7 @@ class ProfileController: UIViewController {
         let alert = UIAlertController(title: nameTextTitle.toLocalized(), message: nameTextMessage.toLocalized(), preferredStyle: .alert)
         
         alert.addTextField { (textField) in
-            textField.text = self.usernameOutlet.text
+            textField.placeholder = self.usernameOutlet.text
         }
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in

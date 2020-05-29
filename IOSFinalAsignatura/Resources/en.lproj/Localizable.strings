@@ -12,7 +12,7 @@
 
 "refresh_action" = "Swipe to refresh";
 
-"sign_out" = "Sign Out";
+"sign_out_accept" = "Sign Out";
 "sign_out_check" = "Are you sure do you want to Sign Out?";
 "cancel_action" = "Cancel";
 
@@ -20,3 +20,10 @@
 "email_text_message" = "Write the new user email";
 "name_text_title" = "Change username";
 "name_text_message" = "Write the new username";
+
+"modificate_password_title" = "Password modificate";
+"modificate_password_message" = "Write his new password";
+"password" = "Password";
+
+"password_updated_title" = "Password Updated!";
+"password_updated_message" = "Your password was updated adequately";

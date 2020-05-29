@@ -200,7 +200,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         alert.addAction(UIAlertAction(title: cancelAction.toLocalized(),
                                       style: UIAlertAction.Style.default,
                                       handler: nil))
-        alert.addAction(UIAlertAction(title: signOutAction,
+        alert.addAction(UIAlertAction(title: signOutAction.toLocalized(),
                                       style: UIAlertAction.Style.destructive,
                                       handler: { action in
                                         do {

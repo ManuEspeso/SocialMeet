@@ -12,7 +12,7 @@
 
 "refresh_action" = "Arrastra para refrescar";
 
-"sign_out" = "Cerrar sesion";
+"sign_out_accept" = "Cerrar sesion";
 "sign_out_check" = "Estas seguro de que quieres cerrar sesion?";
 "cancel_action" = "Cancelar";
 
@@ -20,3 +20,10 @@
 "email_text_message" = "Escribe el nuevo email que desees";
 "name_text_title" = "Cambia el nombre del usuario";
 "name_text_message" = "Escribe el nuevo nombre que desees";
+
+"modificate_password_title" = "Modificar la contraseña";
+"modificate_password_message" = "Introduzca su nueva contraseña";
+"password" = "Contraseña";
+
+"password_updated_title" = "Contraseña actualizada!";
+"password_updated_message" = "Su contraseña se actualizo correctamente";

@@ -77,6 +77,9 @@
 /* Class = "UIButton"; normalTitle = "Upload Profile Image"; ObjectID = "npz-A5-6GR"; */
 "npz-A5-6GR.normalTitle" = "Añadir imagen de perfil";
 
+/* Class = "UIButton"; normalTitle = "Reset Password"; ObjectID = "rtV-M8-kq4"; */
+"rtV-M8-kq4.normalTitle" = "Cambio de contrasela";
+
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "tNe-h7-Ir3"; */
 "tNe-h7-Ir3.placeholder" = "Contraseña";
 

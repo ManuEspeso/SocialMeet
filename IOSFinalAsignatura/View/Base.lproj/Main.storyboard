@@ -1063,12 +1063,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtV-M8-kq4">
+                                <rect key="frame" x="129.66666666666666" y="693" width="116" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="QHP-0y-Egx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="17"/>
+                                <state key="normal" title="Reset Password">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotPasswordButtonTapped:" destination="1yo-pZ-flR" eventType="touchUpInside" id="kwI-yH-01r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="LKS-aW-fba" firstAttribute="leading" secondItem="Iht-pC-XLJ" secondAttribute="leading" id="0Vu-YS-bpd"/>
                             <constraint firstItem="bvA-9S-5Zx" firstAttribute="top" secondItem="NOc-Qz-N8d" secondAttribute="top" constant="50" id="1DF-Aq-PQy"/>
+                            <constraint firstItem="rtV-M8-kq4" firstAttribute="bottom" secondItem="NOc-Qz-N8d" secondAttribute="bottom" id="2lL-HK-SYD"/>
                             <constraint firstItem="jnt-rR-T9c" firstAttribute="top" secondItem="LKS-aW-fba" secondAttribute="bottom" constant="30" id="4On-5o-kF4"/>
+                            <constraint firstItem="rtV-M8-kq4" firstAttribute="centerX" secondItem="5WV-iN-OWT" secondAttribute="centerX" id="6no-pm-mZm"/>
                             <constraint firstItem="jnt-rR-T9c" firstAttribute="leading" secondItem="NOc-Qz-N8d" secondAttribute="leading" constant="30" id="9os-Hu-Zyg"/>
                             <constraint firstItem="hq5-ll-950" firstAttribute="top" secondItem="jnt-rR-T9c" secondAttribute="bottom" constant="5" id="Fgv-4t-b9d"/>
                             <constraint firstItem="Iht-pC-XLJ" firstAttribute="leading" secondItem="NOc-Qz-N8d" secondAttribute="leading" constant="30" id="KTe-6R-M6p"/>
