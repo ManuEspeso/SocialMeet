@@ -66,15 +66,15 @@ class ProfileController: UIViewController {
         
         getUserDatas()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileController.tapEmail))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapEmail))
         userEmailOutlet.isUserInteractionEnabled = true
         userEmailOutlet.addGestureRecognizer(tap)
         
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(ProfileController.tapName))
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(tapName))
         usernameOutlet.isUserInteractionEnabled = true
         usernameOutlet.addGestureRecognizer(tap2)
         
-        let tap3 = UITapGestureRecognizer(target: self, action: #selector(ProfileController.tapImage))
+        let tap3 = UITapGestureRecognizer(target: self, action: #selector(tapImage))
         imageProfileView.isUserInteractionEnabled = true
         imageProfileView.addGestureRecognizer(tap3)
     }
