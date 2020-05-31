@@ -16,9 +16,9 @@
 "sign_out_check" = "Estas seguro de que quieres cerrar sesion?";
 "cancel_action" = "Cancelar";
 
-"email_text_title" = "Cambia el email del usuario";
+"email_text_title" = "Cambiar el email";
 "email_text_message" = "Escribe el nuevo email que desees";
-"name_text_title" = "Cambia el nombre del usuario";
+"name_text_title" = "Cambiar el nombre";
 "name_text_message" = "Escribe el nuevo nombre que desees";
 
 "modificate_password_title" = "Modificar la contraseña";
@@ -27,3 +27,12 @@
 
 "password_updated_title" = "Contraseña actualizada!";
 "password_updated_message" = "Su contraseña se actualizo correctamente";
+
+"place_text_title" = "Cambiar el lugar de la quedada";
+"place_text_message" = "Escribe el nuevo lugar que desees";
+"street_text_title" = "Cambiar la calle de la quedada";
+"street_text_message" = "Escribe la nueva calle que desees";
+"date_text_title" = "Cambiar la fecha de la quedada";
+"date_text_message" = "elija la nueva fecha que desees";
+
+"cancel" = "Cancelar";

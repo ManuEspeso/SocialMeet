@@ -30,6 +30,16 @@ let passwordElement = "password"
 let passwordUpdatedTitle = "password_updated_title"
 let passwordUpdatedMessage = "password_updated_message"
 
+
+let placeTextTitle = "place_text_title"
+let placeTextMessage = "place_text_message"
+let streetTextTitle = "street_text_title"
+let streetTextMessage = "street_text_message"
+let dateTextTitle = "date_text_title"
+let dateTextMessage = "date_text_message"
+
+let cancel = "cancel"
+
 extension String {
     func toLocalized() -> String {
         return NSLocalizedString(self,

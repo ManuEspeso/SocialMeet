@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var quedadaImage: UIImageView!
     @IBOutlet weak var quedadaName: UILabel!
     @IBOutlet weak var quedadaPlace: UILabel!
@@ -85,7 +85,7 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
     
     @objc func tapName(sender: UITapGestureRecognizer) {
         
-        let alert = UIAlertController(title: "PFFFF", message: "kkkkoootio", preferredStyle: .alert)
+        let alert = UIAlertController(title: nameTextTitle.toLocalized(), message: nameTextMessage.toLocalized(), preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.placeholder = self.quedadaName.text
@@ -101,13 +101,13 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
             }
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: cancel.toLocalized(), style: UIAlertAction.Style.destructive, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc func tapPlace(sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "wwww", message: "efij", preferredStyle: .alert)
+        let alert = UIAlertController(title: placeTextTitle.toLocalized(), message: placeTextMessage.toLocalized(), preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.placeholder = self.quedadaPlace.text
@@ -119,13 +119,13 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
             self.db.collection("quedadas").document(self.quedadaIDSelected!).updateData(["lugar": textField?.text! as Any])
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: cancel.toLocalized(), style: UIAlertAction.Style.destructive, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc func tapStreet(sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "wwww", message: "efij", preferredStyle: .alert)
+        let alert = UIAlertController(title: streetTextTitle.toLocalized(), message: streetTextMessage.toLocalized(), preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.placeholder = self.quedadaStreet.text
@@ -137,17 +137,17 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
             self.db.collection("quedadas").document(self.quedadaIDSelected!).updateData(["calle": textField?.text! as Any])
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: cancel.toLocalized(), style: UIAlertAction.Style.destructive, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc func tapDate(sender: UITapGestureRecognizer) {
         let datePicker = UIDatePicker()
-    
+        
         let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
         alert.view.addSubview(datePicker)
-    
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default) { (action) in
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = DateFormatter.Style.long
@@ -159,7 +159,7 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
             self.db.collection("quedadas").document(self.quedadaIDSelected!).updateData(["fecha": dateString])
         })
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: cancel.toLocalized(), style: UIAlertAction.Style.destructive, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }
@@ -182,7 +182,6 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
         if let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? QuedadaDetailViewCell {
             
             cell.userNameLabel.text = quedadaArrayUsersSelected![indexPath.row]
-            
             
             if (itemsUsersImage[indexPath.row].image.contains("googleusercontent.com")) {
                 let fileUrl = URL(string: itemsUsersImage[indexPath.row].image)
