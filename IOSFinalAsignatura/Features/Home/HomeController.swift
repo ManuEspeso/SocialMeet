@@ -59,6 +59,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         myCollectionView?.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
+        myCollectionView.alwaysBounceVertical = true
         
         placeholderCollectionView?.placeholdersProvider = .default
         placeholderCollectionView?.placeholderDelegate = self
