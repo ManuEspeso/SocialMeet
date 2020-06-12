@@ -87,7 +87,7 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func quedadaDeleted() {
-        print("navegar a la pantalla de home")
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func tapName(sender: UITapGestureRecognizer) {
