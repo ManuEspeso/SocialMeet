@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, QuedadasDelegate {
     
     @IBOutlet weak var quedadaImage: UIImageView!
     @IBOutlet weak var quedadaName: UILabel!
@@ -19,6 +19,9 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var quedadaStreet: UILabel!
     @IBOutlet weak var quedadaDate: UILabel!
     @IBOutlet weak var mTableView: UITableView!
+    @IBAction func deleteQuedadaButtonTapped(_ sender: Any) {
+        Quedadas.dropQuedada(Auth.auth().currentUser!.uid, quedadaIDSelected!, delegate: self)
+    }
     
     var db: Firestore!
     var imagePicker: UIImagePickerController!
@@ -81,6 +84,10 @@ class QuedadaDetailController: UIViewController, UITableViewDataSource, UITableV
         quedadaPlace.text = quedadaPlaceSelected
         quedadaStreet.text = quedadaStreetSelected
         quedadaDate.text = quedadaDateSelected
+    }
+    
+    func quedadaDeleted() {
+        print("navegar a la pantalla de home")
     }
     
     @objc func tapName(sender: UITapGestureRecognizer) {

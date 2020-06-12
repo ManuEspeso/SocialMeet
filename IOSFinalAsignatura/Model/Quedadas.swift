@@ -85,6 +85,49 @@ class Quedadas: NSObject {
         }
     }
     
+    static func dropQuedada(_ userID: String, _ quedadaSelectedID: String, delegate: QuedadasDelegate) {
+        var userRef: DocumentReference!
+        
+        DispatchQueue.global(qos: .background).async {
+            Firestore.firestore().collection("quedadas").document(quedadaSelectedID).delete()
+            
+            let docRef = Firestore.firestore().collection("users").document(userID)
+            docRef.getDocument { (document, error) in
+                
+                let quedadasValue = document?.get("quedadas") as! Array<Any>
+                var quedadasValue2 = document?.get("quedadas") as! Array<Any>
+                quedadasValue2.removeAll()
+                
+                let quedadasIndex = quedadasValue.count
+                
+                if quedadasIndex != 0 {
+                    for i in 0...(quedadasIndex - 1) {
+                        let quedadaReference = quedadasValue[i] as! DocumentReference
+                        quedadaReference.getDocument { (documentSnapshot, error) in
+                            if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
+                                let dataDescription = documentSnapshot.data()
+                                
+                                guard let dataQuedadas = dataDescription else { return }
+                                
+                                if (dataQuedadas["id"] as! String) == quedadaSelectedID {
+                                    userRef = Firestore.firestore().document("quedadas/\(dataQuedadas["id"] as! String)")
+                                    quedadasValue2.append(userRef)
+                                    
+                                    Firestore.firestore().collection("users").document(userID).updateData([
+                                        "quedadas": FieldValue.arrayRemove(quedadasValue2)
+                                    ])
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                delegate.quedadaDeleted?()
+            }
+        }
+    }
+    
     static func getMyUserName(userID: String, delegate: QuedadasDelegate) {
         var userName: String = ""
         DispatchQueue.global(qos: .background).async {
@@ -138,5 +181,6 @@ class Quedadas: NSObject {
     @objc optional func getMyQuedadasReference(qudadasReference: Array<Any>)
     @objc optional func getAllUsers(_ usersName: [String: String], _ usersImage: [String: String])
     @objc optional func getMyUserName(userName: String)
+    @objc optional func quedadaDeleted()
 }
 

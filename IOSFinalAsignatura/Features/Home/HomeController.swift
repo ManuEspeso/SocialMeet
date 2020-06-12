@@ -178,7 +178,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "QuedadaDetailController") as? QuedadaDetailController {
-//            pasar el itemsQuedadas[indexPath.row].id de la quedada
             controller.quedadaIDSelected = itemsQuedadas[indexPath.row].id
             controller.quedadaImageSelected = itemsQuedadas[indexPath.row].quedadaimage
             controller.quedadaNameSelected = itemsQuedadas[indexPath.row].quedadaname
